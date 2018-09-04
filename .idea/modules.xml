@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/github-api.iml" filepath="$PROJECT_DIR$/.idea/github-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/opensrc.iml" filepath="$PROJECT_DIR$/.idea/opensrc.iml" />
     </modules>
   </component>
 </project>
