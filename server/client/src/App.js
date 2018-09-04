@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Mern from './Mern';
+import Mern from './components/Mern';
 
 class App extends Component {
   render() {
