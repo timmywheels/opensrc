@@ -1,0 +1,28 @@
+{
+  "name": "mern-boilerplate",
+  "version": "1.0.0",
+  "description": "A MERN stack boilerplate",
+  "main": "index.js",
+  "engines": {
+    "node": "8.1.1",
+    "npm": "5.0.3"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.3",
+    "nodemon": "^1.18.2",
+    "path-parser": "^4.2.0"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1"
+  }
+}
