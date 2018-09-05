@@ -1,18 +1,9 @@
 import React, {Component} from 'react';
-import styled from 'styled-components';
 import Github from '../Github';
 import * as api from '../../js/github-api';
 import Header from '../Header';
 import Hero from '../Hero';
-import {resetCounts} from "../../js/github-api";
 
-
-const Logo = styled.img`
-    height: 80px;
-    width: auto;
-    margin: 0 auto;
-    display: block;
-`;
 
 class Home extends Component {
     componentDidMount() {
@@ -21,11 +12,12 @@ class Home extends Component {
             e.preventDefault();
             if (e.target.id === "submitBtn") {
                 document.getElementById('latest-projects').innerHTML = "";
-                api.resetLanguageCounts();
                 let username = document.getElementById('usernameInput').value;
                 if (username) {
+                    // api.resetLanguageCounts();
                     api.requestUserData(username);
                     api.requestUserRepos(username);
+                    // api.getFavoriteLanguage();
                 }
             }
         });

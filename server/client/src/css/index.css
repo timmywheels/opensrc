@@ -11,15 +11,45 @@ body {
   display: none;
 }
 
+#username{
+    font-weight: 700;
+    color: #555;
+}
+
+#bio-text{
+    color: #777;
+}
+
 #language-counts{
     list-style: none;
     text-align: center;
+    padding: 0;
 }
 
 #latest-projects-title {
     margin-bottom: 30px;
     font-size: 20px;
     text-align: center;
+    color: #555;
+    font-weight: 100;
+}
+
+#language-counts .badge-warning {
+    border-radius: 6px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.card .btn-primary{
+    border: none;
+    background: #00c6ff;
+    background: -webkit-linear-gradient(to top,#0072ff,#00c6ff);
+    background: linear-gradient(to top,#0072ffd9,#00c6ffcc);
+    border-bottom: 4px solid #006bde;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
 }
 
 .card {
@@ -57,3 +87,6 @@ body {
   margin: auto;
 }
 
+.badge-warning{
+    background-color: #fff;
+}

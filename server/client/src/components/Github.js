@@ -3,11 +3,20 @@ import styled from 'styled-components';
 import '../js/github-api';
 
 const UserSection = styled.div`
-    background: rgba(0,0,0,.075);
+    background: #ffffffaa;
     box-shadow: 5px 5px 20px #f8f9fa;
     border-radius: 4px;
-    margin: 50px 0;
-    border: 5px solid #ddd;
+    // margin: 50px 0;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 15px 0 #33333333;
+  	transition: box-shadow 0.2s ease-in-out;
+  	
+  	&:hover{
+  		box-shadow: 2px 2px 6px 0 #33333333;
+  		transition: box-shadow 0.2s ease-in-out;
+  	}
 `;
 
 const AvatarSection = styled.div`
@@ -19,7 +28,7 @@ const AvatarImg = styled.img`
     max-width: 100px;
     height: auto;
     border-radius: 50%;
-    margin: 20px auto 0;
+    margin: 10px auto;
     display: block;
 `;
 
@@ -34,23 +43,31 @@ const LanguageCount = styled.li`
     width: fit-content;
     font-size: 14px;
     padding: 5px 10px;
-    color: #555;
+    color: #fff;
     display: inline-block;
     text-align: center;
     margin: 5px;
+    font-weight: 400;
+    background: #00000055;
+    box-shadow: 0px 0px 15px rgba(108, 117, 125, 0.25);
+    
+}
+
+
 `;
 
 class Github extends Component {
     render() {
         return (
             <div className={'row'}>
-                <UserSection id={'user-section'} className={'row col-md-12'}>
+                <UserSection id={'user-section'} className={'col-md-10 offset-md-1'}>
                 <AvatarSection className="col-md-3">
-                    <AvatarImg src="" alt="" id={"avatar-img"}/>
+					<a id="profile-link" target="_blank" href={""}><AvatarImg src="" alt="" id={"avatar-img"}/></a>
                 </AvatarSection>
                 <BioSection className="col-md-9">
-                    <h1 id={'username'}/>
-                    <p id={"bio-text"}/>
+                    <h1 className={'col-md-12'} id={'username'}/>
+                    <h6 className={'col-md-12'} id={'favorite-language'}/>
+                    <p className={'col-md-12'} id={"bio-text"}/>
                 </BioSection>
                 </UserSection>
                 <div className="col-md-12">

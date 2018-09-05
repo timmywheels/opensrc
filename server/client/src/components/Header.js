@@ -31,30 +31,6 @@ const NavMenu = styled.ul`
 	
 `;
 
-const NavMenuItem = styled.li`
-    padding: 5px 10px 5px 10px;
-    display: inline-block;
-    font-size: 18px;
-    
-        &#contact-cta{
-            border-radius: 4px;
-            background-color: #fff;
-            color: #333;
-            padding: 5px 20px;
-            transition: opacity 0.3s ease-in-out;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-left: 10px;
-        }
-        &#contact-cta:hover{
-            opacity: 0.85;
-        }
-        
-        
-        
-     
-`;
-
 const LogoText = styled.p`
 	text-decoration: none;
 	color: #fff;
@@ -62,13 +38,14 @@ const LogoText = styled.p`
 	float: left;
 	line-height: 55px;
     margin-left: 30px;
+    font-weight: 900;
 `;
 
 
 class Header extends Component {
 
 	state = {
-		backgroundColor: 'transparent',
+		background: 'transparent',
 		borderBottom: 'none',
 		boxShadow: 'none'
 	};
@@ -76,13 +53,15 @@ class Header extends Component {
 	listenScrollEvent = e => {
 		if (window.scrollY > 100) {
 			this.setState({
-				backgroundColor: '#007bff',
 				borderBottom: '3px solid #0165f5',
-				boxShadow: '0 0 20px #252525'
+				boxShadow: '0 0 20px #252525',
+                background: '#00c6ff',
+                background: '-webkit-linear-gradient(to top,#0072ff,#00c6ff)',
+                background: 'linear-gradient(to top,#0072ff,#00c6ff)'
 			})
 		} else {
 			this.setState({
-				backgroundColor: 'transparent',
+				background: 'transparent',
 				borderBottom: 'none',
 				boxShadow: 'none'
 			})
@@ -95,12 +74,11 @@ class Header extends Component {
 
 	render() {
 		return (
-			<HeaderSection style={{backgroundColor: this.state.backgroundColor}}>
+			<HeaderSection style={{background: this.state.background, borderBottom: this.state.borderBottom}}>
 			<a href={'/'}>
 				<LogoText>opensrc</LogoText>
 			</a>
 			<NavMenu>
-		<a href={'#'}><NavMenuItem id={'contact-cta'}>Discover</NavMenuItem></a>
 		</NavMenu>
 	</HeaderSection>
 	);

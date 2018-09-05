@@ -12,15 +12,19 @@ const StyledForm = styled.form`
         border-radius: 4px 0 0 4px;
         height: 50px;
         font-size: 20px;
+        background: #ffffff0;
     }
     
     input[type=submit] {
         border-radius: 0 4px 4px 0;
         height: 50px;
+        letter-spacing: 2px;
+        background-color: #64d07d;
+        border-color: #64d07d;
     }
     
     input[type=text]::-webkit-input-placeholder{
-        color: #ccc;
+        color: #00529473;
     }
     
     .form-control:focus{
@@ -34,8 +38,8 @@ class Form extends Component {
         return (
             <div className={'col-md-8 offset-md-2'}>
                 <StyledForm className={'form-inline'} id="usernameForm" action="">
-                    <input type="text" id="usernameInput" className={'form-control col-sm-9'} placeholder="Enter Github Username"/>
-                    <input type="submit" id="submitBtn" className={'btn btn-success col-sm-3'} value="Search" />
+                    <input type="text" id="usernameInput" className={'form-control col-sm-9'} placeholder="Search Github Username"/>
+                    <input type="submit" id="submitBtn" className={'btn btn-success col-sm-3'} value="SEARCH" />
                 </StyledForm>
             </div>
         )
