@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-// import OpenSrcLogo from '../../img/opensrc-logo-001.png';
 import Github from '../Github';
 import * as api from '../../js/github-api';
 import Header from '../Header';
 import Hero from '../Hero';
+import {resetCounts} from "../../js/github-api";
 
 
 const Logo = styled.img`
@@ -14,10 +14,6 @@ const Logo = styled.img`
     display: block;
 `;
 
-
-
-
-
 class Home extends Component {
     componentDidMount() {
         const usernameForm = document.getElementById('usernameForm');
@@ -25,6 +21,7 @@ class Home extends Component {
             e.preventDefault();
             if (e.target.id === "submitBtn") {
                 document.getElementById('latest-projects').innerHTML = "";
+                api.resetLanguageCounts();
                 let username = document.getElementById('usernameInput').value;
                 if (username) {
                     api.requestUserData(username);

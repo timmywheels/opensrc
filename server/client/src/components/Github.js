@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import Form from './Form';
 import styled from 'styled-components';
 import '../js/github-api';
 
 const UserSection = styled.div`
-    // background: #ddd;
     background: rgba(0,0,0,.075);
     box-shadow: 5px 5px 20px #f8f9fa;
     border-radius: 4px;
@@ -17,10 +15,11 @@ const AvatarSection = styled.div`
 `;
 
 const AvatarImg = styled.img`
-    max-width: 150px;
+    width: 100%;
+    max-width: 100px;
     height: auto;
     border-radius: 50%;
-    margin: 0 auto;
+    margin: 20px auto 0;
     display: block;
 `;
 
@@ -29,7 +28,16 @@ const BioSection = styled.div`
     font-size: 18px;
     margin: auto;
     display: block;
-    
+`;
+
+const LanguageCount = styled.li`
+    width: fit-content;
+    font-size: 14px;
+    padding: 5px 10px;
+    color: #555;
+    display: inline-block;
+    text-align: center;
+    margin: 5px;
 `;
 
 class Github extends Component {
@@ -37,16 +45,53 @@ class Github extends Component {
         return (
             <div className={'row'}>
                 <UserSection id={'user-section'} className={'row col-md-12'}>
-                <AvatarSection className="col-md-2">
+                <AvatarSection className="col-md-3">
                     <AvatarImg src="" alt="" id={"avatar-img"}/>
                 </AvatarSection>
-                <BioSection className="col-md-10">
+                <BioSection className="col-md-9">
                     <h1 id={'username'}></h1>
                     <p id={"bio-text"}></p>
                 </BioSection>
                 </UserSection>
                 <div className="col-md-12">
-                    <h2 id={"latest-projects-title"}>Latest Projects</h2>
+                    <h2 className={'col-md-6'} id={"latest-projects-title"}>Latest Projects</h2>
+                    <div>
+                        <ul id={'language-counts'}>
+	                        <LanguageCount id="javaScriptRepos" className={'badge-pill badge-warning'}>
+		                        JavaScript: 0
+	                        </LanguageCount>
+	                        <LanguageCount id="pythonRepos" className={'badge-pill badge-warning'}>
+	                            Python: 0
+	                        </LanguageCount>
+	                        <LanguageCount id="javaRepos" className={'badge-pill badge-warning'}>
+	                            Java: 0
+	                        </LanguageCount>
+	                        <LanguageCount id="rubyRepos" className={'badge-pill badge-warning'}>
+	                            Ruby: 0
+	                        </LanguageCount>
+	                        <LanguageCount id="phpRepos" className={'badge-pill badge-warning'}>
+	                            PHP: 0
+	                        </LanguageCount>
+	                        <LanguageCount id="cPlusPlusRepos" className={'badge-pill badge-warning'}>
+	                            C++: 0
+	                        </LanguageCount>
+	                        <LanguageCount id="cssRepos" className={'badge-pill badge-warning'}>
+	                            CSS: 0
+	                        </LanguageCount>
+	                        <LanguageCount id="cSharpRepos" className={'badge-pill badge-warning'}>
+	                            C#: 0
+	                        </LanguageCount>
+	                        <LanguageCount id="goRepos" className={'badge-pill badge-warning'}>
+	                            Go: 0
+	                        </LanguageCount>
+	                        <LanguageCount id="cRepos" className={'badge-pill badge-warning'}>
+	                            C: 0
+	                        </LanguageCount>
+	                        <LanguageCount id="otherRepos" className={'badge-pill badge-warning'}>
+	                            Other: 0
+	                        </LanguageCount>
+                        </ul>
+                    </div>
                     <div className={'row'} id="latest-projects">
                     </div>
                 </div>

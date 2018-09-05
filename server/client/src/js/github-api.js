@@ -12,10 +12,38 @@ import Swift from '../img/swift.svg';
 import TypeScript from '../img/typescript.svg';
 import Go from '../img/golang.svg';
 import Github from '../img/tw-github-opt.svg';
+import CSharp from '../img/c-sharp.svg';
+
+let javaScriptCount = 0;
+let pythonCount = 0;
+let javaCount = 0;
+let rubyCount = 0;
+let phpCount = 0;
+let cPlusPlusCount = 0;
+let cssCount = 0;
+let cSharpCount = 0;
+let goCount = 0;
+let cCount = 0;
+let otherCount = 0;
+
+export function resetLanguageCounts() {
+	javaScriptCount = 0;
+	pythonCount = 0;
+	javaCount = 0;
+	rubyCount = 0;
+	phpCount = 0;
+	cPlusPlusCount = 0;
+	cssCount = 0;
+	cSharpCount = 0;
+	goCount = 0;
+	cCount = 0;
+	otherCount = 0;
+}
 
 export function displayUserSections() {
     document.getElementById('user-section').style.display = 'inherit';
     document.getElementById('latest-projects-title').style.display = 'inherit';
+    document.getElementById('language-counts').style.display = 'inherit';
     // document.getElementById('latest-projects').style.display = 'inherit';
 
 }
@@ -28,9 +56,9 @@ export function getBio(bioText) {
     document.getElementById('bio-text').innerText = bioText;
 }
 
-export function getRepoCount(repoCount) {
+export function getRepoCount(username, repoCount) {
     const repoLength = document.getElementById('latest-projects-title');
-    repoLength.innerText = `Latest Projects: (${repoCount})`;
+    repoLength.innerText = `${username}'s Latest Projects: (${repoCount})`;
 
 }
 
@@ -60,46 +88,76 @@ export function getRepos(repos, repoText, repoUrl, repoIssuesCount, repoLanguage
             repoText = repoText.substring(0, 44) + '...';
         }
 
+
+
         switch (repoLanguage) {
             case 'JavaScript':
                 langImg.src = JavaScript;
-                break;
-            case 'CSS':
-                langImg.src = Css;
-                break;
-            case 'HTML':
-                langImg.src = Html;
-                break;
-            case 'C':
-                langImg.src = C;
-                break;
-            case 'C++':
-                langImg.src = CPlusPlus;
-                break;
-            case 'Go':
-                langImg.src = Go;
-                break;
-            case 'Java':
-                langImg.src = Java;
-                break;
-            case 'PHP':
-                langImg.src = Php;
+                javaScriptCount++;
+                document.getElementById('javaScriptRepos').innerHTML = `JavaScript: ${javaScriptCount.toString()}`;
                 break;
             case 'Python':
                 langImg.src = Python;
-                break;
+                pythonCount++;
+	            document.getElementById('pythonRepos').innerHTML = `Python: ${pythonCount.toString()}`;
+	            break;
+            case 'Java':
+                langImg.src = Java;
+                javaCount++;
+	            document.getElementById('javaRepos').innerHTML = `Java: ${javaCount.toString()}`;
+	            break;
             case 'Ruby':
                 langImg.src = Ruby;
-                break;
+                rubyCount++;
+	            document.getElementById('rubyRepos').innerHTML = `Ruby: ${rubyCount.toString()}`;
+	            break;
+            case 'PHP':
+                langImg.src = Php;
+                phpCount++;
+	            document.getElementById('phpRepos').innerHTML = `PHP: ${phpCount.toString()}`;
+	            break;
+            case 'C++':
+                langImg.src = CPlusPlus;
+                cPlusPlusCount++;
+	            document.getElementById('cPlusPlusRepos').innerHTML = `C++: ${cPlusPlusCount.toString()}`;
+	            break;
+            case 'CSS':
+                langImg.src = Css;
+                cssCount++;
+	            document.getElementById('cssRepos').innerHTML = `CSS: ${cssCount.toString()}`;
+	            break;
+	        case 'C#':
+		        langImg.src = CSharp;
+		        cSharpCount++;
+		        document.getElementById('cSharpRepos').innerHTML = `C#: ${cSharpCount.toString()}`;
+		        break;
+            case 'Go':
+                langImg.src = Go;
+                goCount++;
+	            document.getElementById('goRepos').innerHTML = `Go: ${goCount.toString()}`;
+	            break;
+            case 'C':
+                langImg.src = C;
+                cCount++;
+	            document.getElementById('cRepos').innerHTML = `C: ${cCount.toString()}`;
+	            break;
+            case 'HTML':
+                langImg.src = Html;
+                otherCount++;
+	            break;
             case 'Swift':
                 langImg.src = Swift;
-                break;
+                otherCount++;
+	            break;
             case 'TypeScript':
                 langImg.src = TypeScript;
-                break;
+                otherCount++;
+	            break;
             default:
                 langImg.src = Github;
-                break;
+                otherCount++;
+	            document.getElementById('otherRepos').innerHTML = `Other: ${otherCount.toString()}`;
+	            break;
         }
 
 
@@ -117,7 +175,7 @@ export function getRepos(repos, repoText, repoUrl, repoIssuesCount, repoLanguage
         issueCount.innerHTML = "Open Issues: " + repoIssuesCount;
         issueCount.classList.add('issue-count');
         repoLink.classList.add('btn', 'btn-primary', 'mt-auto');
-        cardBlock.classList.add('col-md-4', 'col-sm-4', 'card-block');
+        cardBlock.classList.add('col-md-4', 'col-sm-6', 'card-block');
         card.classList.add('card', 'p-2');
 
         // programmingLanguage.classList.add('repo-language');
@@ -177,9 +235,9 @@ export function requestUserRepos(username) {
 
             getRepos(name, description, html_url, open_issues, language);
 
+        getRepoCount(data[i].owner.login, data.length);
         }
 
-        getRepoCount(data.length);
     };
 
     xhr.send();

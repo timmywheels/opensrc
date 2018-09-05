@@ -6,8 +6,13 @@ body {
 }
 
 #user-section,
-#latest-projects-title{
+#latest-projects-title,
+#language-counts{
   display: none;
+}
+
+#language-counts{
+    list-style: none;
 }
 
 .card {
@@ -44,3 +49,9 @@ body {
   width: 100px;
   margin: auto;
 }
+
+#latest-projects-title {
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
