@@ -13,6 +13,18 @@ import TypeScript from '../img/typescript.svg';
 import Go from '../img/golang.svg';
 import Github from '../img/tw-github-opt.svg';
 import CSharp from '../img/c-sharp.svg';
+import Jupyter from '../img/jupyter.svg';
+import Haskell from '../img/haskell.svg';
+import OCaml from '../img/ocaml.jpg';
+import Scala from '../img/scala-4.svg';
+import Shell from '../img/shell.svg';
+import Hack from '../img/hack.svg';
+import Cuda from '../img/cuda.svg';
+import Perl from '../img/perl.svg';
+import Processing from '../img/processing.png';
+import D from '../img/d-lang.svg';
+import Lua from '../img/lua-5.svg';
+import Matlab from '../img/matlab.png';
 
 let javaScriptCount = 0;
 let pythonCount = 0;
@@ -69,6 +81,10 @@ export function getUsername(username) {
 
 export function getRepos(repos, repoText, repoUrl, repoIssuesCount, repoLanguage){
 
+    // If repoText is null, add blank space
+    if (repoText === null) {
+        repoText = ' ';
+    }
     // If repoText exists
     if (repoText) {
         // Trim length of repoText if over 45 chars
@@ -130,6 +146,14 @@ export function getRepos(repos, repoText, repoUrl, repoIssuesCount, repoLanguage
                 cCount++;
 	            document.getElementById('cRepos').innerHTML = `C: ${cCount.toString()}`;
 	            break;
+            case 'Objective-C':
+                langImg = C;
+                cCount++;
+                break;
+            case 'Objective-C++':
+                langImg = CPlusPlus;
+                cPlusPlusCount++;
+                break;
             case 'HTML':
                 langImg = Html;
                 otherCount++;
@@ -142,6 +166,54 @@ export function getRepos(repos, repoText, repoUrl, repoIssuesCount, repoLanguage
                 langImg = TypeScript;
                 otherCount++;
 	            break;
+            case 'Jupyter Notebook':
+                langImg = Jupyter;
+                otherCount++;
+                break;
+            case 'Haskell':
+                langImg = Haskell;
+                otherCount++;
+                break;
+            case 'OCaml':
+                langImg = OCaml;
+                otherCount++;
+                break;
+            case 'Scala':
+                langImg = Scala;
+                otherCount++;
+                break;
+            case 'Shell':
+                langImg = Shell;
+                otherCount++;
+                break;
+            case 'Hack':
+                langImg = Hack;
+                otherCount++;
+                break;
+            case 'Perl':
+                langImg = Perl;
+                otherCount++;
+                break;
+            case 'Cuda':
+                langImg = Cuda;
+                otherCount++;
+                break;
+            case 'Processing':
+                langImg = Processing;
+                otherCount++;
+                break;
+            case 'D':
+                langImg = D;
+                otherCount++;
+                break;
+            case 'Lua':
+                langImg = Lua;
+                otherCount++;
+                break;
+            case 'Matlab':
+                langImg = Matlab;
+                otherCount++;
+                break;
             default:
                 langImg = Github;
                 otherCount++;
@@ -149,6 +221,7 @@ export function getRepos(repos, repoText, repoUrl, repoIssuesCount, repoLanguage
 	            break;
         }
 
+        // Create html cards to be rendered on the DOM with
         const cardHtml = `
             <div class="col-md-4 col-sm-6 card-block">
                 <div class="card p-2">

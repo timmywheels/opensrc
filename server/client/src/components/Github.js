@@ -49,12 +49,12 @@ class Github extends Component {
                     <AvatarImg src="" alt="" id={"avatar-img"}/>
                 </AvatarSection>
                 <BioSection className="col-md-9">
-                    <h1 id={'username'}></h1>
-                    <p id={"bio-text"}></p>
+                    <h1 id={'username'}/>
+                    <p id={"bio-text"}/>
                 </BioSection>
                 </UserSection>
                 <div className="col-md-12">
-                    <h2 className={'col-md-6'} id={"latest-projects-title"}>Latest Projects</h2>
+                    <h2 className={'col-md-12'} id={"latest-projects-title"}>Latest Projects</h2>
                     <div>
                         <ul id={'language-counts'}>
 	                        <LanguageCount id="javaScriptRepos" className={'badge-pill badge-warning'}>

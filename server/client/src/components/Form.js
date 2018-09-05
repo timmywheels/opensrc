@@ -32,7 +32,7 @@ const StyledForm = styled.form`
 class Form extends Component {
     render() {
         return (
-            <div className={'col-md-8 offset-2'}>
+            <div className={'col-md-8 offset-md-2'}>
                 <StyledForm className={'form-inline'} id="usernameForm" action="">
                     <input type="text" id="usernameInput" className={'form-control col-sm-9'} placeholder="Enter Github Username"/>
                     <input type="submit" id="submitBtn" className={'btn btn-success col-sm-3'} value="Search" />
