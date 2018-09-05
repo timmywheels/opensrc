@@ -2,9 +2,15 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 
 const StyledForm = styled.form`
-    margin: 50px;
     background: #dddddd80;
     border-radius: 4px;
+    margin-top: 50px;
+    
+    @media all and (max-width: 576px) {
+        input{
+            border-radius: 0 !important;
+        }
+    }
     
     input[type=text] {
         outline: none;
@@ -36,7 +42,7 @@ const StyledForm = styled.form`
 class Form extends Component {
     render() {
         return (
-            <div className={'col-md-8 offset-md-2'}>
+            <div className={'col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12'}>
                 <StyledForm className={'form-inline'} id="usernameForm" action="">
                     <input type="text" id="usernameInput" className={'form-control col-sm-9'} placeholder="Search Github Username"/>
                     <input type="submit" id="submitBtn" className={'btn btn-success col-sm-3'} value="SEARCH" />

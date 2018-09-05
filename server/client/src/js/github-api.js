@@ -103,9 +103,9 @@ export function getBio(bioText) {
     document.getElementById('bio-text').innerText = bioText;
 }
 
-export function getFavoriteLanguage() {
-    document.getElementById('favorite-language').innerText = `Favorite Language: `;
-}
+// export function getFavoriteLanguage() {
+//     document.getElementById('favorite-language').innerText = `Favorite Language: `;
+// }
 
 export function getRepoCount(username, repoCount) {
     const repoLength = document.getElementById('latest-projects-title');
@@ -119,7 +119,7 @@ export function getUsername(username) {
 }
 
 
-export function getRepos(repo, repoText, repoUrl, repoIssuesCount, repoLanguage){
+export function getRepos(username, repo, repoText, repoUrl, repoIssuesCount, repoLanguage){
 
     // If repoText is null, add blank space
     if (repoText === null) {
@@ -277,8 +277,7 @@ export function getRepos(repo, repoText, repoUrl, repoIssuesCount, repoLanguage)
                         <h5 class="card-title">${repo}</h5>
                         <p class="card-text">${repoText}</p>
                         <img class="language-img" src="${langImg}">
-                        <a class="btn btn-primary mt-auto" target="_blank" href="${repoUrl}">View Repo</a>
-                        <p class="issue-count">Issues: ${repoIssuesCount}</p>
+                        <a class="btn btn-primary mt-auto" target="_blank" href="https://github.com/${username}/${repo}/issues">${repoIssuesCount} Open Issues</a>
                     </div>
                 </div>
             </div>
@@ -288,21 +287,6 @@ export function getRepos(repo, repoText, repoUrl, repoIssuesCount, repoLanguage)
 
     }
 }
-
-
-
-// let javaScriptCount = 0;
-// let pythonCount = 0;
-// let javaCount = 0;
-// let rubyCount = 0;
-// let phpCount = 0;
-// let cPlusPlusCount = 0;
-// let cssCount = 0;
-// let cSharpCount = 0;
-// let goCount = 0;
-// let cCount = 0;
-// let otherCount = 0;
-
 
 export function requestUserData(username) {
     const url = `https://api.github.com/users/${username}`;
@@ -340,7 +324,7 @@ export function requestUserRepos(username) {
             // Destructure JSON to make more readable
             const { name, description, html_url, open_issues, language, owner } = data[i];
 
-            getRepos(name, description, html_url, open_issues, language);
+            getRepos(owner.login, name, description, html_url, open_issues, language);
 
             getRepoCount(owner.login, data.length);
         }
