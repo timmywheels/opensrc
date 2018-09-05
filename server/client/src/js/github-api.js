@@ -69,136 +69,101 @@ export function getUsername(username) {
 
 export function getRepos(repos, repoText, repoUrl, repoIssuesCount, repoLanguage){
 
+    // If repoText exists
     if (repoText) {
-
-
-        const projectsSection = document.getElementById('latest-projects');
-        const cardBlock = document.createElement('div');
-        const card = document.createElement('div');
-        const cardBody = document.createElement('div');
-        const cardTitle = document.createElement('h5');
-        const cardText = document.createElement('p');
-        const repoLink = document.createElement('a');
-        const issueCount = document.createElement('p');
-        // const programmingLanguage = document.createElement('p');
-        const langImg = document.createElement('img');
-        langImg.classList.add('language-img');
-
+        // Trim length of repoText if over 45 chars
         if (repoText.length > 45) {
             repoText = repoText.substring(0, 44) + '...';
         }
 
-
-
+        // Initialize langImg to be set in switch statement
+        let langImg = '';
+        // Check to see what language repo is using, set image accordingly
         switch (repoLanguage) {
             case 'JavaScript':
-                langImg.src = JavaScript;
+                langImg = JavaScript;
                 javaScriptCount++;
                 document.getElementById('javaScriptRepos').innerHTML = `JavaScript: ${javaScriptCount.toString()}`;
                 break;
             case 'Python':
-                langImg.src = Python;
+                langImg = Python;
                 pythonCount++;
 	            document.getElementById('pythonRepos').innerHTML = `Python: ${pythonCount.toString()}`;
 	            break;
             case 'Java':
-                langImg.src = Java;
+                langImg = Java;
                 javaCount++;
 	            document.getElementById('javaRepos').innerHTML = `Java: ${javaCount.toString()}`;
 	            break;
             case 'Ruby':
-                langImg.src = Ruby;
+                langImg = Ruby;
                 rubyCount++;
 	            document.getElementById('rubyRepos').innerHTML = `Ruby: ${rubyCount.toString()}`;
 	            break;
             case 'PHP':
-                langImg.src = Php;
+                langImg = Php;
                 phpCount++;
 	            document.getElementById('phpRepos').innerHTML = `PHP: ${phpCount.toString()}`;
 	            break;
             case 'C++':
-                langImg.src = CPlusPlus;
+                langImg = CPlusPlus;
                 cPlusPlusCount++;
 	            document.getElementById('cPlusPlusRepos').innerHTML = `C++: ${cPlusPlusCount.toString()}`;
 	            break;
             case 'CSS':
-                langImg.src = Css;
+                langImg = Css;
                 cssCount++;
 	            document.getElementById('cssRepos').innerHTML = `CSS: ${cssCount.toString()}`;
 	            break;
-	        case 'C#':
-		        langImg.src = CSharp;
+            case 'C#':
+		        langImg = CSharp;
 		        cSharpCount++;
 		        document.getElementById('cSharpRepos').innerHTML = `C#: ${cSharpCount.toString()}`;
 		        break;
             case 'Go':
-                langImg.src = Go;
+                langImg = Go;
                 goCount++;
 	            document.getElementById('goRepos').innerHTML = `Go: ${goCount.toString()}`;
 	            break;
             case 'C':
-                langImg.src = C;
+                langImg = C;
                 cCount++;
 	            document.getElementById('cRepos').innerHTML = `C: ${cCount.toString()}`;
 	            break;
             case 'HTML':
-                langImg.src = Html;
+                langImg = Html;
                 otherCount++;
 	            break;
             case 'Swift':
-                langImg.src = Swift;
+                langImg = Swift;
                 otherCount++;
 	            break;
             case 'TypeScript':
-                langImg.src = TypeScript;
+                langImg = TypeScript;
                 otherCount++;
 	            break;
             default:
-                langImg.src = Github;
+                langImg = Github;
                 otherCount++;
 	            document.getElementById('otherRepos').innerHTML = `Other: ${otherCount.toString()}`;
 	            break;
         }
 
+        const cardHtml = `
+            <div class="col-md-4 col-sm-6 card-block">
+                <div class="card p-2">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">${repos}</h5>
+                        <p class="card-text">${repoText}</p>
+                        <img class="language-img" src="${langImg}">
+                        <a class="btn btn-primary mt-auto" target="_blank" href="${repoUrl}">View Repo</a>
+                        <p class="issue-count">Issues: ${repoIssuesCount}</p>
+                    </div>
+                </div>
+            </div>
+        `;
 
-        // const projectsSection = document.getElementById('latest-projects');
-        // const card = React.createElement('div');
-        // const cardBody = React.createElement('div');
-        // const cardTitle = React.createElement('h5');
-        // const cardText = React.createElement('p');
-        // const repoLink = React.createElement('a');
-        // const issueCount = React.createElement('p');
-        // const programmingLanguage = React.createElement('p');
-
-
-        // programmingLanguage.innerHTML = repoLanguage;
-        issueCount.innerHTML = "Open Issues: " + repoIssuesCount;
-        issueCount.classList.add('issue-count');
-        repoLink.classList.add('btn', 'btn-primary', 'mt-auto');
-        cardBlock.classList.add('col-md-4', 'col-sm-6', 'card-block');
-        card.classList.add('card', 'p-2');
-
-        // programmingLanguage.classList.add('repo-language');
-        cardBody.classList.add('card-body', 'd-flex', 'flex-column');
-        cardTitle.classList.add('card-title');
-        cardText.classList.add('card-text');
-
-        repoLink.setAttribute('target', '_blank');
-        repoLink.innerHTML = 'View Repo';
-        repoLink.href = repoUrl;
-        cardTitle.innerText = repos;
-        cardText.innerText = repoText;
-
-        cardBody.appendChild(cardTitle);
-        cardBody.appendChild(cardText);
-        cardBody.appendChild(langImg);
-        // cardBody.appendChild(programmingLanguage);
-        cardBody.appendChild(repoLink);
-        cardBody.appendChild(issueCount);
-        card.appendChild(cardBody);
-        cardBlock.appendChild(card);
-        // const cardBlock = React.createElement('div', {className: 'col-md-3 card-block'}, card);
-        projectsSection.appendChild(cardBlock);
+        document.getElementById('latest-projects').insertAdjacentHTML('beforeend', cardHtml)
 
     }
 }
@@ -210,9 +175,12 @@ export function requestUserData(username) {
     xhr.onload = function() {
         const data = JSON.parse(this.response);
         console.log(data);
-        getAvatar(data.avatar_url);
-        getBio(data.bio);
-        getUsername(data.login);
+
+        const {avatar_url, bio, login} = data;
+
+        getAvatar(avatar_url);
+        getBio(bio);
+        getUsername(login);
         displayUserSections();
     };
     xhr.send();
@@ -228,14 +196,15 @@ export function requestUserRepos(username) {
         console.log(data['name']);
         console.log(data.length);
 
-
+        // Loop through JSON data object
         for (let i in data) {
 
-            const { name, description, html_url, open_issues, language } = data[i];
+            // Destructure JSON to make more readable
+            const { name, description, html_url, open_issues, language, owner } = data[i];
 
             getRepos(name, description, html_url, open_issues, language);
 
-        getRepoCount(data[i].owner.login, data.length);
+            getRepoCount(owner.login, data.length);
         }
 
     };
