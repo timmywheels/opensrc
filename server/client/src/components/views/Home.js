@@ -8,6 +8,8 @@ import * as api from '../../js/github-api';
 const Logo = styled.img`
     height: 80px;
     width: auto;
+    margin: 0 auto;
+    display: block;
 `;
 
 class Home extends Component {
@@ -16,6 +18,7 @@ class Home extends Component {
         usernameForm.addEventListener('click', (e) => {
             e.preventDefault();
             if (e.target.id === "submitBtn") {
+                document.getElementById('latest-projects').innerHTML = "";
                 let username = document.getElementById('usernameInput').value;
                 if (username) {
                     api.requestUserData(username);
