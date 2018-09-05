@@ -36,7 +36,6 @@ class Github extends Component {
     render() {
         return (
             <div className={'row'}>
-                <Form/>
                 <UserSection id={'user-section'} className={'row col-md-12'}>
                 <AvatarSection className="col-md-2">
                     <AvatarImg src="" alt="" id={"avatar-img"}/>

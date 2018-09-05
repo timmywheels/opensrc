@@ -4,8 +4,8 @@ import styled from 'styled-components';
 const StyledForm = styled.form`
     margin: 50px;
     background: #dddddd80;
-    padding: 25px 50px;
-    box-shadow: 5px 5px 20px #33333333;
+    // padding: 25px 50px;
+    // box-shadow: 5px 5px 20px #33333333;
     border-radius: 4px;
     
     input[type=text] {

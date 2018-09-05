@@ -117,7 +117,7 @@ export function getRepos(repos, repoText, repoUrl, repoIssuesCount, repoLanguage
         issueCount.innerHTML = "Open Issues: " + repoIssuesCount;
         issueCount.classList.add('issue-count');
         repoLink.classList.add('btn', 'btn-primary', 'mt-auto');
-        cardBlock.classList.add('col-md-3', 'card-block');
+        cardBlock.classList.add('col-md-4', 'col-sm-4', 'card-block');
         card.classList.add('card', 'p-2');
 
         // programmingLanguage.classList.add('repo-language');

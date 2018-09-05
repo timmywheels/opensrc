@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
         <BrowserRouter>
-          <div className={'container'}>
+          <div>
                 <Route exact path={'/'} component={Home}/>
           </div>
         </BrowserRouter>
