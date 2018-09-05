@@ -4,6 +4,14 @@ import Html from '../img/tw-html5-opt.svg';
 import Css from '../img/tw-css3-opt.svg';
 import CPlusPlus from '../img/tw-cplusplus-opt.svg';
 import C from '../img/tw-c-opt.svg';
+import Java from '../img/java.svg';
+import Php from '../img/php.svg';
+import Python from '../img/python.svg';
+import Ruby from '../img/ruby.svg';
+import Swift from '../img/swift.svg';
+import TypeScript from '../img/typescript.svg';
+import Go from '../img/golang.svg';
+import Github from '../img/tw-github-opt.svg';
 
 export function displayUserSections() {
     document.getElementById('user-section').style.display = 'inherit';
@@ -44,8 +52,9 @@ export function getRepos(repos, repoText, repoUrl, repoIssuesCount, repoLanguage
         const cardText = document.createElement('p');
         const repoLink = document.createElement('a');
         const issueCount = document.createElement('p');
-        const programmingLanguage = document.createElement('p');
+        // const programmingLanguage = document.createElement('p');
         const langImg = document.createElement('img');
+        langImg.classList.add('language-img');
 
         if (repoText.length > 45) {
             repoText = repoText.substring(0, 44) + '...';
@@ -63,10 +72,33 @@ export function getRepos(repos, repoText, repoUrl, repoIssuesCount, repoLanguage
                 break;
             case 'C':
                 langImg.src = C;
+                break;
             case 'C++':
                 langImg.src = CPlusPlus;
+                break;
+            case 'Go':
+                langImg.src = Go;
+                break;
+            case 'Java':
+                langImg.src = Java;
+                break;
+            case 'PHP':
+                langImg.src = Php;
+                break;
+            case 'Python':
+                langImg.src = Python;
+                break;
+            case 'Ruby':
+                langImg.src = Ruby;
+                break;
+            case 'Swift':
+                langImg.src = Swift;
+                break;
+            case 'TypeScript':
+                langImg.src = TypeScript;
+                break;
             default:
-                langImg.src = 'server/client/src/img/opensrc-logo-001.png';
+                langImg.src = Github;
                 break;
         }
 
@@ -81,14 +113,14 @@ export function getRepos(repos, repoText, repoUrl, repoIssuesCount, repoLanguage
         // const programmingLanguage = React.createElement('p');
 
 
-        programmingLanguage.innerHTML = repoLanguage;
+        // programmingLanguage.innerHTML = repoLanguage;
         issueCount.innerHTML = "Open Issues: " + repoIssuesCount;
         issueCount.classList.add('issue-count');
         repoLink.classList.add('btn', 'btn-primary', 'mt-auto');
         cardBlock.classList.add('col-md-3', 'card-block');
         card.classList.add('card', 'p-2');
 
-        programmingLanguage.classList.add('repo-language');
+        // programmingLanguage.classList.add('repo-language');
         cardBody.classList.add('card-body', 'd-flex', 'flex-column');
         cardTitle.classList.add('card-title');
         cardText.classList.add('card-text');
@@ -102,7 +134,7 @@ export function getRepos(repos, repoText, repoUrl, repoIssuesCount, repoLanguage
         cardBody.appendChild(cardTitle);
         cardBody.appendChild(cardText);
         cardBody.appendChild(langImg);
-        cardBody.appendChild(programmingLanguage);
+        // cardBody.appendChild(programmingLanguage);
         cardBody.appendChild(repoLink);
         cardBody.appendChild(issueCount);
         card.appendChild(cardBody);

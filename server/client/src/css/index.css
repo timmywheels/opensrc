@@ -11,7 +11,7 @@ body {
 }
 
 .card {
-  min-height: 250px;
+  min-height: 350px;
   margin-bottom: 25px;
   color: #696969;
   box-shadow: 2px 2px 15px 0 #33333333;
@@ -37,4 +37,10 @@ body {
   font-size: 12px;
   font-style: italic;
   margin-top: 10px;
+}
+
+.language-img{
+  height: 100px;
+  width: 100px;
+  margin: auto;
 }
