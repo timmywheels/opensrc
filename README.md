@@ -28,4 +28,4 @@ Front-End: React, JSX, JavaScript, Styled Components, Bootstrap, HTML, & CSS
 
 Back-End: Node.js, Express, MongoDB, Mongoose
 
-API: Github v3
+API: MainContent v3

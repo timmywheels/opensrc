@@ -39,7 +39,7 @@ const StyledForm = styled.form`
     }
 `;
 
-class Form extends Component {
+class SearchBar extends Component {
     render() {
         return (
             <div className={'col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12'}>
@@ -52,4 +52,4 @@ class Form extends Component {
     }
 }
 
-export default Form;
+export default SearchBar;
