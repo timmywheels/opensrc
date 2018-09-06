@@ -1,11 +1,11 @@
 import React from 'react';
 import GitHubCalendar from 'github-calendar'
 
-import JavaScript from '../img/tw-javascript-opt.svg';
-import Html from '../img/tw-html5-opt.svg';
-import Css from '../img/tw-css3-opt.svg';
-import CPlusPlus from '../img/tw-cplusplus-opt.svg';
-import C from '../img/tw-c-opt.svg';
+import JavaScript from '../img/javascript.svg';
+import Html from '../img/html5.svg';
+import Css from '../img/css3.svg';
+import CPlusPlus from '../img/cplusplus.svg';
+import C from '../img/c.svg';
 import Java from '../img/java.svg';
 import Php from '../img/php.svg';
 import Python from '../img/python.svg';
@@ -13,20 +13,20 @@ import Ruby from '../img/ruby.svg';
 import Swift from '../img/swift.svg';
 import TypeScript from '../img/typescript.svg';
 import Go from '../img/golang.svg';
-import Github from '../img/tw-github-opt.svg';
+import Github from '../img/github.svg';
 import CSharp from '../img/c-sharp.svg';
 import Jupyter from '../img/jupyter.svg';
 import Haskell from '../img/haskell.svg';
-import OCaml from '../img/ocaml.jpg';
-import Scala from '../img/scala-4.svg';
-import Shell from '../img/shell.svg';
+import OCaml from '../img/ocaml.svg';
+import Scala from '../img/scala.svg';
+import Shell from '../img/bash.svg';
 import Hack from '../img/hack.svg';
 import Cuda from '../img/cuda.svg';
 import Perl from '../img/perl.svg';
-import Processing from '../img/processing.png';
+import Processing from '../img/processing.svg';
 import D from '../img/d-lang.svg';
 import Lua from '../img/lua-5.svg';
-import Matlab from '../img/matlab.png';
+import Matlab from '../img/matlab.svg';
 
 
 let languageCounts = {
@@ -100,7 +100,7 @@ export function getUsername(username) {
 // Check if GitHub User is either 'User' or 'Organization'
 function checkGitHubUserType(username, type) {
     if (type === 'User') {
-        GitHubCalendar('.calendar', username)
+        GitHubCalendar('.calendar', username, {global_stats: false, responsive: true})
     } else {
         document.getElementById('github-calendar').style.display = 'none';    }
 }
@@ -258,10 +258,10 @@ export function getRepos(username, repo, repoText, repoUrl, repoIssuesCount, rep
 
         // Create html cards to be rendered on the DOM with
         const cardHtml = `
-            <div class="col-md-3 col-sm-6 card-block">
-                <div class="card p-2">
+            <div class="col-lg-3 col-md-4 col-sm-6 card-block">
+                <div class="card">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">${repo}</h5>
+                        <a class="repo-link" href="https://github.com/${username}/${repo}/" target="_blank"><h5 class="card-title">${repo}</h5></a>
                         <p class="card-text">${repoText}</p>
                         <img class="language-img" src="${langImg}">
                         <a class="btn btn-primary mt-auto" target="_blank" href="https://github.com/${username}/${repo}/issues">${repoIssuesCount} Open Issues</a>
@@ -316,6 +316,10 @@ export function requestUserRepos(username) {
             getRepos(owner.login, name, description, html_url, open_issues, language);
 
             getRepoCount(owner.login, data.length);
+
+
+
+
         }
 
         // console.log('entries:', Object.entries(languageCounts));

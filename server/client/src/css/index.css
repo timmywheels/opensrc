@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   padding: 0;
@@ -53,7 +54,7 @@ body {
 }
 
 .card {
-  min-height: 350px;
+  min-height: 300px;
   margin-bottom: 25px;
   color: #696969;
   box-shadow: 2px 2px 15px 0 #33333333;
@@ -68,6 +69,11 @@ body {
 .card-title{
   font-size: 18px;
   font-weight: 700;
+}
+
+.repo-link{
+    color: #454545;
+    text-decoration: none !important;
 }
 
 .card-text {

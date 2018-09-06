@@ -54,7 +54,7 @@ class Header extends Component {
 		if (window.scrollY > 100) {
 			this.setState({
 				borderBottom: '3px solid #0165f5',
-				boxShadow: '0 0 20px #252525',
+				boxShadow: '#0072ff 0px 0px 15px',
                 background: '#00c6ff',
                 background: '-webkit-linear-gradient(to top,#0072ff,#00c6ff)',
                 background: 'linear-gradient(to top,#0072ff,#00c6ff)'
@@ -74,7 +74,7 @@ class Header extends Component {
 
 	render() {
 		return (
-			<HeaderSection style={{background: this.state.background, borderBottom: this.state.borderBottom}}>
+			<HeaderSection style={{background: this.state.background, borderBottom: this.state.borderBottom, boxShadow: this.state.boxShadow}}>
 			<a href={'/'}>
 				<LogoText>opensrc</LogoText>
 			</a>

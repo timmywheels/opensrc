@@ -8,6 +8,7 @@ const UserSection = styled.div`
     box-shadow: 5px 5px 20px #f8f9fa;
     border-radius: 4px;
     // margin: 50px 0;
+    padding: 20px;
     margin-top: 50px;
     margin-bottom: 50px;
     border: 1px solid #ddd;
@@ -26,7 +27,7 @@ const AvatarSection = styled.div`
 
 const AvatarImg = styled.img`
     width: 100%;
-    max-width: 100px;
+    max-width: 125px;
     height: auto;
     border-radius: 50%;
     margin: 10px auto;
