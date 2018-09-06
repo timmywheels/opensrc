@@ -78,10 +78,9 @@ const GithubCalendar = styled.div`
 class Github extends Component {
     render() {
         return (
-            <div className={'row'}>
+            <div>
                 <UserSection id={'user-section'} className={'col-md-10 offset-md-1'}>
 					<div className="row">
-
 						<AvatarSection className="col-md-3">
 							<a id="profile-link" target="_blank" href={""}><AvatarImg id={"avatar-img"}/></a>
 						</AvatarSection>
@@ -92,7 +91,9 @@ class Github extends Component {
 							<p id={"bio-text"} className={'col-md-12'}/>
 						</BioSection>
 						<GithubCalendar id={'github-calendar'} className={"calendar"}>
-							Loading the data just for you.
+                            <img className="d-block mx-auto mt-4 js-activity-overview-graph-spinner" alt="Loading"
+                                 src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="32"
+                                 height="32"/>
 						</GithubCalendar>
 					</div>
                 </UserSection>
