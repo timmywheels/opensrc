@@ -57,6 +57,36 @@ let {
 	otherCount
 } = languageCounts;
 
+// Hack to get openIssues into getRepoIssuesButtons()
+// From API call
+let openIssues = [];
+console.log(openIssues[99]);
+
+export function getRepoIssuesButtons() {
+	setTimeout(function() {
+		let buttons = document.querySelectorAll('.issues');
+		let cards = document.querySelectorAll('.card');
+
+		for (let i = 0; i < buttons.length; i++) {
+			if (openIssues[i] > 0 && openIssues[i] <= 10) {
+				buttons[i].classList.add('issues-sm');
+				cards[i].classList.add('issues-sm-card');
+			} else if (openIssues[i] > 10 && openIssues[i] <= 50) {
+				buttons[i].classList.add('issues-md');
+				cards[i].classList.add('issues-md-card');
+			} else if (openIssues[i] > 50 && openIssues[i] <= 100) {
+				buttons[i].classList.add('issues-lg');
+				cards[i].classList.add('issues-lg-card');
+			} else if (openIssues[i] > 100) {
+				buttons[i].classList.add('issues-xl');
+				cards[i].classList.add('issues-xl-card');
+			}
+
+			console.log('buttons[i]:', buttons[i]);
+		}
+	}, 750);
+}
+
 // Get user github username
 function getUsername(username) {
 	const usernameHeading = document.getElementById('username');
@@ -293,7 +323,7 @@ function createRepoElement(
                         </div>
                         <p class="card-text">${repoText}</p>
                         <img class="language-img" src="${langImg}">
-                        <a class="btn btn-primary mt-auto" target="_blank" href="https://github.com/${username}/${repo}/issues">${repoIssuesCount} Open Issues</a>
+                        <a class="btn issues mt-auto" target="_blank" href="https://github.com/${username}/${repo}/issues">${repoIssuesCount} Open Issues</a>
                     </div>
                 </div>
             </div>
@@ -345,7 +375,7 @@ function getRepo(
 ) {
 	// If repoText is null, add blank space
 	if (repoText === null) {
-		repoText = ' ';
+		repoText = '\n';
 	}
 	// If repoText exists
 	if (repoText) {
@@ -418,6 +448,8 @@ export function requestUserRepos(username) {
 				owner,
 				forks
 			} = data[i];
+
+			openIssues.push(open_issues);
 
 			const { login } = owner;
 

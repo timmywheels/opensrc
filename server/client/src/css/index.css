@@ -42,16 +42,25 @@ body {
     font-size: 12px;
 }
 
-.card .btn-primary{
-    border: none;
-    background: #00c6ff;
-    background: -webkit-linear-gradient(to top,#0072ff,#00c6ff);
-    background: linear-gradient(to top,#0072ffd9,#00c6ffcc);
-    border-bottom: 4px solid #006bde;
+.issues{
+    /*border: none;*/
+    /*background: #00c6ff;*/
+    /*background: -webkit-linear-gradient(to top,#0072ff,#00c6ff);*/
+    /*background: linear-gradient(to top,#0072ffd9,#00c6ffcc);*/
+    /*border-bottom: 4px solid #006bde;*/
+    border: 2px solid #ccc;
+    color: #ccc;
+    background: none;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 14px;
 }
+
+.issues:hover{
+    background: #ccc;
+    color: #fff;
+}
+
 
 .card {
   min-height: 300px;
@@ -67,6 +76,21 @@ body {
   box-shadow: 2px 2px 6px 0 #33333333;
   transition: box-shadow 0.2s ease-in-out;
 }
+
+.card::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 5px;
+    background: #ccc;
+    transition: width .5s;
+    border-radius: 2px;
+}
+
+.card:hover::after{
+    width: 100%;
+}
+
 
 .card-title{
   font-size: 18px;
@@ -107,4 +131,74 @@ body {
 
 .badge-warning{
     background-color: #fff;
+}
+
+.issues-sm {
+    border: 2px solid #86d07a !important;
+    color: #86d07a !important;
+    background: none !important;
+}
+
+.issues-sm:hover {
+    background: #86d07a !important;
+    color: #fff !important;
+}
+
+.issues-md {
+    border: 2px solid #7ab0d0 !important;
+    color: #7ab0d0 !important;
+    background: none !important;
+}
+
+.issues-md:hover {
+    background: #7ab0d0 !important;
+    color: #fff !important;
+}
+
+.issues-lg{
+    border: 2px solid #ffc171 !important;
+    color: #ffc171 !important;
+    background: none !important;
+}
+
+.issues-lg:hover {
+    background: #ffc171 !important;
+    color: #fff !important;
+}
+
+.issues-xl{
+    border: 2px solid #ff7175 !important;
+    color: #ff7175 !important;
+    background: none !important;
+}
+
+.issues-xl:hover {
+    background: #ff7175 !important;
+    color: #fff !important;
+}
+
+
+
+
+.issues-sm-card:hover::after,
+.issues-md-card:hover::after,
+.issues-lg-card:hover::after,
+.issues-xl-card:hover::after{
+    width: 100%;
+}
+
+.issues-sm-card::after{
+    background: #86d07a;
+}
+
+.issues-md-card::after{
+    background: #7ab0d0;
+}
+
+.issues-lg-card::after{
+    background: #ffc171;
+}
+
+.issues-xl-card::after{
+    background: #ff7175;
 }

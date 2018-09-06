@@ -4,6 +4,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/runtime": "^7.0.0",
+    "@huchenme/github-trending": "^1.2.1",
     "axios": "^0.18.0",
     "github-calendar": "^1.2.3",
     "octicons": "^8.1.0",
@@ -18,5 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-async-to-generator": "^7.0.0"
   }
 }

@@ -27,11 +27,12 @@ class Home extends Component {
 				if (username) {
 					api.requestUserData(username);
 					api.requestUserRepos(username);
-					// api.setRepoIssuesButtonColor();
+					api.getRepoIssuesButtons();
 				}
 			}
 		});
 	}
+
 	render() {
 		return (
 			<div>
