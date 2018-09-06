@@ -9,7 +9,7 @@ body {
 #user-section,
 #latest-projects-title,
 #language-counts{
-  display: none;
+    display: none;
 }
 
 #username{
