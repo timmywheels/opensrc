@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
 import '../js/github-api';
+import 'github-calendar';
 
 const UserSection = styled.div`
     background: #ffffffaa;
@@ -51,9 +52,26 @@ const LanguageCount = styled.li`
     background: #00000055;
     box-shadow: 0px 0px 15px rgba(108, 117, 125, 0.25);
     
-}
+}`;
 
+const FollowButton = styled.div`
+	float: right;
+    text-align: center;
+    text-decoration: none;
+    background: #6fd688;
+    border-radius: 4px;
+    
+    a {
+    	color: #fff;
+    	letter-spacing: 2px;
+    	text-transform: uppercase;
+    	font-size: 14px;
+    }
+    
+`;
 
+const GithubCalendar = styled.div`
+	display: none;
 `;
 
 class Github extends Component {
@@ -61,14 +79,21 @@ class Github extends Component {
         return (
             <div className={'row'}>
                 <UserSection id={'user-section'} className={'col-md-10 offset-md-1'}>
-                <AvatarSection className="col-md-3">
-					<a id="profile-link" target="_blank" href={""}><AvatarImg src="" alt="" id={"avatar-img"}/></a>
-                </AvatarSection>
-                <BioSection className="col-md-9">
-                    <h1 className={'col-md-12'} id={'username'}/>
-                    <h6 className={'col-md-12'} id={'favorite-language'}/>
-                    <p className={'col-md-12'} id={"bio-text"}/>
-                </BioSection>
+					<div className="row">
+
+						<AvatarSection className="col-md-3">
+							<a id="profile-link" target="_blank" href={""}><AvatarImg id={"avatar-img"}/></a>
+						</AvatarSection>
+						<BioSection className="col-md-9">
+							{/*<FollowButton id={'follow-btn'} className={'col-md-2'}><a id={'follow-link'} href="">Follow</a></FollowButton>*/}
+							<h1 id={'username'} className={'col-md-12'}/>
+							<h6 id={'favorite-language'} className={'col-md-12'}/>
+							<p id={"bio-text"} className={'col-md-12'}/>
+						</BioSection>
+						<GithubCalendar id={'github-calendar'} className={"calendar"}>
+							Loading the data just for you.
+						</GithubCalendar>
+					</div>
                 </UserSection>
                 <div className="col-md-12">
                     <h2 className={'col-md-12'} id={"latest-projects-title"}>Latest Projects</h2>

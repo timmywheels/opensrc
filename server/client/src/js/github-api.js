@@ -1,4 +1,6 @@
 import React from 'react';
+import GitHubCalendar from 'github-calendar'
+
 import JavaScript from '../img/tw-javascript-opt.svg';
 import Html from '../img/tw-html5-opt.svg';
 import Css from '../img/tw-css3-opt.svg';
@@ -55,40 +57,11 @@ let {
     otherCount
 } = languageCounts;
 
-
-// let javaScriptCount = 0;
-// let pythonCount = 0;
-// let javaCount = 0;
-// let rubyCount = 0;
-// let phpCount = 0;
-// let cPlusPlusCount = 0;
-// let cssCount = 0;
-// let cSharpCount = 0;
-// let goCount = 0;
-// let cCount = 0;
-// let otherCount = 0;
-
-
-
-// export function resetLanguageCounts() {
-// 	javaScriptCount = 0;
-// 	pythonCount = 0;
-// 	javaCount = 0;
-// 	rubyCount = 0;
-// 	phpCount = 0;
-// 	cPlusPlusCount = 0;
-// 	cssCount = 0;
-// 	cSharpCount = 0;
-// 	goCount = 0;
-// 	cCount = 0;
-// 	otherCount = 0;
-// }
-
-
 export function displayUserSections() {
     document.getElementById('user-section').style.display = 'inherit';
     document.getElementById('latest-projects-title').style.display = 'inherit';
     document.getElementById('language-counts').style.display = 'inherit';
+    document.getElementById('github-calendar').style.display = 'initial';
 }
 
 export function getAvatar(avatarUrl, login, profileUrl) {
@@ -107,6 +80,7 @@ export function getBio(bioText) {
 //     document.getElementById('favorite-language').innerText = `Favorite Language: `;
 // }
 
+
 export function getRepoCount(username, repoCount) {
     const repoLength = document.getElementById('latest-projects-title');
     repoLength.innerText = `${username}'s Latest Projects: (${repoCount})`;
@@ -116,6 +90,19 @@ export function getRepoCount(username, repoCount) {
 export function getUsername(username) {
     const usernameHeading = document.getElementById('username');
     usernameHeading.innerHTML = username;
+}
+
+// export function getFollowLink(username) {
+//     const followLink = document.getElementById('follow-link');
+//     followLink.href = `https://github.com/users/follow?target=${username}`
+// }
+
+// Check if GitHub User is either 'User' or 'Organization'
+function checkGitHubUserType(username, type) {
+    if (type === 'User') {
+        GitHubCalendar('.calendar', username)
+    } else {
+        document.getElementById('github-calendar').style.display = 'none';    }
 }
 
 
@@ -296,12 +283,14 @@ export function requestUserData(username) {
         const data = JSON.parse(this.response);
         console.log(data);
 
-        const {avatar_url, bio, login, html_url} = data;
+        const {avatar_url, bio, login, html_url, type} = data;
 
         getAvatar(avatar_url, login, html_url);
         getBio(bio);
         getUsername(login);
+        // getFollowLink(login);
         displayUserSections();
+        checkGitHubUserType(username, type);
 
 
     };
@@ -329,7 +318,7 @@ export function requestUserRepos(username) {
             getRepoCount(owner.login, data.length);
         }
 
-        console.log('entries:', Object.entries(languageCounts));
+        // console.log('entries:', Object.entries(languageCounts));
 
     };
 

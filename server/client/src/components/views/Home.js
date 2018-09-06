@@ -17,6 +17,7 @@ class Home extends Component {
                     // api.resetLanguageCounts();
                     api.requestUserData(username);
                     api.requestUserRepos(username);
+                    // api.getFollowLink();
                     // api.getFavoriteLanguage();
                 }
             }
