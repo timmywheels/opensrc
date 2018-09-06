@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b490b26-ed89-4aaf-9ec8-c4fec3a3bf32" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/server/client/src/components/Calendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/client/src/components/LanguageCounts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/client/src/components/MainContent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/client/src/components/UserInfo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/client/src/components/WavesDivider.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/client/src/img/github-fork.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/client/src/components/Form.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/client/src/components/SearchBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/client/src/components/Github.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/client/src/components/Hero.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/client/src/components/Hero.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/client/src/components/views/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/client/src/components/views/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/client/src/components/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/client/src/components/UserInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/client/src/css/github-calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/server/client/src/css/github-calendar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/client/src/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/server/client/src/css/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/client/src/js/github-api.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/client/src/js/github-api.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -41,47 +35,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="LanguageCounts.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/client/src/components/LanguageCounts.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-274">
-                  <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
-                  <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Hero.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/client/src/components/Hero.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="816">
-                  <caret line="51" column="31" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
-                  <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Calendar.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/server/client/src/components/Calendar.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="144">
-                  <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-                  <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="Header.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/server/client/src/components/Header.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="784">
-                  <caret line="49" column="25" lean-forward="true" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+                <state relative-caret-position="16">
+                  <caret line="1" column="39" lean-forward="true" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
                   <folding>
                     <element signature="e#0#41#0" expanded="true" />
                   </folding>
@@ -114,7 +72,7 @@
             <entry file="file://$PROJECT_DIR$/server/client/src/components/views/Home.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="288">
-                  <caret line="18" column="17" lean-forward="true" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+                  <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
                   <folding>
                     <element signature="e#0#39#0" expanded="true" />
                   </folding>
@@ -125,11 +83,32 @@
           <file leaf-file-name="github-api.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/server/client/src/js/github-api.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="323">
-                  <caret line="233" column="5" selection-start-line="233" selection-start-column="5" selection-end-line="233" selection-end-column="5" />
+                <state relative-caret-position="243">
+                  <caret line="288" column="17" lean-forward="true" selection-start-line="288" selection-start-column="17" selection-end-line="288" selection-end-column="17" />
                   <folding>
                     <element signature="e#0#26#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="UserInfo.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/client/src/components/UserInfo.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="253">
+                  <caret line="27" selection-start-line="27" selection-end-line="27" />
+                  <folding>
+                    <element signature="e#0#41#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="github-calendar.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/server/client/src/css/github-calendar.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="2320">
+                  <caret line="145" selection-start-line="145" selection-end-line="145" />
                 </state>
               </provider>
             </entry>
@@ -138,14 +117,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="Home.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/server/client/src/components/views/Home.js">
+          <file leaf-file-name="index.css" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/server/client/src/css/index.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="128">
-                  <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-                  <folding>
-                    <element signature="e#0#39#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="389">
+                  <caret line="94" column="13" lean-forward="true" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="13" />
                 </state>
               </provider>
             </entry>
@@ -186,23 +162,23 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/server/README.md" />
         <option value="$PROJECT_DIR$/server/client/src/components/Header.js" />
-        <option value="$PROJECT_DIR$/server/client/src/css/index.css" />
         <option value="$PROJECT_DIR$/server/client/src/components/Form.js" />
         <option value="$PROJECT_DIR$/server/client/src/index.js" />
         <option value="$PROJECT_DIR$/server/client/src/js/github-calendar.min.js" />
         <option value="$PROJECT_DIR$/server/client/public/index.html" />
-        <option value="$PROJECT_DIR$/server/client/src/css/github-calendar.css" />
         <option value="$PROJECT_DIR$/server/client/src/components/GitHubCalendar.js" />
         <option value="$PROJECT_DIR$/server/client/src/components/GitHubContributionsCalendar.js" />
         <option value="$PROJECT_DIR$/server/client/src/components/Calendar.js" />
-        <option value="$PROJECT_DIR$/server/client/src/components/UserInfo.js" />
         <option value="$PROJECT_DIR$/server/client/src/components/WavesDivider.js" />
         <option value="$PROJECT_DIR$/server/client/src/components/Hero.js" />
         <option value="$PROJECT_DIR$/server/client/src/components/LanguageCounts.js" />
         <option value="$PROJECT_DIR$/server/client/src/components/Github.js" />
         <option value="$PROJECT_DIR$/server/client/src/components/MainContent.js" />
-        <option value="$PROJECT_DIR$/server/client/src/js/github-api.js" />
         <option value="$PROJECT_DIR$/server/client/src/components/views/Home.js" />
+        <option value="$PROJECT_DIR$/server/client/src/css/github-calendar.css" />
+        <option value="$PROJECT_DIR$/server/client/src/components/UserInfo.js" />
+        <option value="$PROJECT_DIR$/server/client/src/css/index.css" />
+        <option value="$PROJECT_DIR$/server/client/src/js/github-api.js" />
       </list>
     </option>
   </component>
@@ -229,9 +205,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="139" />
-    <option name="width" value="1015" />
-    <option name="height" value="897" />
+    <option name="x" value="154" />
+    <option name="y" value="28" />
+    <option name="width" value="1920" />
+    <option name="height" value="1008" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -296,6 +273,22 @@
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="opensrc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="opensrc" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="opensrc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="opensrc" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -322,8 +315,8 @@
       <recent name="$PROJECT_DIR$/server/client/src/img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/server/client/src/img" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/server/client/src/css" />
       <recent name="$PROJECT_DIR$/server/client/src/js" />
       <recent name="$PROJECT_DIR$/server/client/src" />
@@ -357,18 +350,18 @@
       <workItem from="1536075694046" duration="763000" />
       <workItem from="1536076722727" duration="11393000" />
       <workItem from="1536090355098" duration="9798000" />
-      <workItem from="1536105848088" duration="34865000" />
+      <workItem from="1536105848088" duration="39027000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61397000" />
+    <option name="totallyTimeSpent" value="65559000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1772" height="1013" extended-state="0" />
+    <frame x="620" y="55" width="1920" height="1008" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13249572" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.123222746" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
@@ -376,7 +369,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3640553" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3077778" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.26927373" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -415,13 +408,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/client/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/client/src/App.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -623,13 +609,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/client/src/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/client/src/components/SearchBar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="704">
@@ -661,23 +640,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/client/src/css/github-calendar.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="126" column="20" selection-start-line="126" selection-start-column="20" selection-end-line="126" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/client/src/components/UserInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1168">
-          <caret line="73" column="20" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/client/src/components/LanguageCounts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-274">
@@ -701,19 +663,9 @@
     <entry file="file://$PROJECT_DIR$/server/client/src/components/Calendar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/client/src/components/Header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="49" column="25" lean-forward="true" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -752,22 +704,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/client/src/js/github-api.js">
+    <entry file="file://$PROJECT_DIR$/server/client/src/components/UserInfo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="233" column="5" selection-start-line="233" selection-start-column="5" selection-end-line="233" selection-end-column="5" />
+        <state relative-caret-position="253">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/client/src/css/github-calendar.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2320">
+          <caret line="145" selection-start-line="145" selection-end-line="145" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/client/src/components/views/Home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        <state relative-caret-position="288">
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/client/src/img/github-fork.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/client/src/components/Header.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="1" column="39" lean-forward="true" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/client/src/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="94" column="13" lean-forward="true" selection-start-line="94" selection-start-column="13" selection-end-line="94" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/client/src/js/github-api.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="288" column="17" lean-forward="true" selection-start-line="288" selection-start-column="17" selection-end-line="288" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

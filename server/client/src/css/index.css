@@ -59,6 +59,8 @@ body {
   color: #696969;
   box-shadow: 2px 2px 15px 0 #33333333;
   transition: box-shadow 0.2s ease-in-out;
+    /*background: -webkit-linear-gradient(to bottom right, #ffffff, #f9f9f9);*/
+    /*background: linear-gradient(to bottom right, #ffffff, #f9f9f9);*/
 }
 
 .card:hover{
@@ -74,6 +76,16 @@ body {
 .repo-link{
     color: #454545;
     text-decoration: none !important;
+}
+
+.fork-link{
+    text-align: right;
+    font-size: 11px;
+}
+
+.fork-link img{
+    width: 15px;
+    height: auto;
 }
 
 .card-text {

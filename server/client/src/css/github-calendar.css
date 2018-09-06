@@ -123,8 +123,7 @@ h2.f4.text-normal.mb-3 {
 }
 
 h2.f4.text-normal.mb-2{
-    /*display: none;*/
-    background: #bbb;
+    background: #919191;
     padding: 5px 10px;
     border-radius: 4px;
     color: #fff;
@@ -141,4 +140,21 @@ h2.f4.text-normal.mb-2{
 
 .graph-before-activity-overview{
     border: none !important;
+}
+
+@media all and (max-width: 767px) {
+
+    h2.f4.text-normal.mb-2{
+        font-size: 11px;
+    }
+    .calendar-graph{
+        padding: 5px 20px 0;
+        height: 80px;
+    }
+    .contrib-footer{
+        width: inherit;
+    }
+    .contrib-legend{
+        display: none;
+    }
 }

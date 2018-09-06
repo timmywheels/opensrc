@@ -27,6 +27,7 @@ import Processing from '../img/processing.svg';
 import D from '../img/d-lang.svg';
 import Lua from '../img/lua-5.svg';
 import Matlab from '../img/matlab.svg';
+import GitHubFork from '../img/github-fork.svg';
 
 
 let languageCounts = {
@@ -236,13 +237,16 @@ function setRepoLanguageImg(repoLanguage) {
 }
 
 // Generate repo card element to the DOM
-function createRepoElement(username, repo, repoText, repoIssuesCount, langImg) {
+function createRepoElement(username, repo, repoText, repoIssuesCount, langImg, forks) {
     // Create html cards to be rendered on the DOM with
     const cardHtml = `
             <div class="col-lg-3 col-md-4 col-sm-6 card-block">
                 <div class="card">
                     <div class="card-body d-flex flex-column">
-                        <a class="repo-link" href="https://github.com/${username}/${repo}/" target="_blank"><h5 class="card-title">${repo}</h5></a>
+                        <div class="row">
+                            <a class="repo-link col-8" href="https://github.com/${username}/${repo}/" target="_blank"><h5 class="card-title">${repo}</h5></a>
+                            <p class="fork-link col-4"><img src="${GitHubFork}" alt="GitHub Fork Icon"/>${forks}</p>
+                        </div>
                         <p class="card-text">${repoText}</p>
                         <img class="language-img" src="${langImg}">
                         <a class="btn btn-primary mt-auto" target="_blank" href="https://github.com/${username}/${repo}/issues">${repoIssuesCount} Open Issues</a>
@@ -273,7 +277,19 @@ function trimRepoText(repo, repoText) {
     return repoText;
 }
 
-function getRepos(username, repo, repoText, repoUrl, repoIssuesCount, repoLanguage){
+// Trim number of forks
+function trimForkNumber(forks) {
+    forks = forks.toString();
+    if (forks.length === 3) {
+        return forks.substring(0, 2) + 'K'
+    }
+    else if (forks.length > 3) {
+        return forks.substring(0, 3) + 'K'
+    }
+    return forks;
+}
+
+function getRepos(username, repo, repoText, repoUrl, repoIssuesCount, repoLanguage, forks){
     // If repoText is null, add blank space
     if (repoText === null) {
         repoText = ' ';
@@ -284,8 +300,11 @@ function getRepos(username, repo, repoText, repoUrl, repoIssuesCount, repoLangua
         const repoDescription = trimRepoText(repo, repoText);
         // Get image fro repo language
         const langImg = setRepoLanguageImg(repoLanguage);
+        // Get repo forks count
+        const trimmedForkNum = trimForkNumber(forks);
+
         // Generate repo card element on DOM
-        createRepoElement(username, repo, repoDescription, repoIssuesCount, langImg);
+        createRepoElement(username, repo, repoDescription, repoIssuesCount, langImg, trimmedForkNum);
     }
 }
 
@@ -329,10 +348,10 @@ export function requestUserRepos(username) {
         for (let i in data) {
 
             // Destructure JSON data object to make more readable
-            const { name, description, html_url, open_issues, language, owner } = data[i];
+            const { name, description, html_url, open_issues, language, owner, forks } = data[i];
             const { login } = owner;
 
-            getRepos(login, name, description, html_url, open_issues, language);
+            getRepos(login, name, description, html_url, open_issues, language, forks);
             getRepoCount(login, data.length);
 
         }
