@@ -48,8 +48,8 @@ body {
     /*background: -webkit-linear-gradient(to top,#0072ff,#00c6ff);*/
     /*background: linear-gradient(to top,#0072ffd9,#00c6ffcc);*/
     /*border-bottom: 4px solid #006bde;*/
-    border: 2px solid #ccc;
-    color: #ccc;
+    border: 2px solid #aaa;
+    color: #aaa;
     background: none;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -57,7 +57,7 @@ body {
 }
 
 .issues:hover{
-    background: #ccc;
+    background: #aaa;
     color: #fff;
 }
 
@@ -82,7 +82,7 @@ body {
     display: block;
     width: 0;
     height: 5px;
-    background: #ccc;
+    background: #aaa;
     transition: width .5s;
     border-radius: 2px;
 }
@@ -176,9 +176,6 @@ body {
     background: #ff7175 !important;
     color: #fff !important;
 }
-
-
-
 
 .issues-sm-card:hover::after,
 .issues-md-card:hover::after,

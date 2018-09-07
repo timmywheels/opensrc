@@ -63,28 +63,29 @@ let openIssues = [];
 console.log(openIssues[99]);
 
 export function getRepoIssuesButtons() {
-	setTimeout(function() {
+	setTimeout(() => {
 		let buttons = document.querySelectorAll('.issues');
 		let cards = document.querySelectorAll('.card');
+		if (buttons) {
+			console.log('yep');
 
-		for (let i = 0; i < buttons.length; i++) {
-			if (openIssues[i] > 0 && openIssues[i] <= 10) {
-				buttons[i].classList.add('issues-sm');
-				cards[i].classList.add('issues-sm-card');
-			} else if (openIssues[i] > 10 && openIssues[i] <= 50) {
-				buttons[i].classList.add('issues-md');
-				cards[i].classList.add('issues-md-card');
-			} else if (openIssues[i] > 50 && openIssues[i] <= 100) {
-				buttons[i].classList.add('issues-lg');
-				cards[i].classList.add('issues-lg-card');
-			} else if (openIssues[i] > 100) {
-				buttons[i].classList.add('issues-xl');
-				cards[i].classList.add('issues-xl-card');
+			for (let i = 0; i < buttons.length; i++) {
+				if (openIssues[i] > 0 && openIssues[i] <= 10) {
+					buttons[i].classList.add('issues-sm');
+					cards[i].classList.add('issues-sm-card');
+				} else if (openIssues[i] > 10 && openIssues[i] <= 50) {
+					buttons[i].classList.add('issues-md');
+					cards[i].classList.add('issues-md-card');
+				} else if (openIssues[i] > 50 && openIssues[i] <= 100) {
+					buttons[i].classList.add('issues-lg');
+					cards[i].classList.add('issues-lg-card');
+				} else if (openIssues[i] > 100) {
+					buttons[i].classList.add('issues-xl');
+					cards[i].classList.add('issues-xl-card');
+				}
 			}
-
-			console.log('buttons[i]:', buttons[i]);
 		}
-	}, 750);
+	}, 1000);
 }
 
 // Get user github username
@@ -431,10 +432,15 @@ export function requestUserData(username) {
 export function requestUserRepos(username) {
 	const url = `https://api.github.com/users/${username}/repos?per_page=100`;
 	const xhr = new XMLHttpRequest();
+
 	xhr.open('GET', url, true);
-	xhr.onload = function() {
+	xhr.onload = async function() {
 		const data = JSON.parse(this.response);
 		// console.log(data);
+
+		if (data.message === 'Not Found') {
+			return;
+		}
 
 		// Loop through JSON data object
 		for (let i in data) {

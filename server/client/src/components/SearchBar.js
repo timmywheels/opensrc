@@ -7,8 +7,12 @@ const StyledForm = styled.form`
 	margin-top: 50px;
 
 	@media all and (max-width: 576px) {
-		input {
-			border-radius: 0 !important;
+		input#usernameInput {
+			border-radius: 0 0 4px 4px !important;
+			text-align: center;
+		}
+		input#submitBtn {
+			border-radius: 0 0 4px 4px !important;
 		}
 	}
 
