@@ -8,7 +8,7 @@ const StyledForm = styled.form`
 
 	@media all and (max-width: 576px) {
 		input#usernameInput {
-			border-radius: 0 0 4px 4px !important;
+			border-radius: 4px 4px 0 0 !important;
 			text-align: center;
 		}
 		input#submitBtn {
@@ -52,7 +52,7 @@ class SearchBar extends Component {
 						type="text"
 						id="usernameInput"
 						className={'form-control col-sm-9'}
-						placeholder="Search Github Username"
+						placeholder="Search GitHub Username"
 					/>
 					<input
 						type="submit"
