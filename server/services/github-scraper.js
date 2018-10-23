@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 const axios = require('axios');
-const keys = require("../config/keys");
+const keys = require('../config/keys');
 require('../models/TrendingRepos');
 
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
-const TrendingRepo = mongoose.model('trendingRepo')
+const TrendingRepo = mongoose.model('trendingRepo');
 mongoose.Promise = global.Promise;
 
 mongoose.connect(
@@ -24,7 +24,7 @@ mongoose.connect(
 );
 
 axios.get('https://github.com/trending').then(
-		res => {
+	res => {
 		if (res.status === 200) {
 			const html = res.data;
 			const dom = new JSDOM(html);
@@ -51,7 +51,7 @@ axios.get('https://github.com/trending').then(
 				obj.starCount = repoStarCountArr[i].textContent.trim();
 				obj.date = new Date().toLocaleString();
 				data.push(obj);
-				console.log(obj)
+				console.log(obj);
 
 				const trendingRepo = new TrendingRepo({
 					repoName: repoTitleArr[i].textContent.trim(),
@@ -59,7 +59,7 @@ axios.get('https://github.com/trending').then(
 					repoRank: rank++,
 					starCount: repoStarCountArr[i].textContent.trim(),
 					date: new Date().toLocaleString()
-				})
+				});
 				trendingRepo.save();
 				obj = {};
 			}
@@ -68,14 +68,9 @@ axios.get('https://github.com/trending').then(
 				console.log(data[i]);
 			}
 		}
-
 	},
 	err => console.log(err)
-
 );
-
-
-
 
 //
 // let repoDesc = document.querySelectorAll('.repo-list .py-1 p');
