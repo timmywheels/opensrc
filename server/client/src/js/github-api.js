@@ -357,7 +357,7 @@ function trimRepoText(repo, repoText) {
 // Trim number of forks
 function trimForkNumber(forks) {
 	forks = forks.toString();
-	if (forks.length === 3) {
+	if (forks.length === 5) {
 		return forks.substring(0, 2) + 'K';
 	} else if (forks.length > 3) {
 		return forks.substring(0, 3) + 'K';
@@ -436,7 +436,7 @@ export function requestUserRepos(username) {
 	xhr.open('GET', url, true);
 	xhr.onload = async function() {
 		const data = JSON.parse(this.response);
-		// console.log(data);
+		console.log(data);
 
 		if (data.message === 'Not Found') {
 			return;
