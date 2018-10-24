@@ -9,4 +9,5 @@ const trendingRepoSchema = new Schema({
 	date: Date
 });
 
+// module.exports = trendingRepoSchema;
 mongoose.model('trendingRepo', trendingRepoSchema);
