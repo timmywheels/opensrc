@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b490b26-ed89-4aaf-9ec8-c4fec3a3bf32" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/server/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/client/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/client/services/TrendingRepos.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/client/services/TrendingRepos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/client/src/actions/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/client/src/actions/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/client/src/actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/client/src/actions/types.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/client/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/client/src/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/client/src/components/Hero.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/client/src/components/Hero.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/client/src/components/views/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/client/src/components/views/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/client/src/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/server/client/src/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/client/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/client/src/reducers/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/client/src/reducers/trendingReposReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/client/src/reducers/trendingReposReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/trendingRepoRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/trendingRepoRoutes.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -81,7 +69,7 @@
         <entry file="file://$PROJECT_DIR$/server/client/src/components/TrendingRepos.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="377">
-              <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+              <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
               <folding>
                 <element signature="e#71#109#0" expanded="true" />
               </folding>
@@ -102,7 +90,7 @@
         <entry file="file://$PROJECT_DIR$/server/client/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="322">
-              <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+              <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -110,8 +98,8 @@
       <file leaf-file-name="Header.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/client/src/components/Header.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+            <state relative-caret-position="306">
+              <caret line="54" column="37" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -349,7 +337,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123189000" />
+    <option name="totallyTimeSpent" value="123793000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -362,6 +350,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1229" height="1026" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25745034" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -725,7 +714,7 @@
     <entry file="file://$PROJECT_DIR$/server/client/src/components/TrendingRepos.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="377">
-          <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
           <folding>
             <element signature="e#71#109#0" expanded="true" />
           </folding>
@@ -749,14 +738,14 @@
     <entry file="file://$PROJECT_DIR$/server/client/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
-          <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/client/src/components/Header.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+        <state relative-caret-position="306">
+          <caret line="54" column="37" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="37" />
         </state>
       </provider>
     </entry>
