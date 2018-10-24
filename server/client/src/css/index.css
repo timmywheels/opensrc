@@ -2,7 +2,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Heebo', sans-serif;
     background: url("../img/geometry.png") repeat fixed;
 }
 
@@ -111,9 +111,10 @@ body {
 }
 
 .card-text {
+    font-family: Nunito, sans-serif;
     font-size: 14px;
     overflow: scroll;
-    max-height: 165px;
+    max-height: 125px;
 }
 
 .issue-count {

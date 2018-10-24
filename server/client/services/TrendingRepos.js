@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const keys = require("../../../server/config/keys");
+const keys = require('../../../server/config/keys');
 require('../../models/TrendingRepos');
 
 const TrendingRepo = mongoose.model('trendingRepo');
@@ -24,16 +24,15 @@ TrendingRepo.find((err, trendingRepos) => {
 	if (err) return console.log(err);
 	// arr.push(trendingRepos)
 	// console.log(trendingRepos);
-	}).limit(25)
-	.sort({repoRank: 'asc'})
+})
+	.limit(25)
+	.sort({ repoRank: 'asc' })
 	.then(repo => {
 		repo.map(item => {
 			trendingRepoArr.push(item);
 			console.log('trendingRepoArr:', trendingRepoArr);
-		})
-	}).catch(error => {
-	console.log(`Error: ${error}`)
-});
-
-
-
+		});
+	})
+	.catch(error => {
+		console.log(`Error: ${error}`);
+	});

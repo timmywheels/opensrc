@@ -47,13 +47,14 @@ class Header extends Component {
 	};
 
 	listenScrollEvent = e => {
-		if (window.scrollY > 100) {
+		if (window.scrollY > 350) {
 			this.setState({
-				borderBottom: '3px solid #0165f5',
-				boxShadow: '#0072ff 0px 0px 15px',
-				background: '#00c6ff',
-				background: '-webkit-linear-gradient(to top,#0072ff,#00c6ff)',
-				background: 'linear-gradient(to top,#0072ff,#00c6ff)'
+				// borderBottom: '3px solid #0165f5',
+				boxShadow: 'rgb(170, 170, 170) 0px 1px 5px',
+				// boxShadow: '#0072ff 0px 0px 15px',
+				background: '#00a1ff'
+				// background: '-webkit-linear-gradient(to top,#0072ff,#00c6ff)',
+				// background: 'linear-gradient(to top,#0072ff,#00c6ff)'
 			});
 		} else {
 			this.setState({

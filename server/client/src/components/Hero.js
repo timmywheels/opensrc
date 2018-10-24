@@ -30,7 +30,7 @@ const HeroOverlay = styled.div`
 	h1 {
 		color: #fff;
 		padding-top: 50px;
-		font-weight: 100;
+		font-weight: 500;
 	}
 
 	p {

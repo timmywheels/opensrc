@@ -5,8 +5,7 @@ import Home from './components/views/Home';
 import * as actions from './actions';
 
 class App extends Component {
-
-	componentDidMount(){
+	componentDidMount() {
 		this.props.fetchTrendingRepos();
 	}
 
