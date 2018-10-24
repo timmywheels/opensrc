@@ -21,6 +21,8 @@ mongoose.connect(
   }
 );
 
+require('./routes/trendingRepoRoutes')(app);
+
 if (process.env.NODE_ENV === "production") {
   // Express will serve up production assets
   // Like main.js or main.css

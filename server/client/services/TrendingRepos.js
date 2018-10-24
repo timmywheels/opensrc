@@ -18,11 +18,22 @@ mongoose.connect(
 	}
 );
 
-// const arr = [];
+const trendingRepoArr = [];
 
 TrendingRepo.find((err, trendingRepos) => {
-	if (err) return handleError(err);
+	if (err) return console.log(err);
 	// arr.push(trendingRepos)
-	console.log(trendingRepos);
-}).limit(25).sort({repoRank: 'asc'});
+	// console.log(trendingRepos);
+	}).limit(25)
+	.sort({repoRank: 'asc'})
+	.then(repo => {
+		repo.map(item => {
+			trendingRepoArr.push(item);
+			console.log('trendingRepoArr:', trendingRepoArr);
+		})
+	}).catch(error => {
+	console.log(`Error: ${error}`)
+});
+
+
 

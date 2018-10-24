@@ -3,6 +3,11 @@
   "description": "A MERN stack boilerplate",
   "version": "0.1.0",
   "private": true,
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:5000"
+    }
+  },
   "dependencies": {
     "@babel/runtime": "^7.0.0",
     "@huchenme/github-trending": "^1.2.1",
@@ -12,8 +17,11 @@
     "octicons": "^8.1.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.5",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "request": "^2.88.0",
     "styled-components": "^3.4.5"
   },
