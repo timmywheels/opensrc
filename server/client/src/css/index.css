@@ -1,27 +1,27 @@
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Nunito', sans-serif;
-  background: url("../img/geometry.png") repeat fixed;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    background: url("../img/geometry.png") repeat fixed;
 }
 
 #user-section,
 #latest-projects-title,
-#language-counts{
+#language-counts {
     display: none;
 }
 
-#username{
+#username {
     font-weight: 700;
     color: #555;
 }
 
-#bio-text{
+#bio-text {
     color: #777;
 }
 
-#language-counts{
+#language-counts {
     list-style: none;
     text-align: center;
     padding: 0;
@@ -42,7 +42,7 @@ body {
     font-size: 12px;
 }
 
-.issues{
+.issues {
     /*border: none;*/
     /*background: #00c6ff;*/
     /*background: -webkit-linear-gradient(to top,#0072ff,#00c6ff);*/
@@ -56,28 +56,27 @@ body {
     font-size: 14px;
 }
 
-.issues:hover{
+.issues:hover {
     background: #aaa;
     color: #fff;
 }
 
-
 .card {
-  min-height: 300px;
-  margin-bottom: 25px;
-  color: #696969;
-  box-shadow: 2px 2px 15px 0 #33333333;
-  transition: box-shadow 0.2s ease-in-out;
+    min-height: 300px;
+    margin-bottom: 25px;
+    color: #696969;
+    box-shadow: 2px 2px 15px 0 #33333333;
+    transition: box-shadow 0.2s ease-in-out;
     /*background: -webkit-linear-gradient(to bottom right, #ffffff, #f9f9f9);*/
     /*background: linear-gradient(to bottom right, #ffffff, #f9f9f9);*/
 }
 
-.card:hover{
-  box-shadow: 2px 2px 6px 0 #33333333;
-  transition: box-shadow 0.2s ease-in-out;
+.card:hover {
+    box-shadow: 2px 2px 6px 0 #33333333;
+    transition: box-shadow 0.2s ease-in-out;
 }
 
-.card::after{
+.card::after {
     content: '';
     display: block;
     width: 0;
@@ -87,49 +86,50 @@ body {
     border-radius: 2px;
 }
 
-.card:hover::after{
+.card:hover::after {
     width: 100%;
 }
 
-
-.card-title{
-  font-size: 18px;
-  font-weight: 700;
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
 }
 
-.repo-link{
+.repo-link {
     color: #454545;
     text-decoration: none !important;
 }
 
-.fork-link{
+.fork-link {
     text-align: right;
     font-size: 11px;
 }
 
-.fork-link img{
+.fork-link img {
     width: 15px;
     height: auto;
 }
 
 .card-text {
-  font-size: 14px;
+    font-size: 14px;
+    overflow: scroll;
+    max-height: 165px;
 }
 
-.issue-count{
-  text-align: center;
-  font-size: 12px;
-  font-style: italic;
-  margin-top: 10px;
+.issue-count {
+    text-align: center;
+    font-size: 12px;
+    font-style: italic;
+    margin-top: 10px;
 }
 
-.language-img{
-  height: 100px;
-  width: 100px;
-  margin: auto;
+.language-img {
+    height: 100px;
+    width: 100px;
+    margin: auto;
 }
 
-.badge-warning{
+.badge-warning {
     background-color: #fff;
 }
 
@@ -155,7 +155,7 @@ body {
     color: #fff !important;
 }
 
-.issues-lg{
+.issues-lg {
     border: 2px solid #ffc171 !important;
     color: #ffc171 !important;
     background: none !important;
@@ -166,7 +166,7 @@ body {
     color: #fff !important;
 }
 
-.issues-xl{
+.issues-xl {
     border: 2px solid #ff7175 !important;
     color: #ff7175 !important;
     background: none !important;
@@ -180,22 +180,22 @@ body {
 .issues-sm-card:hover::after,
 .issues-md-card:hover::after,
 .issues-lg-card:hover::after,
-.issues-xl-card:hover::after{
+.issues-xl-card:hover::after {
     width: 100%;
 }
 
-.issues-sm-card::after{
+.issues-sm-card::after {
     background: #86d07a;
 }
 
-.issues-md-card::after{
+.issues-md-card::after {
     background: #7ab0d0;
 }
 
-.issues-lg-card::after{
+.issues-lg-card::after {
     background: #ffc171;
 }
 
-.issues-xl-card::after{
+.issues-xl-card::after {
     background: #ff7175;
 }
