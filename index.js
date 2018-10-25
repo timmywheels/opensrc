@@ -24,6 +24,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 require('./routes/trendingRepoRoutes')(app);
 
+app.get('/user/:username', (req, res) => {
+	console.log('req.query:', req.query)
+	console.log('req.params:', req.params)
+	const { username } = req.params;
+	res.send(`<h1>${username}</h1>`)
+})
+
+
+
 if (process.env.NODE_ENV === 'production') {
 	// Express will serve up production assets
 	// Like main.js or main.css

@@ -9,9 +9,9 @@ class TrendingRepos extends Component {
 	}
 
 	renderTrendingRepos() {
-		return this.props.trending.map(repo => {
+		return this.props.trending.map((repo, key) => {
 			return (
-				<div className={'col-lg-3 col-md-4 col-sm-6 card-block'}>
+				<div className={'col-lg-3 col-md-4 col-sm-6 card-block'} key={key}>
 					<div className={'card'}>
 						<div className={'card-body d-flex flex-column'}>
 							<div className={'row'}>

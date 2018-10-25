@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import styled from 'styled-components';
 
 const StyledForm = styled.form`
@@ -44,14 +44,37 @@ const StyledForm = styled.form`
 `;
 
 class SearchBar extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			username: ''
+		};
+
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
+	handleSubmit() {
+		this.setState({
+			username: this.state.username
+		})
+	}
+	handleChange(e) {
+		this.setState({
+			username: e.target.value
+		});
+		console.log(e.target.value);
+	}
+
 	render() {
 		return (
 			<div className={'col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12'}>
-				<StyledForm className={'form-inline'} id="usernameForm" action="">
+				<StyledForm onSubmit={this.handleSubmit} className={'form-inline'} id={"usernameForm"} name="username" action={`/user/${this.state.username}`}>
 					<input
 						type="text"
 						id="usernameInput"
 						className={'form-control col-sm-9'}
+						value={this.state.username}
+						onChange={this.handleChange}
 						placeholder="Search GitHub Username"
 					/>
 					<input

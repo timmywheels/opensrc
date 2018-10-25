@@ -6,6 +6,9 @@
   "proxy": {
     "/api/*": {
       "target": "http://localhost:5000"
+    },
+    "/user/:username": {
+      "target": "http://localhost:5000"
     }
   },
   "dependencies": {

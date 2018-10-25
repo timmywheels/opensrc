@@ -11,31 +11,31 @@ class Home extends Component {
 	componentDidMount() {
 		this.props.fetchTrendingRepos();
 		// console.log('trending:',this.props.trending);
-		const usernameForm = document.getElementById('usernameForm');
-		usernameForm.addEventListener('click', e => {
-			e.preventDefault();
-			if (e.target.id === 'submitBtn') {
-				// Reset user DOM items
-				document.getElementById('latest-projects').innerHTML = '';
-				let userBlog = document.getElementById('user-blog');
-				let userLocation = document.getElementById('user-location');
-
-				if (!userBlog) {
-					userBlog.innerText = '';
-				}
-
-				if (!userLocation) {
-					userLocation.innerText = '';
-				}
-
-				let username = document.getElementById('usernameInput').value;
-				if (username) {
-					api.requestUserData(username);
-					api.requestUserRepos(username);
-					api.getRepoIssuesButtons();
-				}
-			}
-		});
+		// const usernameForm = document.getElementById('usernameForm');
+		// usernameForm.addEventListener('click', e => {
+		// 	e.preventDefault();
+		// 	if (e.target.id === 'submitBtn') {
+		// 		// Reset user DOM items
+		// 		document.getElementById('latest-projects').innerHTML = '';
+		// 		let userBlog = document.getElementById('user-blog');
+		// 		let userLocation = document.getElementById('user-location');
+		//
+		// 		if (!userBlog) {
+		// 			userBlog.innerText = '';
+		// 		}
+		//
+		// 		if (!userLocation) {
+		// 			userLocation.innerText = '';
+		// 		}
+		//
+		// 		let username = document.getElementById('usernameInput').value;
+		// 		if (username) {
+		// 			api.requestUserData(username);
+		// 			api.requestUserRepos(username);
+		// 			api.getRepoIssuesButtons();
+		// 		}
+		// 	}
+		// });
 	}
 
 	// renderTrendingRepos() {
