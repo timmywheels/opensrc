@@ -34,8 +34,8 @@ if (process.env.NODE_ENV === 'production') {
 	// If it doesn't recognize route
 
 	app.get('*', (req, res) => {
-		// res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-		res.sendFile(path.join(__dirname, 'index.html'));
+		res.sendFile(path.resolve(__dirname, '/client', '/build', 'index.html'));
+		// res.sendFile(path.join(__dirname, 'index.html'));
 	});
 
 }
