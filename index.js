@@ -9,7 +9,7 @@ require('./models/TrendingRepos');
 
 mongoose.connect(
 	keys.mongo,
-	{ useNewUrlParser: true },
+	{useNewUrlParser: true},
 	(err, db) => {
 		if (err) {
 			console.log(err);
@@ -20,7 +20,7 @@ mongoose.connect(
 );
 
 app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 
 require('./routes/trendingRepoRoutes')(app);
 
