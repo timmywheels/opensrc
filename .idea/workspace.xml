@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8b490b26-ed89-4aaf-9ec8-c4fec3a3bf32" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/client/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="8b490b26-ed89-4aaf-9ec8-c4fec3a3bf32" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -100,7 +97,7 @@
         <entry file="file://$PROJECT_DIR$/server/client/src/components/Header.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="277">
-              <caret line="51" column="53" lean-forward="true" selection-start-line="51" selection-start-column="53" selection-end-line="51" selection-end-column="53" />
+              <caret line="51" column="53" selection-start-line="51" selection-start-column="53" selection-end-line="51" selection-end-column="53" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -112,7 +109,7 @@
         <entry file="file://$PROJECT_DIR$/server/client/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="218">
-              <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+              <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -126,11 +123,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="prod.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="prod.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/config/prod.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="14">
               <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -164,7 +175,6 @@
         <option value="$PROJECT_DIR$/server/client/src/js/githubApi.js" />
         <option value="$PROJECT_DIR$/server/client/src/css/App.css" />
         <option value="$PROJECT_DIR$/server/client/src/css/bootstrap-grid.css" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/server/README.md" />
         <option value="$PROJECT_DIR$/server/client/src/components/Form.js" />
         <option value="$PROJECT_DIR$/server/client/src/js/github-calendar.min.js" />
@@ -201,6 +211,7 @@
         <option value="$PROJECT_DIR$/server/client/public/index.html" />
         <option value="$PROJECT_DIR$/server/client/src/components/Header.js" />
         <option value="$PROJECT_DIR$/server/client/package.json" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -222,6 +233,7 @@
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
+      <path value="$PROJECT_DIR$/package.json" />
       <path value="$PROJECT_DIR$/server/client/package.json" />
       <path value="$PROJECT_DIR$/server/package.json" />
     </packageJsonPaths>
@@ -244,60 +256,6 @@
             <path>
               <item name="opensrc" type="b2602c69:ProjectViewProjectNode" />
               <item name="opensrc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="opensrc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="opensrc" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="opensrc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="opensrc" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="opensrc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="opensrc" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="opensrc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="opensrc" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="opensrc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="opensrc" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="opensrc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="opensrc" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="opensrc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="opensrc" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="opensrc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="opensrc" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -374,7 +332,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124201000" />
+    <option name="totallyTimeSpent" value="124621000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -387,15 +345,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1229" height="1026" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25745034" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25745034" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32962963" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3654661" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.33734939" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.33734939" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -471,9 +430,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/client/src/registerServiceWorker.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/client/src/components/Mern.js" />
     <entry file="file://$PROJECT_DIR$/server/client/src/js/githubApi.js" />
     <entry file="file://$PROJECT_DIR$/server/client/src/css/App.css" />
@@ -491,7 +447,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore" />
     <entry file="file://$PROJECT_DIR$/server/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -765,7 +720,7 @@
     <entry file="file://$PROJECT_DIR$/server/client/src/components/Header.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
-          <caret line="51" column="53" lean-forward="true" selection-start-line="51" selection-start-column="53" selection-end-line="51" selection-end-column="53" />
+          <caret line="51" column="53" selection-start-line="51" selection-start-column="53" selection-end-line="51" selection-end-column="53" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -775,7 +730,17 @@
     <entry file="file://$PROJECT_DIR$/server/client/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
-          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
         </state>
       </provider>
     </entry>

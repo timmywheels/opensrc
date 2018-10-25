@@ -1,0 +1,19 @@
+{
+  "name": "opensrc",
+  "version": "1.0.0",
+  "description": "### Contribute To Something Great.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timwheelercom/opensrc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timwheelercom/opensrc/issues"
+  },
+  "homepage": "https://github.com/timwheelercom/opensrc#readme"
+}
