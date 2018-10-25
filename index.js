@@ -25,9 +25,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 require('./routes/trendingRepoRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
-	console.log('dirname:', __dirname)
-	console.log('__dirname ext:', __dirname + 'client/build/index.html')
-
 	// Express will serve up production assets
 	// Like main.js or main.css
 	app.use(express.static('client/build'));
@@ -37,7 +34,7 @@ if (process.env.NODE_ENV === 'production') {
 	// If it doesn't recognize route
 
 	app.get('*', (req, res) => {
-		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+		res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 	});
 
 }
