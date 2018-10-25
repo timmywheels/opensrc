@@ -1,12 +1,10 @@
 const express = require('express');
-const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 require('./models/TrendingRepos');
 
-// mongoose.Promise = global.Promise;
-
+mongoose.Promise = global.Promise;
 mongoose.connect(
 	keys.mongo,
 	{useNewUrlParser: true},
@@ -19,12 +17,17 @@ mongoose.connect(
 	}
 );
 
+const app = express();
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 require('./routes/trendingRepoRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
+	console.log('dirname:', __dirname)
+	console.log('__dirname ext:', __dirname + 'client/build/index.html')
+
 	// Express will serve up production assets
 	// Like main.js or main.css
 	app.use(express.static('client/build'));
@@ -33,9 +36,9 @@ if (process.env.NODE_ENV === 'production') {
 	// Express will serve up index.html
 	// If it doesn't recognize route
 
-	// app.get('*', (req, res) => {
-	// 	res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-	// });
+	app.get('*', (req, res) => {
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+	});
 
 }
 
