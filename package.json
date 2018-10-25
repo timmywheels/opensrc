@@ -1,19 +1,30 @@
 {
-  "name": "opensrc",
+  "name": "mern-boilerplate",
   "version": "1.0.0",
-  "description": "### Contribute To Something Great.",
+  "description": "A MERN stack boilerplate",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "engines": {
+    "node": "8.1.1",
+    "npm": "5.0.3"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/timwheelercom/opensrc.git"
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"nodemon index.js \" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/timwheelercom/opensrc/issues"
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "jsdom": "^12.2.0",
+    "mongoose": "^5.2.3",
+    "nodemon": "^1.18.2",
+    "path-parser": "^4.2.0"
   },
-  "homepage": "https://github.com/timwheelercom/opensrc#readme"
+  "devDependencies": {
+    "concurrently": "^4.0.1"
+  }
 }
