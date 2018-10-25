@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 require('./models/TrendingRepos');
 
-mongoose.Promise = global.Promise;
+// mongoose.Promise = global.Promise;
 
 mongoose.connect(
 	keys.mongo,
@@ -20,7 +20,7 @@ mongoose.connect(
 );
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 require('./routes/trendingRepoRoutes')(app);
 
@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === 'production') {
 	// Like main.js or main.css
 	app.use(express.static('client/build'));
 
-	const path = require('path').default;
+	const path = require('path');
 
 	// Express will serve up index.html
 	// If it doesn't recognize route
