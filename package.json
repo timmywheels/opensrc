@@ -1,7 +1,7 @@
 {
-  "name": "mern-boilerplate",
+  "name": "opensrc",
   "version": "1.0.0",
-  "description": "A MERN stack boilerplate",
+  "description": "A project aiming to increase contributions to the open source community",
   "main": "index.js",
   "engines": {
     "node": "8.1.1",

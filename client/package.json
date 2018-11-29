@@ -1,6 +1,6 @@
 {
-  "name": "mern-boilerplate",
-  "description": "A MERN stack boilerplate",
+  "name": "opensrc",
+  "description": "A project aiming to increase contributions to the open source community",
   "version": "0.1.0",
   "private": true,
   "proxy": {
