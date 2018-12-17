@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
+import * as api from '../js/github-api';
+
 
 const StyledForm = styled.form`
 	background: #dddddd80;
@@ -43,48 +45,66 @@ const StyledForm = styled.form`
 	}
 `;
 
+let username = '';
+
 class SearchBar extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			username: ''
 		};
-
 		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
 	}
-	handleSubmit() {
-		this.setState({
-			username: this.state.username
-		})
+
+	handleSubmit(e) {
+		// e.preventDefault()
+		console.log("SearchBar Props yo:", this.props)
+		this.props.onChange(e.target.value);
+		// let data;
+		// fetch(`/user/${this.state.username}`, {
+		// 	method: 'POST',
+		// 	body: data,
+		// });
+		// console.log('dat data', data)
+
 	}
+
 	handleChange(e) {
-		this.setState({
-			username: e.target.value
-		});
-		console.log(e.target.value);
+		username = e.target.value
+		this.props.onChange(username);
+		console.log('log', this.props.onChange(username))
 	}
+
+	static fetchData() {
+		console.log('apiiii', api.requestUserData(username));
+		api.requestUserRepos(username);
+		api.getRepoIssuesButtons();
+	}
+
 
 	render() {
+		console.log("SearchBar Props:", this.props)
 		return (
-			<div className={'col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12'}>
-				<StyledForm onSubmit={this.handleSubmit} className={'form-inline'} id={"usernameForm"} name="username" action={`/user/${this.state.username}`}>
-					<input
-						type="text"
-						id="usernameInput"
-						className={'form-control col-sm-9'}
-						value={this.state.username}
-						onChange={this.handleChange}
-						placeholder="Search GitHub Username"
-					/>
-					<input
-						type="submit"
-						id="submitBtn"
-						className={'btn btn-success col-sm-3'}
-						value="SEARCH"
-					/>
-				</StyledForm>
-			</div>
+				<div className={'col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12'}>
+					<StyledForm onSubmit={() => {
+						this.handleSubmit();
+						SearchBar.fetchData()
+					}} className={'form-inline'} id={"usernameForm"} name={"username"} action={this.props.action}>
+						<input
+							type="text"
+							id="usernameInput"
+							className={'form-control col-sm-9'}
+							onChange={this.handleChange}
+							placeholder="Search GitHub Username"
+						/>
+						<input
+							type="submit"
+							id="submitBtn"
+							className={'btn btn-success col-sm-3'}
+							value="SEARCH"
+						/>
+					</StyledForm>
+				</div>
 		);
 	}
 }

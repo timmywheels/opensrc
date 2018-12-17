@@ -23,12 +23,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 require('./routes/trendingRepoRoutes')(app);
+require('./routes/userRepoRoutes')(app);
 
 app.get('/user/:username', (req, res) => {
 	console.log('req.query:', req.query)
 	console.log('req.params:', req.params)
 	const { username } = req.params;
-	res.send(`<h1>${username}</h1>`)
+	console.log('username from index.js:', username)
+	// res.send(`<h1>${username}</h1>`)
+	res.sendFile('./client/src/components/views/User');
 })
 
 

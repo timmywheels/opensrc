@@ -7,7 +7,6 @@ import './css/bootstrap.min.css';
 import './css/bootstrap-grid.min.css';
 import './css/index.css';
 import './css/github-calendar.css';
-
 import App from './App';
 import reducers from './reducers';
 import registerServiceWorker from './registerServiceWorker';

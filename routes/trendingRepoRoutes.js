@@ -6,7 +6,7 @@ module.exports = app => {
 	app.get('/api/trending', async (req, res) => {
 		const trending = await TrendingRepos.find()
 			.limit(25)
-			.sort('desc');
+			.sort('asc');
 		res.send(trending);
 	});
 };

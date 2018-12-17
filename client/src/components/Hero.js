@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import styled from 'styled-components';
 import SearchBar from './SearchBar';
 import Background from '../img/opensrc-waves-bg.jpg';
@@ -41,15 +41,32 @@ const HeroOverlay = styled.div`
 `;
 
 class Hero extends Component {
+	// constructor(props) {
+	// 	super(props);
+	// 	this.state = {
+	// 		username: '',
+	// 	}
+	// 	this.handleUser = this.handleUser.bind(this)
+	// }
+	//
+	// handleUser = (username) => {
+	// 	this.setState({username})
+	// 	console.log("STATE FROM HERO:", this.state)
+	// }
+
+
 	render() {
+		// const user = this.state.username;
+		// const route = `/user/${this.state.username}`;
+		console.log("Hero Props:", this.props)
 		return (
 			<HeroSection>
 				<HeroOverlay>
 					<h1>Contribute to Something Great.</h1>
-					<p>Get started in the open source software community today!</p>
-					<SearchBar />
+					<div>Username:{this.props.user}</div>
+					<SearchBar testProp={this.props.testProp} user={this.props.user} onChange={this.props.onChange} onSubmit={this.props.onSubmit} action={this.props.action}/>
 				</HeroOverlay>
-				<WavesDivider />
+				<WavesDivider/>
 			</HeroSection>
 		);
 	}

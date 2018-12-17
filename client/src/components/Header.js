@@ -81,7 +81,7 @@ class Header extends Component {
 				<a href={'/'}>
 					<LogoText>opensrc</LogoText>
 				</a>
-				<button className={'btn btn-success float-right mt-2 mr-4'}><a href="/auth/github">Login With GitHub</a></button>
+				{/*<button className={'btn btn-success float-right mt-2 mr-4'}><a href="/auth/github">Login With GitHub</a></button>*/}
 				<NavMenu />
 			</HeaderSection>
 		);

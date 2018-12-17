@@ -7,6 +7,6 @@ module.exports = app => {
 		const username = await TrendingRepos.find()
 			.limit(25)
 			.sort('desc');
-		res.send(trending);
+		res.send(username);
 	});
 };

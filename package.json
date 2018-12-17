@@ -23,6 +23,7 @@
     "jsdom": "^12.2.0",
     "mongoose": "^5.2.3",
     "nodemon": "^1.18.2",
+    "passport": "^0.4.0",
     "path": "^0.12.7",
     "path-parser": "^4.2.0"
   },
