@@ -20,10 +20,10 @@ class Home extends Component {
 				<Header />
 				<Hero />
 				<div className="container">
-					<h3>Data: {UserData}</h3>
+					{/*<h3>{UserData}</h3>*/}
 					<UserData/>
-					<MainContent />
-					<TrendingRepos />
+					{/*<MainContent />*/}
+					{/*<TrendingRepos />*/}
 				</div>
 			</div>
 		);

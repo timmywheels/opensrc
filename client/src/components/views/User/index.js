@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import View from './View';
 import user from './getData';
 
 export default class extends Component {
@@ -9,19 +10,13 @@ export default class extends Component {
 
 	render() {
 		const userData = Object.entries(user).map(([key, val], i) => {
-			if (key !== 'repos'){
-				return <div key={'key-'+ i}>{`${key}: ${val}`}</div>;
+			if (key !== 'repos') {
+				return <div key={'key-' + i}>{`${key}: ${val}`}</div>;
 			}
 		});
 
 		return (
-			<div>
-				<div>
-					<h3>User Component</h3>
-					<p>{userData}</p>
-				</div>
-			</div>
-
+			<View {...this.props} {...this.state} />
 		)
 	}
 }
