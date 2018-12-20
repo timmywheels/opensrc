@@ -48,13 +48,13 @@ const StyledForm = styled.form`
 let username = '';
 
 class SearchBar extends Component {
-	// constructor(props) {
-	// 	super(props);
-	// 	this.state = {
-	// 		username: ''
-	// 	};
-	// 	this.handleChange = this.handleChange.bind(this);
-	// }
+	constructor(props) {
+		super(props);
+		this.state = {
+			username: ''
+		};
+		this.handleChange = this.handleChange.bind(this);
+	}
 
 	handleSubmit = (e) => {
 		console.log("PARAMERTERS>>>:", this.props.match.params)

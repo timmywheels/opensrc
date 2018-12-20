@@ -63,8 +63,8 @@ class Hero extends Component {
 			<HeroSection>
 				<HeroOverlay>
 					<h1>Contribute to Something Great.</h1>
-					<div>Username:{this.props.user.username}</div>
-					<SearchBar user={this.props.user.username} onChange={this.props.onChange} onSubmit={this.props.onSubmit} action={this.props.action}/>
+					<div>Username:{this.props.user}</div>
+					<SearchBar user={this.props.user} onChange={this.props.onChange} onSubmit={this.props.onSubmit} action={this.props.action}/>
 				</HeroOverlay>
 				<WavesDivider/>
 			</HeroSection>
