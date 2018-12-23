@@ -18,7 +18,8 @@ const getUserData = async (username) => {
 		user.html_url = html_url;
 		user.type = type;
 		user.location = location;
-		user.blog = blog
+		user.blog = blog;
+
 
 		console.log("User:", user);
 
