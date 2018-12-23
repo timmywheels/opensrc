@@ -1,10 +1,13 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import UserRepos from './UserRepos';
 
 class View extends Component{
 	render(){
-		console.log('propz:',this.props)
+		console.log('View.js Props:',this.props);
 		return(
-			<div>VIEW</div>
+			<div>
+				<UserRepos user={this.props.user}/>
+			</div>
 		)
 	}
 }

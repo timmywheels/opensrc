@@ -1,18 +1,6 @@
 import React, { Component } from 'react';
-import * as api from '../js/github-api';
-// import { connect } from 'react-redux';
-// import { fetchUserRepos } from '../actions';
 
 class UserRepos extends Component {
-	componentDidMount() {
-		// let { user } = this.props;
-		// this.props.fetchUserRepos();
-		// api.requestUserData(user);
-		// api.requestUserRepos(user);
-		// api.getRepoIssuesButtons();
-		console.log('propsSsssS:',this.props)
-	}
-
 
 
 	renderUserRepos() {
@@ -41,6 +29,7 @@ class UserRepos extends Component {
 	}
 
 	render() {
+		console.log("UserRepos.js props", this.props);
 		return (
 			<div>
 				<h2 className={'text-center mt-5 mb-5'}>User Projects</h2>
