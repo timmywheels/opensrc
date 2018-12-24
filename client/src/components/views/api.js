@@ -1,4 +1,4 @@
-import keys from "../../config/dev";
+import keys from "../../config/keys";
 
 export const user = {
 	repos: []
