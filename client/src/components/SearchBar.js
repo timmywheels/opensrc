@@ -53,38 +53,39 @@ class SearchBar extends Component {
 		e.preventDefault();
 		// console.log("PARAMETERS>>>:", this.props.match.params);
 		// console.log("SearchBar Props yo:", this.props);
-		this.props.onSubmit(e.target.value);
-		this.props.history.push(`/user/${e.target.value}`);
-		console.log('')
+		// console.log("handleSubmit:", e.target.value)
+		this.props.onSubmit(this.props.username);
+		this.props.history.push(`/user/${this.props.username}`);
 
 	};
 
 	handleChange = (e) => {
 		this.props.onChange(e.target.value);
-		console.log("change:", e.target.value)
+		this.props.onSubmit(e.target.value);
+		console.log("handleChange:", e.target.value)
 	};
 
 	render() {
 		console.log("SearchBar.js Props:", this.props);
 		return (
-				<div className={'col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12'}>
-					{/*<StyledForm onSubmit={this.handleSubmit} className={'form-inline'} id={"usernameForm"} name={"username"} action={this.props.action}>*/}
-                    <StyledForm onSubmit={this.handleSubmit} className={'form-inline'} id={"usernameForm"} name={"username"}>
-						<input
-							type="text"
-							id="usernameInput"
-							className={'form-control col-sm-9'}
-							onChange={this.handleChange}
-							placeholder="Search GitHub Username"
-						/>
-						<input
-							type="submit"
-							id="submitBtn"
-							className={'btn btn-success col-sm-3'}
-							value="SEARCH"
-						/>
-					</StyledForm>
-				</div>
+			<div className={'col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12'}>
+				{/*<StyledForm onSubmit={this.handleSubmit} className={'form-inline'} id={"usernameForm"} name={"username"} action={this.props.action}>*/}
+				<StyledForm onSubmit={this.handleSubmit} className={'form-inline'} id={"usernameForm"} name={"username"}>
+					<input
+						type="text"
+						id="usernameInput"
+						className={'form-control col-sm-9'}
+						onChange={this.handleChange}
+						placeholder="Search GitHub Username"
+					/>
+					<input
+						type="submit"
+						id="submitBtn"
+						className={'btn btn-success col-sm-3'}
+						value="SEARCH"
+					/>
+				</StyledForm>
+			</div>
 		);
 	}
 }

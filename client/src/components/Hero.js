@@ -13,7 +13,6 @@ const HeroSection = styled.div`
     background-repeat: no-repeat;
     position: relative;
 	text-align: center;
-	
 `;
 
 const HeroOverlay = styled.div`
@@ -49,16 +48,15 @@ class Hero extends Component {
 		// console.log(":::::REPOS::::::", this.props.user.repos);
 
 		console.log("Hero.js Props:", this.props);
+		console.log("Hero.js State:", this.state);
 
 		return (
 			<HeroSection>
 				<HeroOverlay>
 					<h1>Contribute to Something Great.</h1>
-					<div>Username: </div>
+					<div>Username: {this.props.username}</div>
 					{/*<SearchBar user={this.props.user} onChange={this.props.onChange} onSubmit={this.props.onSubmit} action={this.props.action}/>*/}
-
-                    <SearchBar {...this.props} {...this.state} />
-
+					<SearchBar {...this.props} {...this.state} user={this.props.username} username={this.props.username} onChange={this.props.onChange} onSubmit={this.props.onSubmit}/>
 				</HeroOverlay>
 				<WavesDivider/>
 			</HeroSection>
