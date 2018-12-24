@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import View from './View';
-import * as api from "../User/api"
+import * as api from "../api"
 
 export default class extends Component {
 
@@ -12,7 +12,7 @@ export default class extends Component {
 		this.setState({
 			username
 		});
-		console.log("Home/index.js State:", this.state.username)
+		console.log("Home/index.js State:", this.state)
 	};
 
 	onSubmit = (username) => {

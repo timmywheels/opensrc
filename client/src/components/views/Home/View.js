@@ -17,11 +17,10 @@ class Home extends Component {
 		console.log("Home/View.js Props:", this.props)
 		// console.log("Home/View.js Props.User:", this.props.username)
 
-
 		return (
 			<div>
 				<Header />
-				<Hero user={this.props.user} username={this.props.username} onChange={this.props.onChange} onSubmit={this.props.onSubmit}/>
+				<Hero {...this.props} {...this.state} user={this.props.user} onChange={this.props.onChange} onSubmit={this.props.onSubmit}/>
 				<div className="container">
 					<MainContent />
 					<TrendingRepos />

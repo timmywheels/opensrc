@@ -1,3 +1,5 @@
+# API Keys
+dev.js
 
 # dependencies
 /node_modules
@@ -6,7 +8,6 @@
 /coverage
 
 # production
-
 
 # misc
 .idea

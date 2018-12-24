@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import View from './View';
-import * as api from './api';
+import * as api from '../api';
 
 export default class extends Component {
 

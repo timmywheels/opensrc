@@ -8,7 +8,7 @@ class UserRepos extends Component {
 		console.log("UserRepos.js props", this.props);
 
 		return (
-			<div>
+			<div className={"container"}>
 				<h2 className={'text-center mt-5 mb-5'}>User Projects</h2>
 				<div className={"row"}>
 					{repos.map((repo, key) => {
