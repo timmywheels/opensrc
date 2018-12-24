@@ -5,13 +5,10 @@ import LinkIcon from '../img/octicons/link-external.svg';
 
 const UserSection = styled.div`
 	background: #f9f9f9;
-	// box-shadow: 5px 5px 20px #f8f9fa;
-	// box-shadow: 2px 2px 15px 0 #33333333;
 	border-radius: 4px;
 	padding: 20px;
 	margin-top: 50px;
 	margin-bottom: 50px;
-	// background: linear-gradient(to bottom right, #ffffffaa, #f5f5f5aa);
 	box-shadow: 0px 15px 20px 0 #33333333;
 	border: 1px solid #ddd;
 	transition: box-shadow 0.2s ease-in-out;
