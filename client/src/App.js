@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Home from './components/views/Home';
+import Home from './components/views/Home/';
 import * as actions from './actions';
-import User from "./components/views/User"
+import User from "./components/views/User/"
 
 class App extends Component {
 	componentDidMount() {

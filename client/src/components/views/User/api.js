@@ -1,4 +1,4 @@
-const user = {
+export const user = {
 	repos: []
 };
 
@@ -8,7 +8,7 @@ const getUserData = async (username) => {
 	xhr.open('GET', url, true);
 	xhr.onload = function() {
 		const data = JSON.parse(this.response);
-		console.log(data);
+		// console.log(data);
 
 		const { avatar_url, bio, login, html_url, type, location, blog } = data;
 
@@ -21,7 +21,7 @@ const getUserData = async (username) => {
 		user.blog = blog;
 
 
-		console.log("User:", user);
+		// console.log("User:", user);
 
 	};
 	xhr.send();
@@ -34,7 +34,7 @@ const getUserRepos = (username) => {
 	xhr.open('GET', url, true);
 	xhr.onload = async function() {
 		const data = JSON.parse(this.response);
-		console.log(data);
+		// console.log("data:",data);
 
 		if (data.message === 'Not Found') {
 			return;
@@ -54,20 +54,20 @@ const getUserRepos = (username) => {
 
 			user.repos.push({name, description, html_url, open_issues, language, owner, forks})
 
-			console.log("Updated User:", user)
+			// console.log("Updated User:", user)
 
 		}
 	};
 
 	xhr.send();
-}
+};
 
-const getData = (username) => {
+export const api = (username) => {
 	getUserData(username)
 	getUserRepos(username)
-}
+};
 
-getData("timwheelercom")
+// api("timwheelercom");
 
 
-export default user;
+// export default user;

@@ -1,22 +1,31 @@
 import React, {Component} from 'react';
 import View from './View';
-import user from './getData';
+import * as api from './api';
 
 export default class extends Component {
 
 	state = {
-		username: "timwheelercom"
+		username: ""
 	};
 
-	render() {
-		// const userData = Object.entries(user).map(([key, val], i) => {
-		// 	if (key !== 'repos') {
-		// 		return <div key={'key-' + i}>{`${key}: ${val}`}</div>;
-		// 	}
-		// });
+	onChange = (username) => {
+		this.setState({
+			username
+		});
+	};
 
+    onSubmit = (username) => {
+        this.setState({
+            username
+        });
+        api.api(username);
+    };
+
+	render() {
+		console.log("index.js Props:", this.props);
+		console.log("index.js State:", this.state);
 		return (
-			<View {...this.props} {...this.state} user={user}/>
+			<View {...this.props} {...this.state} user={api.user} onChange={this.onChange} onSubmit={this.onSubmit}/>
 		)
 	}
 }

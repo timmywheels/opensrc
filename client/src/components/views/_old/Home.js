@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import MainContent from '../MainContent';
-import Header from '../Header';
-import Hero from '../Hero';
-import * as api from '../../js/github-api';
+import MainContent from '../../MainContent';
+import Header from '../../Header';
+import Hero from '../../Hero';
+import * as api from '../../../js/github-api';
 import { connect } from 'react-redux';
-import { fetchTrendingRepos } from '../../actions';
-import TrendingRepos from '../TrendingRepos';
-import UserData from './User/index'
+import { fetchTrendingRepos } from '../../../actions/index';
+import TrendingRepos from '../../TrendingRepos';
+import UserData from '../User/index'
 
 class Home extends Component {
 	componentDidMount() {

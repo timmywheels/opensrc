@@ -41,30 +41,24 @@ const HeroOverlay = styled.div`
 `;
 
 class Hero extends Component {
-	// constructor(props) {
-	// 	super(props);
-	// 	this.state = {
-	// 		username: '',
-	// 	}
-	// 	this.handleUser = this.handleUser.bind(this)
-	// }
-	//
-	// handleUser = (username) => {
-	// 	this.setState({username})
-	// 	console.log("STATE FROM HERO:", this.state)
-	// }
-
-
 	render() {
 		// const user = this.state.username;
 		// const route = `/user/${this.state.username}`;
-		console.log("Hero Props:", this.props)
+		// const repos = this.props.user.repos[0].name;
+
+		// console.log(":::::REPOS::::::", this.props.user.repos);
+
+		console.log("Hero.js Props:", this.props);
+
 		return (
 			<HeroSection>
 				<HeroOverlay>
 					<h1>Contribute to Something Great.</h1>
-					<div>Username:{this.props.user}</div>
-					<SearchBar user={this.props.user} onChange={this.props.onChange} onSubmit={this.props.onSubmit} action={this.props.action}/>
+					<div>Username: </div>
+					{/*<SearchBar user={this.props.user} onChange={this.props.onChange} onSubmit={this.props.onSubmit} action={this.props.action}/>*/}
+
+                    <SearchBar {...this.props} {...this.state} />
+
 				</HeroOverlay>
 				<WavesDivider/>
 			</HeroSection>

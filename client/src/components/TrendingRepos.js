@@ -15,7 +15,7 @@ class TrendingRepos extends Component {
 					<div className={'card'}>
 						<div className={'card-body d-flex flex-column'}>
 							<div className={'row'}>
-								<a className={'repo-link col-12'} href="#" target="_blank">
+								<a className={'repo-link col-12'} href="https://github.com" target="_blank" rel="noopener noreferrer">
 									<h5 className={'card-title'}>{repo.repoName}</h5>
 								</a>
 								{/*<p class="fork-link col-4"><img src="/static/media/github-fork.3421d08d.svg" alt="GitHub Fork Icon">3</p>*/}
@@ -23,7 +23,7 @@ class TrendingRepos extends Component {
 							<p className={'card-text'}>{repo.repoDesc}</p>
 							{/*<img class="language-img" src="/static/media/html5.4b55d3c2.svg">*/}
 							{/*<a class="btn issues mt-auto" target="_blank" href="https://github.com/timwheelercom/agile-week/issues">0 Open Issues</a>*/}
-							<a className={'btn issues mt-auto'} target="_blank" href="#">
+							<a className={'btn issues mt-auto'} target="_blank" href="https://github.com" rel="noopener noreferrer">
 								{repo.starCount}
 							</a>
 						</div>
