@@ -14,12 +14,12 @@ export default class extends Component {
 		});
 	};
 
-    onSubmit = (username) => {
-        this.setState({
-            username
-        });
-        api.api(username);
-    };
+	onSubmit = (username) => {
+		this.setState({
+			username
+		});
+		api.api(username);
+	};
 
 	render() {
 		console.log("index.js Props:", this.props);

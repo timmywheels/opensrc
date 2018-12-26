@@ -25,8 +25,7 @@ class TrendingRepos extends Component {
 									</div>
 									<p className={'card-text'}>{repo.repoDesc}</p>
 									{/*<img class="language-img" src="/static/media/html5.4b55d3c2.svg">*/}
-									{/*<a class="btn issues mt-auto" target="_blank" href="https://github.com/timwheelercom/agile-week/issues">0 Open Issues</a>*/}
-									<a className={'btn issues mt-auto'} target="_blank" href="https://github.com" rel="noopener noreferrer">
+									<a className={'btn issues mt-auto'} target="_blank" href={`https://github.com/${repo.repoName.replace(/\s/g, "")}`} rel="noopener noreferrer">
 										{repo.starCount}
 									</a>
 								</div>

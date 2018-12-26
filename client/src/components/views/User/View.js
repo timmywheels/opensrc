@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Header from "../../Header";
 import Hero from '../../Hero';
 import UserRepos from './UserRepos';
+import UserInfo from "../../UserInfo"
 
 class View extends Component{
 	render(){
@@ -10,7 +11,9 @@ class View extends Component{
 			<div>
 				<Header/>
 				<Hero {...this.props} {...this.state} user={this.props.user} onChange={this.props.onChange} onSubmit={this.props.onSubmit}/>
+				<UserInfo {...this.props} {...this.state} user={this.props.user} onChange={this.props.onChange} onSubmit={this.props.onSubmit}/>
 				<UserRepos {...this.props} {...this.state} user={this.props.user} onChange={this.props.onChange} onSubmit={this.props.onSubmit}/>
+
 			</div>
 		)
 	}

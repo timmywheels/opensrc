@@ -51,7 +51,7 @@ class SearchBar extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(":::::SUBMIT:::::", this.props.username)
+		// console.log(":::::SUBMIT:::::", this.props.username)
 		this.props.onSubmit(this.props.username);
 		this.props.history.push(`/user/${this.props.username}`);
 
@@ -59,7 +59,6 @@ class SearchBar extends Component {
 
 	handleChange = (e) => {
 		this.props.onChange(e.target.value);
-		this.props.onSubmit(e.target.value);
 		console.log("handleChange:", e.target.value)
 	};
 

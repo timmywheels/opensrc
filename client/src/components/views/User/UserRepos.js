@@ -4,7 +4,7 @@ import GitHubLogo from '../../../img/github.svg'
 class UserRepos extends Component {
 
 	render() {
-		const { repos } = this.props.user;
+		let { repos } = this.props.user;
 		console.log("UserRepos.js props", this.props);
 
 		return (
@@ -18,7 +18,7 @@ class UserRepos extends Component {
 								<div className={'card'}>
 									<div className={'card-body d-flex flex-column'}>
 										<div className={'row'}>
-											<a className={'repo-link col-12'} href="https://github.com" target="_blank"
+											<a className={'repo-link col-12'} href={repo.html_url} target="_blank"
 											   rel="noopener noreferrer">
 												<h5 className={'card-title'}>{repo.name}</h5>
 											</a>
@@ -27,9 +27,9 @@ class UserRepos extends Component {
 										<p className={'card-text'}>{repo.description}</p>
 										<img className="language-img" src={GitHubLogo} alt={"Logo"}/>
 										{/*<a class="btn issues mt-auto" target="_blank" href="https://github.com/timwheelercom/agile-week/issues">0 Open Issues</a>*/}
-										<a className={'btn issues mt-auto'} target="_blank" href="https://github.com"
+										<a className={'btn issues mt-auto'} target="_blank" href={`${repo.html_url}/issues`}
 										   rel="noopener noreferrer">
-											{repo.forks}
+											Issues: {repo.open_issues}
 										</a>
 									</div>
 								</div>
