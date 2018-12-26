@@ -28,11 +28,11 @@ class UserRepos extends Component {
 						<div className={"card"}>
 						<div className={'card-body d-flex flex-column'}>
 						<div className={'row'}>
-						<a className={'repo-link col-12'} href={repo.html_url} target="_blank"
+						<a className={'repo-link col-9'} href={repo.html_url} target="_blank"
 						rel="noopener noreferrer">
 						<h5 className={'card-title'}>{repo.name}</h5>
 						</a>
-						<p class="fork-link col-4"><img src={GitHubFork} alt="GitHub Fork Icon"/>{repo.forks}</p>
+						<p className="fork-link col-3"><img src={GitHubFork} alt="GitHub Fork Icon"/>{repo.forks}</p>
 						</div>
 						<p className={'card-text'}>{repo.description}</p>
 						<img className="language-img" src={repoLanguageImg} alt={`${repo.language} Logo`}/>
