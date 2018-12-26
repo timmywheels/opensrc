@@ -5,20 +5,15 @@ import * as api from '../api';
 export default class extends Component {
 
 	state = {
-		username: ""
+		username: "",
 	};
 
 	onChange = (username) => {
-		this.setState({
-			username
-		});
+		this.setState({username});
 	};
 
 	onSubmit = (username) => {
-		this.setState({
-			username
-		});
-		api.api(username);
+		this.setState({username}, api.api(username));
 	};
 
 	render() {

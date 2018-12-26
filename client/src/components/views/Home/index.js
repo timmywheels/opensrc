@@ -5,7 +5,7 @@ import * as api from "../api"
 export default class extends Component {
 
 	state = {
-		username: ""
+		username: "",
 	};
 
 	onChange = (username) => {

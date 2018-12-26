@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import GitHubLogo from '../../../img/github.svg';
 import * as style from './repoCardStyle';
 import * as img from './repoLanguageImage';
 import GitHubFork from "../../../img/github-fork.svg";
@@ -7,9 +6,8 @@ import GitHubFork from "../../../img/github-fork.svg";
 class UserRepos extends Component {
 
 	render() {
-		let {repos} = this.props.user;
+		let { repos } = this.props.user;
 		console.log("UserRepos.js props", this.props);
-
 
 		return (
 			<div className={"container"}>
