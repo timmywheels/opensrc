@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-// import * as api from '../js/github-api';
-
 
 const StyledForm = styled.form`
 	background: #dddddd80;
@@ -51,18 +49,20 @@ class SearchBar extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		this.props.onSubmit(this.props.username);
-		this.props.history.push(`/user/${this.props.username}`);
+		let { username } = this.props;
+		this.props.onSubmit();
+		this.props.history.push(`/user/${username}`);
 	};
 	// console.log(":::::SUBMIT:::::", this.props.username)
 
 	handleChange = (e) => {
 		this.props.onChange(e.target.value);
-		console.log("handleChange:", e.target.value)
+		// console.log("handleChange:", e.target.value)
 	};
 
 	render() {
 		console.log("SearchBar.js Props:", this.props);
+		// const username = this.props;
 		return (
 			<div className={'col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12'}>
 				{/*<StyledForm onSubmit={this.handleSubmit} className={'form-inline'} id={"usernameForm"} name={"username"} action={this.props.action}>*/}

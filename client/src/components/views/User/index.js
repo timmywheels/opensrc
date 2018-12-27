@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import View from './View';
-import * as api from '../api';
+import * as github from '../api';
 
 export default class extends Component {
 
@@ -12,15 +12,15 @@ export default class extends Component {
 		this.setState({username});
 	};
 
-	onSubmit = (username) => {
-		this.setState({username}, api.api(username));
+	onSubmit = () => {
+		github.api(this.state.username);
 	};
 
 	render() {
 		console.log("index.js Props:", this.props);
 		console.log("index.js State:", this.state);
 		return (
-			<View {...this.props} {...this.state} user={api.user} onChange={this.onChange} onSubmit={this.onSubmit}/>
+			<View {...this.props} {...this.state} user={github.user} onChange={this.onChange} onSubmit={this.onSubmit}/>
 		)
 	}
 }
