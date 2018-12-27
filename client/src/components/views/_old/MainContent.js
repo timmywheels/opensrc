@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import UserInfo from './views/User/UserInfo';
-import LanguageCounts from './LanguageCounts';
+import UserInfo from '../User/UserInfo';
+import LanguageCounts from '../../LanguageCounts';
 
 class MainContent extends Component {
 	render() {
@@ -8,10 +8,6 @@ class MainContent extends Component {
 			<div>
 				<UserInfo />
 				<div className="col-md-12">
-					<h2 className={'col-md-12'} id={'latest-projects-title'}>
-						Latest Projects
-					</h2>
-					<LanguageCounts />
 					<div className={'row'} id="latest-projects" />
 				</div>
 			</div>

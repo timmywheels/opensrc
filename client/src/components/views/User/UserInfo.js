@@ -71,33 +71,37 @@ const LocationSection = styled.div`
 class UserInfo extends Component {
 	render() {
 		console.log("UserInfo.js Props:", this.props)
-		const {login, bio, blog, location, avatar_url, html_url} = this.props.user;
-		return (
-			<UserSection id={'user-section'} className={'col-md-10 offset-md-1'}>
-				<div className="row">
-					<AvatarSection className="col-md-3">
-						<a id="profile-link" target="_blank" href={html_url}>
-							<AvatarImg id={'avatar-img'} src={avatar_url}/>
-						</a>
-						<BlogSection id={'user-blog-section'}>
-							<img src={LinkIcon}/>
-							<a target={'_blank'} href={blog} id="user-blog">
-								<p>Blog</p>
+		if (!this.props.displayUserInfo) {
+			return null;
+		} else {
+			const {login, bio, blog, location, avatar_url, html_url} = this.props.user;
+			return (
+				<UserSection id={'user-section'} className={'col-md-10 offset-md-1'} displayUserInfo={false}>
+					<div className="row">
+						<AvatarSection className="col-md-3">
+							<a id="profile-link" target="_blank" href={html_url}>
+								<AvatarImg id={'avatar-img'} src={avatar_url}/>
 							</a>
-						</BlogSection>
-						<LocationSection id={'user-location-section'}>
-							<p id={'user-location'}>{location}</p>
-						</LocationSection>
-					</AvatarSection>
-					<BioSection className="col-md-9">
-						<h1 id={'username'} className={'col-md-12'}>{login}</h1>
-						<h6 id={'favorite-language'} className={'col-md-12'}><a href={blog} target={"_blank"}>{blog}</a></h6>
-						<p id={'bio-text'} className={'col-md-12'}>{bio}</p>
-					</BioSection>
-					<GitHubCalendar/>
-				</div>
-			</UserSection>
-		);
+							<BlogSection id={'user-blog-section'}>
+								<img src={LinkIcon}/>
+								<a target={'_blank'} href={blog} id="user-blog">
+									<p>Blog</p>
+								</a>
+							</BlogSection>
+							<LocationSection id={'user-location-section'}>
+								<p id={'user-location'}>{location}</p>
+							</LocationSection>
+						</AvatarSection>
+						<BioSection className="col-md-9">
+							<h1 id={'username'} className={'col-md-12'}>{login}</h1>
+							<h6 id={'favorite-language'} className={'col-md-12'}><a href={blog} target={"_blank"}>{blog}</a></h6>
+							<p id={'bio-text'} className={'col-md-12'}>{bio}</p>
+						</BioSection>
+						<GitHubCalendar/>
+					</div>
+				</UserSection>
+			);
+		}
 	}
 }
 

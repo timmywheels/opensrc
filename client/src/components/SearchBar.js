@@ -49,9 +49,8 @@ class SearchBar extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		let { username } = this.props;
 		this.props.onSubmit();
-		this.props.history.push(`/user/${username}`);
+		this.props.history.push(`/user/${this.props.username}`)
 	};
 	// console.log(":::::SUBMIT:::::", this.props.username)
 

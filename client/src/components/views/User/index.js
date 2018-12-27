@@ -6,14 +6,30 @@ export default class extends Component {
 
 	state = {
 		username: "",
+		displayUserInfo: false,
+		displayUserRepos: false
 	};
+
+	componentDidMount() {
+		this.setState({
+			username: this.props.match.params.username,
+			displayUserInfo: true,
+			displayUserRepos: true
+		})
+		github.api(this.state.username);
+		// const { username } = this.props.match.params/
+		console.log("yo yo yo:", this.props.match.params.username)
+	}
 
 	onChange = (username) => {
 		this.setState({username});
 	};
 
 	onSubmit = () => {
-		github.api(this.state.username);
+		this.setState({username});
+		let {username} = this.state;
+		github.api(username);
+		this.props.history.push(`/user/${username}`);
 	};
 
 	render() {

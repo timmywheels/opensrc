@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import MainContent from '../../MainContent';
 import Header from '../../Header';
 import Hero from '../../Hero';
-// import * as api from '../../../js/github-api';
 import { connect } from 'react-redux';
 import { fetchTrendingRepos } from '../../../actions/index';
 import TrendingRepos from '../../TrendingRepos';
@@ -22,7 +20,6 @@ class Home extends Component {
 				<Header />
 				<Hero {...this.props} {...this.state} user={this.props.user} onChange={this.props.onChange} onSubmit={this.props.onSubmit}/>
 				<div className="container">
-					<MainContent />
 					<TrendingRepos />
 				</div>
 			</div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MainContent from '../../MainContent';
+import MainContent from './MainContent';
 import Header from '../../Header';
 import Hero from '../../Hero';
 import * as api from '../../../js/github-api';
