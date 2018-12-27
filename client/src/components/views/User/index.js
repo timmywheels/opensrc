@@ -15,8 +15,7 @@ export default class extends Component {
 			username: this.props.match.params.username,
 			displayUserInfo: true,
 			displayUserRepos: true
-		})
-		github.api(this.state.username);
+		}, github.api(this.state.username));
 		// const { username } = this.props.match.params/
 		console.log("yo yo yo:", this.props.match.params.username)
 	}
@@ -25,11 +24,11 @@ export default class extends Component {
 		this.setState({username});
 	};
 
-	onSubmit = () => {
-		this.setState({username});
+	onSubmit = async (callback) => {
 		let {username} = this.state;
-		github.api(username);
-		this.props.history.push(`/user/${username}`);
+		await github.api(username);
+		// this.props.history.push(`/user/${username}`);
+		await callback;
 	};
 
 	render() {

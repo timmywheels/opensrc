@@ -30,7 +30,7 @@ const getUserData = async (username) => {
 }
 
 const getUserRepos = (username) => {
-	const url = `https://api.github.com/users/${username}/repos?per_page=10&client_id=${keys.github_client_id}&client_secret=${keys.github_client_secret}`;
+	const url = `https://api.github.com/users/${username}/repos?per_page=100&client_id=${keys.github_client_id}&client_secret=${keys.github_client_secret}`;
 	const xhr = new XMLHttpRequest();
 
 	xhr.open('GET', url, true);
@@ -68,8 +68,3 @@ export const api = (username) => {
 	getUserData(username)
 	getUserRepos(username)
 };
-
-// api("timwheelercom");
-
-
-// export default user;

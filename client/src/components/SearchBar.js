@@ -49,8 +49,8 @@ class SearchBar extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		this.props.onSubmit();
-		this.props.history.push(`/user/${this.props.username}`)
+		const callback = this.props.history.push(`/user/${this.props.username}`)
+		this.props.onSubmit(callback);
 	};
 	// console.log(":::::SUBMIT:::::", this.props.username)
 
@@ -65,12 +65,12 @@ class SearchBar extends Component {
 		return (
 			<div className={'col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12'}>
 				{/*<StyledForm onSubmit={this.handleSubmit} className={'form-inline'} id={"usernameForm"} name={"username"} action={this.props.action}>*/}
-				<StyledForm onSubmit={this.handleSubmit} className={'form-inline'} id={"usernameForm"} name={"username"}>
+				<StyledForm onSubmit={this.handleSubmit.bind(this)} className={'form-inline'} id={"usernameForm"} name={"username"}>
 					<input
 						type="text"
 						id="usernameInput"
 						className={'form-control col-sm-9'}
-						onChange={this.handleChange}
+						onChange={this.handleChange.bind(this)}
 						placeholder="Search GitHub Username"
 					/>
 					<input
