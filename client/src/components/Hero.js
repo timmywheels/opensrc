@@ -41,11 +41,6 @@ const HeroOverlay = styled.div`
 
 class Hero extends Component {
 	render() {
-		// const user = this.state.username;
-		// const route = `/user/${this.state.username}`;
-		// const repos = this.props.user.repos[0].name;
-
-		// console.log(":::::REPOS::::::", this.props.user.repos);
 
 		console.log("Hero.js Props:", this.props);
 		console.log("Hero.js State:", this.state);
@@ -55,7 +50,8 @@ class Hero extends Component {
 				<HeroOverlay>
 					<h1>Contribute to Something Great.</h1>
 					<div>Username: {this.props.username}</div>
-					<SearchBar {...this.props} {...this.state} user={this.props.username} username={this.props.username} onChange={this.props.onChange} onSubmit={this.props.onSubmit}/>
+					<SearchBar {...this.props} {...this.state} user={this.props.username} username={this.props.username}
+					           onChange={this.props.onChange} onSubmit={this.props.onSubmit}/>
 				</HeroOverlay>
 				<WavesDivider/>
 			</HeroSection>

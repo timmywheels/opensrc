@@ -8,9 +8,6 @@ require('../models/TrendingRepos');
 
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
-
-setInterval(() => {
-
 const TrendingRepo = mongoose.model('trendingRepo');
 mongoose.Promise = global.Promise;
 
@@ -74,5 +71,3 @@ axios.get('https://github.com/trending').then(
 	},
 	err => console.log(err)
 );
-
-}, 86400000);

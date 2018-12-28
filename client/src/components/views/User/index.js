@@ -12,9 +12,7 @@ export default class extends Component {
 	};
 
 	componentDidMount() {
-
 		const {username} = this.props.match.params;
-
 		this.setState({
 			username,
 			displayUserInfo: true,

@@ -72,6 +72,7 @@ class SearchBar extends Component {
 						className={'form-control col-sm-9'}
 						onChange={this.handleChange.bind(this)}
 						placeholder="Search GitHub Username"
+						required
 					/>
 					<input
 						type="submit"
