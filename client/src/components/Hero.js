@@ -46,7 +46,7 @@ class Hero extends Component {
 				<HeroOverlay>
 					<h1>Contribute to Something Great.</h1>
 					{/*<div>Username: {this.props.username}</div>*/}
-					<h6>Take Open Source Software To New Heights</h6>
+					<h6>Discover Open Source Software Projects Near You</h6>
 					<SearchBar {...this.props} {...this.state} user={this.props.username} username={this.props.username}
 					           onChange={this.props.onChange} onSubmit={this.props.onSubmit}/>
 				</HeroOverlay>
