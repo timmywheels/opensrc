@@ -6,29 +6,33 @@ export default class extends Component {
 
 	state = {
 		username: "",
+		user: github.user,
 		displayUserInfo: false,
 		displayUserRepos: false
 	};
 
 	componentDidMount() {
+
+		const {username} = this.props.match.params;
+
 		this.setState({
-			username: this.props.match.params.username,
+			username,
 			displayUserInfo: true,
 			displayUserRepos: true
-		}, github.api(this.state.username));
-		// const { username } = this.props.match.params/
-		console.log("yo yo yo:", this.props.match.params.username)
+		}, github.api(username));
 	}
 
 	onChange = (username) => {
 		this.setState({username});
 	};
 
-	onSubmit = async (callback) => {
-		let {username} = this.state;
-		await github.api(username);
-		// this.props.history.push(`/user/${username}`);
-		await callback;
+	onSubmit = (callback) => {
+		const {user, username} = this.state;
+		this.setState({username}, () => {
+			user.repos = []
+			github.api(username);
+			callback;
+		})
 	};
 
 	render() {

@@ -5,11 +5,10 @@ import GitHubFork from "../../../img/github-fork.svg";
 import LanguageCounts from "../../LanguageCounts"
 
 class UserRepos extends Component {
-
 	render() {
 		let {repos} = this.props.user;
 		console.log("UserRepos.js props", this.props);
-		if (!this.props.displayUserRepos) {
+		if (!repos) {
 			return null;
 		} else {
 			return (
