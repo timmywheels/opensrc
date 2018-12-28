@@ -32,7 +32,7 @@ const HeroOverlay = styled.div`
 		font-weight: 500;
 	}
 
-	p {
+	h6, p {
 		color: #eee;
 		font-weight: 100;
 		letter-spacing: 1px;
@@ -41,15 +41,12 @@ const HeroOverlay = styled.div`
 
 class Hero extends Component {
 	render() {
-
-		console.log("Hero.js Props:", this.props);
-		console.log("Hero.js State:", this.state);
-
 		return (
 			<HeroSection>
 				<HeroOverlay>
 					<h1>Contribute to Something Great.</h1>
-					<div>Username: {this.props.username}</div>
+					{/*<div>Username: {this.props.username}</div>*/}
+					<h6>Take Open Source Software To New Heights</h6>
 					<SearchBar {...this.props} {...this.state} user={this.props.username} username={this.props.username}
 					           onChange={this.props.onChange} onSubmit={this.props.onSubmit}/>
 				</HeroOverlay>

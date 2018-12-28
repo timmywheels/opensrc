@@ -24,12 +24,12 @@ export default class extends Component {
 		this.setState({username});
 	};
 
-	onSubmit = (callback) => {
+	onSubmit = () => {
 		const {user, username} = this.state;
 		this.setState({username}, () => {
 			user.repos = []
 			github.api(username);
-			callback;
+			this.props.history.push(`/user/${username}`)
 		})
 	};
 
