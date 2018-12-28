@@ -1,19 +1,19 @@
 #### Roadmap
 
 #### v0.1.0
-* ~~Integrate GitHub API
-* ~~Display users GitHub repos
-* ~~Create GitHub search feature
-* ~~Create scraper for trending repos
-* ~~Store scraped data in db
-* ~~Display trending repos on client
-* ~~Add user info section on user page
-* ~~Display GitHub calendar for users
-* ~~Add user website in user info section (if applicable)
-* ~~Add user city in user info section (if applicable)
-* ~~Change color of cards depending on number of issues
-* ~~Setup Google Analytics
-* ~~Add dynamic routing for users (/user/:username)
+* ~~Integrate GitHub API~~
+* ~~Display users GitHub repos~~
+* ~~Create GitHub search feature~~
+* ~~Create scraper for trending repos~~
+* ~~Store scraped data in db~~
+* ~~Display trending repos on client~~
+* ~~Add user info section on user page~~
+* ~~Display GitHub calendar for users~~
+* ~~Add user website in user info section (if applicable)~~
+* ~~Add user city in user info section (if applicable)~~
+* ~~Change color of cards depending on number of issues~~
+* ~~Setup Google Analytics~~
+* ~~Add dynamic routing for users (/user/:username)~~
 
 #### v0.2.0
 * Create user login with auth (GitHub/Google/Email)
