@@ -1,6 +1,6 @@
 const express = require('express');
-
 const mongoose = require('mongoose');
+const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 require('./models/TrendingRepos');
@@ -20,9 +20,15 @@ mongoose.connect(
 
 const app = express();
 
+app.use(cookieSession({
+	maxAge: 30 * 24 * 60 * 60 * 1000,
+	keys: [keys.cookie.key]
+}))
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+require('./routes/authRoutes')(app);
 require('./routes/trendingRepoRoutes')(app);
 require('./routes/userRepoRoutes')(app);
 

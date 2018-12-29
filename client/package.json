@@ -9,6 +9,9 @@
     },
     "/user/:username": {
       "target": "http://localhost:5000"
+    },
+    "/api/user": {
+      "target": "http://localhost:5000"
     }
   },
   "dependencies": {
