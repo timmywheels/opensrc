@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 
 const HeaderSection = styled.header`
 	height: 60px;
@@ -68,8 +70,32 @@ class Header extends Component {
 	componentDidMount() {
 		window.addEventListener('scroll', this.listenScrollEvent);
 	}
-
+	// renderContent(){
+	// 	switch (this.props.auth) {
+	// 		case null:
+	// 			return;
+	// 		case false:
+	// 			return (
+	// 				<li>
+	// 					<a href="/auth/github">Login With Github</a>
+	// 				</li>
+	// 			);
+	// 		default:
+	// 			return [
+	// 				<li key={'1'}>
+	// 					{/*<Payments />*/}
+	// 				</li>,
+	// 				<li key={'2'} style={{ margin: '0 15px' }}>
+	// 					Credits: {this.props.auth.credits}
+	// 				</li>,
+	// 				<li key={'3'}>
+	// 					<a href="/auth/logout">Logout</a>
+	// 				</li>,
+	// 			];
+	// 	}
+	// }
 	render() {
+		console.log("this.props.auth", this.props.auth)
 		return (
 			<HeaderSection
 				style={{
@@ -88,4 +114,8 @@ class Header extends Component {
 	}
 }
 
-export default Header;
+function mapStateToProps({ auth }) {
+	return { auth };
+}
+
+export default connect(mapStateToProps)(Header);

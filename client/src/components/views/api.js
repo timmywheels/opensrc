@@ -7,53 +7,61 @@ export const user = {
 const getUserData = (username) => {
 	const url = `https://api.github.com/users/${username}?client_id=${keys.github_client_id}&client_secret=${keys.github_client_secret}`;
 	const xhr = new XMLHttpRequest();
-	xhr.open('GET', url, false);
-	xhr.onload = function() {
-		const data = JSON.parse(this.response);
+	try {
+		xhr.open('GET', url, false);
+		xhr.onload = function () {
+			const data = JSON.parse(this.response);
 
-		const { avatar_url, bio, login, html_url, type, location, blog } = data;
+			const {avatar_url, bio, login, html_url, type, location, blog} = data;
 
-		user.avatar_url = avatar_url;
-		user.bio = bio;
-		user.login = login;
-		user.html_url = html_url;
-		user.type = type;
-		user.location = location;
-		user.blog = blog;
+			user.avatar_url = avatar_url;
+			user.bio = bio;
+			user.login = login;
+			user.html_url = html_url;
+			user.type = type;
+			user.location = location;
+			user.blog = blog;
 
-	};
-	xhr.send();
+		};
+		xhr.send();
+	} catch (err) {
+		console.log("Error:", err)
+	}
 }
 
 const getUserRepos = (username) => {
 	const url = `https://api.github.com/users/${username}/repos?per_page=10&client_id=${keys.github_client_id}&client_secret=${keys.github_client_secret}`;
 	const xhr = new XMLHttpRequest();
+	try {
+		xhr.open('GET', url, false);
+		xhr.onload = function () {
+			const data = JSON.parse(this.response);
 
-	xhr.open('GET', url, false);
-	xhr.onload = function() {
-		const data = JSON.parse(this.response);
+			if (data.message === 'Not Found') {
+				return;
+			}
 
-		if (data.message === 'Not Found') {
-			return;
-		}
+			for (let i in data) {
 
-		for (let i in data) {
+				const {
+					name,
+					description,
+					html_url,
+					open_issues,
+					language,
+					owner,
+					forks
+				} = data[i];
 
-			const {
-				name,
-				description,
-				html_url,
-				open_issues,
-				language,
-				owner,
-				forks
-			} = data[i];
+				user.repos.push({name, description, html_url, open_issues, language, owner, forks})
+			}
+		};
 
-			user.repos.push({name, description, html_url, open_issues, language, owner, forks})
-		}
-	};
-
-	xhr.send();
+		xhr.send();
+	}
+	catch (err) {
+		console.log("Error:", err);
+	}
 };
 
 export const api = (username) => {
