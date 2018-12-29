@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import View from './View';
 import * as github from '../api';
+import calendar from 'github-calendar';
 
 export default class extends Component {
 
@@ -17,8 +18,11 @@ export default class extends Component {
 			username,
 			displayUserInfo: true,
 			displayUserRepos: true
-		}, github.api(username));
-	}
+		}, () => {
+			github.api(username)
+		})
+	};
+
 
 	onChange = (username) => {
 		this.setState({username});
