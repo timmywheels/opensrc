@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MainContent from './MainContent';
-import Header from '../../Header';
-import Hero from '../../Hero';
+import Header from '../../partials/Header';
+import Hero from '../../partials/Hero';
 import * as api from '../../../js/github-api';
 import UserRepos from './UserRepos';
 import UserData from '../User/index'

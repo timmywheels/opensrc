@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UserInfo from '../User/UserInfo';
-import LanguageCounts from '../../LanguageCounts';
+import LanguageCounts from '../User/LanguageCounts';
 
 class MainContent extends Component {
 	render() {

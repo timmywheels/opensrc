@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import * as style from './repoCardStyle';
 import * as img from './repoLanguageImage';
 import GitHubFork from "../../../img/github-fork.svg";
-import LanguageCounts from "../../LanguageCounts"
+import LanguageCounts from "./LanguageCounts"
 
 class UserRepos extends Component {
 	render() {

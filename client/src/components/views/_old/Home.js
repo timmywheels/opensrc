@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import MainContent from './MainContent';
-import Header from '../../Header';
-import Hero from '../../Hero';
+import Header from '../../partials/Header';
+import Hero from '../../partials/Hero';
 import * as api from '../../../js/github-api';
 import { connect } from 'react-redux';
 import { fetchTrendingRepos } from '../../../actions/index';
-import TrendingRepos from '../../TrendingRepos';
+import TrendingRepos from '../Home/TrendingRepos';
 import UserData from '../User/index'
 
 class Home extends Component {

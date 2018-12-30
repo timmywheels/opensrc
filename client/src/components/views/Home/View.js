@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Header from '../../Header';
-import Hero from '../../Hero';
+import Header from '../../partials/Header';
+import Hero from '../../partials/Hero';
 import { connect } from 'react-redux';
 import { fetchTrendingRepos } from '../../../actions/index';
-import TrendingRepos from '../../TrendingRepos';
+import TrendingRepos from './TrendingRepos';
 
 class Home extends Component {
 	componentDidMount() {

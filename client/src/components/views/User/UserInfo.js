@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import GitHubCalendar from '../../Calendar';
+import GitHubCalendar from './Calendar';
 import styled from 'styled-components';
 import LinkIcon from '../../../img/octicons/link-external.svg';
 
@@ -70,7 +70,7 @@ const LocationSection = styled.div`
 
 class UserInfo extends Component {
 	render() {
-		console.log("UserInfo.js Props:", this.props)
+		console.log("UserInfo.js Props:", this.props);
 		if (!this.props.displayUserInfo) {
 			return null;
 		} else {

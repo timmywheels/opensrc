@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Header from "../../Header";
-import Hero from '../../Hero';
+import Header from "../../partials/Header";
+import Hero from '../../partials/Hero';
 import UserRepos from './UserRepos';
 import UserInfo from "./UserInfo"
 

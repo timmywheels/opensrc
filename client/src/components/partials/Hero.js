@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import SearchBar from './SearchBar';
-import Background from '../img/opensrc-waves-bg.jpg';
+import Background from '../../img/opensrc-waves-bg.jpg';
 import WavesDivider from './WavesDivider';
 
 const HeroSection = styled.div`
