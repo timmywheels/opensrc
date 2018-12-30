@@ -1,14 +1,14 @@
 import React, {Component} from "react";
 import View from "./View";
 import * as github from "../api";
-import calendar from "github-calendar";
 
 export default class extends Component {
     state = {
         username: "",
         user: github.user,
         displayUserInfo: false,
-        displayUserRepos: false
+        displayUserRepos: false,
+        displayGitHubCalendar: false
     };
 
     componentDidMount() {
@@ -17,7 +17,8 @@ export default class extends Component {
             {
                 username,
                 displayUserInfo: true,
-                displayUserRepos: true
+                displayUserRepos: true,
+                displayGitHubCalendar: true,
             }, github.api(username)
         );
     }

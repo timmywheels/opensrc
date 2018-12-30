@@ -4,12 +4,14 @@ import { connect } from 'react-redux';
 import Home from './components/views/Home/';
 import * as actions from './actions';
 import User from "./components/views/User/"
-import Login from "./components/views/Login/"
+// import Login from "./components/views/Login/";
+import Account from "./components/views/Account"
 
 class App extends Component {
 	componentDidMount() {
 		// console.log("App.js Props:", this.props);
 		try{
+			console.log("App.js Props:", this.props);
 			this.props.fetchUser();
 			this.props.fetchTrendingRepos();
 		} catch(err) {
@@ -22,8 +24,8 @@ class App extends Component {
 			<BrowserRouter>
 				<div>
 					<Route exact path={'/'} component={Home} />
-					{/*<Route path={'/auth/github'} component={Login} />*/}
-					<Route path={'/user/:username'} component={User} />
+					<Route exact path={'/account'} component={Account} />
+					<Route exact path={'/user/:username'} component={User} />
 				</div>
 			</BrowserRouter>
 		);

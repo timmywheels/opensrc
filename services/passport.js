@@ -18,7 +18,8 @@ passport.deserializeUser((id, done) => {
 passport.use(new GitHubStrategy({
 		clientID: keys.github_client_id,
 		clientSecret: keys.github_client_secret,
-		callbackURL: "/auth/github/callback"
+		callbackURL: "/auth/github/callback",
+		proxy: true
 	},
 	async (accessToken, refreshToken, profile, done) => {
 		const existingUser = await User.findOne({ githubId: profile.id });

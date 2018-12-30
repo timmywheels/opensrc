@@ -18,6 +18,11 @@ const HeaderSection = styled.header`
 	.closeButton {
 		color: #999;
 	}
+	
+	.header-btn{
+		font-size: 12px;
+    	letter-spacing: 2px;
+	}
 `;
 
 const NavMenu = styled.ul`
@@ -77,22 +82,22 @@ class Header extends Component {
 			case false:
 				return (
 					<li>
-						<Link className={'btn btn-success float-right mt-2 mr-4'} to={"/auth/github"}>Login With GitHub</Link>
+						<Link className={'header-btn btn btn-success float-right mt-2 mr-4'} to={"/auth/github"}>Login With GitHub</Link>
 					</li>
 				);
 			default:
 				return [
-					<li key={'1'}>
-						<div>Profile</div>
+					<li style={{display: "inline-block"}} key={'1'}>
+                        <Link className={'header-btn btn btn-outline-light float-right mt-2 mr-4'} style={{color: "#fff"}} to={"/account"}>ACCOUNT</Link>
 					</li>,
-					<li key={'2'}>
-						<Link className={'btn btn-success float-right mt-2 mr-4'} to={"/auth/logout"}>Logout</Link>
+					<li style={{display: "inline-block"}} key={'2'}>
+						<Link className={'header-btn btn btn-success float-right mt-2 mr-4'} to={"/auth/logout"}>LOGOUT</Link>
 					</li>,
 				];
 		}
 	}
 	render() {
-		console.log("this.props.auth", this.props.auth)
+		console.log("this.props.auth", this.props.auth);
 		return (
 			<HeaderSection
 				style={{
@@ -101,10 +106,10 @@ class Header extends Component {
 					boxShadow: this.state.boxShadow
 				}}
 			>
-				<a href={'/'}>
+				<Link to={this.props.auth ? "/account" : "/"}>
 					<LogoText>opensrc</LogoText>
-				</a>
-				<ul className="float-right">{this.renderContent()}</ul>
+				</Link>
+				<ul className="float-right" style={{listStyle: "none"}}>{this.renderContent()}</ul>
 				<NavMenu />
 			</HeaderSection>
 		);

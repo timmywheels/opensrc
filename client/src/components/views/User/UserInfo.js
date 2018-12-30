@@ -97,7 +97,7 @@ class UserInfo extends Component {
 							<h6 id={'favorite-language'} className={'col-md-12'}><a href={blog} target={"_blank"}>{blog}</a></h6>
 							<p id={'bio-text'} className={'col-md-12'}>{bio}</p>
 						</BioSection>
-						<GitHubCalendar/>
+						<GitHubCalendar {...this.props} {...this.state}/>
 					</div>
 				</UserSection>
 			);

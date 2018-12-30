@@ -40,31 +40,6 @@ require('./routes/authRoutes')(app);
 require('./routes/trendingRepoRoutes')(app);
 require('./routes/userRepoRoutes')(app);
 
-app.get('/auth/github',
-	passport.authenticate('github', { scope: [ 'user:email' ] }),
-	function(req, res){
-		// The request will be redirected to GitHub for authentication, so this
-		// function will not be called.
-	});
-
-app.get('/auth/github/callback',
-	passport.authenticate('github', { failureRedirect: '/login' }),
-	function(req, res) {
-		// Successful authentication, redirect home.
-		res.redirect('/');
-	});
-
-// app.get('/user/:username', (req, res) => {
-// 	// console.log('req.query:', req.query)
-// 	// console.log('req.params:', req.params)
-// 	const { username } = req.params;
-// 	// console.log('username from index.js:', username)
-// 	// res.send(`<h1>${username}</h1>`)
-// 	res.sendFile('./client/src/components/views/User');
-// })
-
-
-
 if (process.env.NODE_ENV === 'production') {
 	// Express will serve up production assets
 	// Like main.js or main.css
@@ -73,7 +48,6 @@ if (process.env.NODE_ENV === 'production') {
 	const path = require('path').default;
 	// Express will serve up index.html
 	// If it doesn't recognize route
-
 	app.get('*', (req, res) => {
 		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 	});
