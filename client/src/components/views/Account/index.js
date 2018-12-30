@@ -1,7 +1,9 @@
 import React from 'react';
+import View from './View';
 
-const Account = () => {
-    return <div>Account</div>
-}
+const Account = (props) => {
+    console.log("Account/index.js Props:", props);
+    return <View/>
+};
 
 export default Account
