@@ -22,6 +22,7 @@ const HeaderSection = styled.header`
 	.header-btn{
 		font-size: 12px;
     	letter-spacing: 2px;
+    	font-weight: 900;
 	}
 `;
 

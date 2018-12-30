@@ -6,11 +6,12 @@ import LanguageCounts from "./LanguageCounts"
 
 class UserRepos extends Component {
 	render() {
-		let {repos} = this.props.user;
+		let {repos, login} = this.props.user;
 		console.log("UserRepos.js props", this.props);
 		if (!repos) {
 			return null;
-		} else {
+		}
+		if (login){
 			return (
 				<div className={"container"}>
 					{/*<h2 className={'text-center mt-5 mb-5'}>User Projects</h2>*/}
@@ -50,7 +51,15 @@ class UserRepos extends Component {
 				</div>
 			);
 		}
-	}
+		if (!login) {
+            return (
+                <div>
+                    {alert("User not found!")}
+                    {this.props.history.push("/")}
+                </div>
+            )
+        }
+    }
 }
 
 export default UserRepos;
