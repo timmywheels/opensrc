@@ -2,8 +2,11 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cookieSession = require('cookie-session');
 const bodyParser = require('body-parser');
+const passport = require('passport');
 const keys = require('./config/keys');
+require('./models/User');
 require('./models/TrendingRepos');
+require('./services/passport');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(
@@ -20,26 +23,45 @@ mongoose.connect(
 
 const app = express();
 
-app.use(cookieSession({
-	maxAge: 30 * 24 * 60 * 60 * 1000,
-	keys: [keys.cookie.key]
-}))
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(
+	cookieSession({
+		maxAge: 30 * 24 * 60 * 60 * 1000,
+		keys: [keys.cookie.key],
+	}),
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/trendingRepoRoutes')(app);
 require('./routes/userRepoRoutes')(app);
 
-app.get('/user/:username', (req, res) => {
-	console.log('req.query:', req.query)
-	console.log('req.params:', req.params)
-	const { username } = req.params;
-	console.log('username from index.js:', username)
-	// res.send(`<h1>${username}</h1>`)
-	res.sendFile('./client/src/components/views/User');
-})
+app.get('/auth/github',
+	passport.authenticate('github', { scope: [ 'user:email' ] }),
+	function(req, res){
+		// The request will be redirected to GitHub for authentication, so this
+		// function will not be called.
+	});
+
+app.get('/auth/github/callback',
+	passport.authenticate('github', { failureRedirect: '/login' }),
+	function(req, res) {
+		// Successful authentication, redirect home.
+		res.redirect('/');
+	});
+
+// app.get('/user/:username', (req, res) => {
+// 	// console.log('req.query:', req.query)
+// 	// console.log('req.params:', req.params)
+// 	const { username } = req.params;
+// 	// console.log('username from index.js:', username)
+// 	// res.send(`<h1>${username}</h1>`)
+// 	res.sendFile('./client/src/components/views/User');
+// })
 
 
 

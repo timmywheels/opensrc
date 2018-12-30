@@ -4,13 +4,13 @@
   "version": "0.1.0",
   "private": true,
   "proxy": {
+    "/api/user": {
+      "target": "http://localhost:5000"
+    },
     "/api/*": {
       "target": "http://localhost:5000"
     },
     "/user/:username": {
-      "target": "http://localhost:5000"
-    },
-    "/api/user": {
       "target": "http://localhost:5000"
     }
   },

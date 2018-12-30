@@ -70,30 +70,27 @@ class Header extends Component {
 	componentDidMount() {
 		window.addEventListener('scroll', this.listenScrollEvent);
 	}
-	// renderContent(){
-	// 	switch (this.props.auth) {
-	// 		case null:
-	// 			return;
-	// 		case false:
-	// 			return (
-	// 				<li>
-	// 					<a href="/auth/github">Login With Github</a>
-	// 				</li>
-	// 			);
-	// 		default:
-	// 			return [
-	// 				<li key={'1'}>
-	// 					{/*<Payments />*/}
-	// 				</li>,
-	// 				<li key={'2'} style={{ margin: '0 15px' }}>
-	// 					Credits: {this.props.auth.credits}
-	// 				</li>,
-	// 				<li key={'3'}>
-	// 					<a href="/auth/logout">Logout</a>
-	// 				</li>,
-	// 			];
-	// 	}
-	// }
+	renderContent(){
+		switch (this.props.auth) {
+			case null:
+				return;
+			case false:
+				return (
+					<li>
+						<Link className={'btn btn-success float-right mt-2 mr-4'} to={"/auth/github"}>Login With GitHub</Link>
+					</li>
+				);
+			default:
+				return [
+					<li key={'1'}>
+						<div>Profile</div>
+					</li>,
+					<li key={'2'}>
+						<Link className={'btn btn-success float-right mt-2 mr-4'} to={"/auth/logout"}>Logout</Link>
+					</li>,
+				];
+		}
+	}
 	render() {
 		console.log("this.props.auth", this.props.auth)
 		return (
@@ -107,7 +104,7 @@ class Header extends Component {
 				<a href={'/'}>
 					<LogoText>opensrc</LogoText>
 				</a>
-				{/*<button className={'btn btn-success float-right mt-2 mr-4'}><a href="/auth/github">Login With GitHub</a></button>*/}
+				<ul className="float-right">{this.renderContent()}</ul>
 				<NavMenu />
 			</HeaderSection>
 		);

@@ -13,7 +13,7 @@ class App extends Component {
 			this.props.fetchUser();
 			this.props.fetchTrendingRepos();
 		} catch(err) {
-			console.log("Errorz:", err)
+			console.log("Error:", err)
 		}
 	}
 
@@ -22,7 +22,7 @@ class App extends Component {
 			<BrowserRouter>
 				<div>
 					<Route exact path={'/'} component={Home} />
-					<Route path={'/auth/github'} component={Login} />
+					{/*<Route path={'/auth/github'} component={Login} />*/}
 					<Route path={'/user/:username'} component={User} />
 				</div>
 			</BrowserRouter>

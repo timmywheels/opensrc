@@ -9,13 +9,14 @@ import './css/index.css';
 import './css/github-calendar.css';
 import App from './App';
 import reducers from './reducers';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 
 // Development only axios helpers
 import axios from 'axios';
 window.axios = axios;
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
+console.log("Store:", store)
 
 ReactDOM.render(
 	<Provider store={store}>
@@ -23,4 +24,4 @@ ReactDOM.render(
 	</Provider>,
 	document.querySelector('#root')
 );
-registerServiceWorker();
+// registerServiceWorker();
