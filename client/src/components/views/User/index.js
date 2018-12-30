@@ -31,7 +31,7 @@ export default class extends Component {
 	onSubmit = () => {
 		const {user, username} = this.state;
 		this.setState({username}, () => {
-			user.repos = []
+			user.repos = [];
 			github.api(username);
 			this.props.history.push(`/user/${username}`)
 		})

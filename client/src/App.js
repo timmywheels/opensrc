@@ -8,9 +8,13 @@ import Login from "./components/views/Login/"
 
 class App extends Component {
 	componentDidMount() {
-		console.log("App.js Props:", this.props.fetchUser())
-		this.props.fetchUser()
-		this.props.fetchTrendingRepos();
+		// console.log("App.js Props:", this.props);
+		try{
+			this.props.fetchUser();
+			this.props.fetchTrendingRepos();
+		} catch(err) {
+			console.log("Errorz:", err)
+		}
 	}
 
 	render() {

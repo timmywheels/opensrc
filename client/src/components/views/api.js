@@ -5,9 +5,9 @@ export const user = {
 };
 
 const getUserData = (username) => {
-	const url = `https://api.github.com/users/${username}?client_id=${keys.github_client_id}&client_secret=${keys.github_client_secret}`;
-	const xhr = new XMLHttpRequest();
-	try {
+    try {
+		const url = `https://api.github.com/users/${username}?client_id=${keys.github_client_id}&client_secret=${keys.github_client_secret}`;
+		const xhr = new XMLHttpRequest();
 		xhr.open('GET', url, false);
 		xhr.onload = function () {
 			const data = JSON.parse(this.response);
@@ -27,12 +27,12 @@ const getUserData = (username) => {
 	} catch (err) {
 		console.log("Error:", err)
 	}
-}
+};
 
 const getUserRepos = (username) => {
-	const url = `https://api.github.com/users/${username}/repos?per_page=10&client_id=${keys.github_client_id}&client_secret=${keys.github_client_secret}`;
-	const xhr = new XMLHttpRequest();
 	try {
+		const url = `https://api.github.com/users/${username}/repos?per_page=10&client_id=${keys.github_client_id}&client_secret=${keys.github_client_secret}`;
+		const xhr = new XMLHttpRequest();
 		xhr.open('GET', url, false);
 		xhr.onload = function () {
 			const data = JSON.parse(this.response);
@@ -65,6 +65,6 @@ const getUserRepos = (username) => {
 };
 
 export const api = (username) => {
-	getUserData(username)
-	getUserRepos(username)
+	getUserData(username);
+	getUserRepos(username);
 };
