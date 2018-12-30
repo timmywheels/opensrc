@@ -12,10 +12,9 @@ module.exports = app => {
             res.redirect('/account');
         });
 
-    app.get('/auth/logout', (req, res) => {
+    app.get('/logout', (req, res) => {
         req.logout();
-        res.send("Successfully logged out.")
-        // res.redirect('/');
+        res.redirect('/');
     });
 
     app.get('/api/current_user', (req, res) => {

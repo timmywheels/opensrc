@@ -12,8 +12,8 @@ class App extends Component {
 		// console.log("App.js Props:", this.props);
 		try{
 			console.log("App.js Props:", this.props);
-			this.props.fetchUser();
 			this.props.fetchTrendingRepos();
+			this.props.fetchUser();
 		} catch(err) {
 			console.log("Error:", err)
 		}

@@ -89,10 +89,10 @@ class Header extends Component {
 			default:
 				return [
 					<li style={{display: "inline-block"}} key={'1'}>
-                        <Link className={'header-btn btn btn-outline-light float-right mt-2 mr-4'} style={{color: "#fff"}} to={"/account"}>ACCOUNT</Link>
+                        <Link className={'header-btn btn btn-outline-light float-right mt-2 mr-4'} to={"/account"}>ACCOUNT</Link>
 					</li>,
 					<li style={{display: "inline-block"}} key={'2'}>
-						<Link className={'header-btn btn btn-success float-right mt-2 mr-4'} to={"/auth/logout"}>LOGOUT</Link>
+						<Link className={'header-btn btn btn-success float-right mt-2 mr-4'} to={"/logout"}>LOGOUT</Link>
 					</li>,
 				];
 		}
