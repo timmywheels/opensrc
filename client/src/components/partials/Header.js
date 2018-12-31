@@ -93,7 +93,7 @@ class Header extends Component {
 						<Link className={'header-btn btn btn-outline-light float-right mt-2 mr-4'} to={"/account"}>ACCOUNT</Link>
 					</li>,
 					<li style={{display: "inline-block"}} key={'2'}>
-						<Link className={'header-btn btn btn-success float-right mt-2 mr-4'} to={"/logout"}>LOGOUT</Link>
+						<Link className={'header-btn btn btn-success float-right mt-2 mr-4'} to={"/auth/logout"}>LOGOUT</Link>
 					</li>,
 				];
 		}

@@ -7,10 +7,10 @@
     "/api/*": {
       "target": "http://localhost:5000"
     },
-    "/user/:username": {
+    "/auth/*": {
       "target": "http://localhost:5000"
     },
-    "/auth/github": {
+    "/user/*": {
       "target": "http://localhost:5000"
     }
   },
