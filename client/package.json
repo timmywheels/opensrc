@@ -10,6 +10,9 @@
     "/auth/*": {
       "target": "http://localhost:5000"
     },
+    "/user/:username": {
+      "target": "http://localhost:5000"
+    },
     "/user/*": {
       "target": "http://localhost:5000"
     }

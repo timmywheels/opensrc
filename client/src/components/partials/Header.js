@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import GitHubIcon from '../../img/github-icon.svg';
 
 const HeaderSection = styled.header`
 	height: 60px;
@@ -23,6 +24,12 @@ const HeaderSection = styled.header`
 		font-size: 12px;
     letter-spacing: 2px;
     font-weight: 400;
+	}
+	
+	.header-btn:hover{
+		.loginBtnIcon{
+			filter: invert(100%);
+		}
 	}
 `;
 
@@ -84,7 +91,7 @@ class Header extends Component {
 			case false:
 				return (
 					<li className={"align-middle"} style={{display: "inline-block"}}>
-						<Link className={'header-btn btn btn-outline-light mt-2 mr-4'} to={"/auth/github"}>LOGIN WITH GITHUB</Link>
+						<Link className={'header-btn btn btn-outline-light mt-2 mr-4'} to={"/auth/github"}>LOGIN<img className={"loginBtnIcon"} style={{height: "15px", width: "15px", margin: "0 0 3px 6px"}} src={GitHubIcon}/></Link>
 					</li>
 				);
 			default:
