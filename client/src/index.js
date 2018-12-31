@@ -9,7 +9,7 @@ import './css/index.css';
 import './css/github-calendar.css';
 import App from './App';
 import reducers from './reducers';
-// import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from './registerServiceWorker';
 
 // Development only axios helpers
 import axios from 'axios';
@@ -24,4 +24,4 @@ ReactDOM.render(
 	</Provider>,
 	document.querySelector('#root')
 );
-// registerServiceWorker();
+registerServiceWorker();

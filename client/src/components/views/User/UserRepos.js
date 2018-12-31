@@ -51,7 +51,7 @@ class UserRepos extends Component {
 				</div>
 			);
 		}
-		if (!login) {
+		if (login === undefined) {
             return (
                 <div>
                     {alert("User not found!")}

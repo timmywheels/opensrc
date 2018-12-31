@@ -83,17 +83,17 @@ class Header extends Component {
 				return;
 			case false:
 				return (
-					<li>
-						<Link className={'header-btn btn btn-success float-right mt-2 mr-4'} to={"/auth/github"}>LOGIN WITH GITHUB</Link>
+					<li className={"align-middle"} style={{display: "inline-block"}}>
+						<Link className={'header-btn btn btn-outline-light mt-2 mr-4'} to={"/auth/github"}>LOGIN WITH GITHUB</Link>
 					</li>
 				);
 			default:
 				return [
-					<li style={{display: "inline-block"}} key={'1'}>
-						<Link className={'header-btn btn btn-outline-light float-right mt-2 mr-4'} to={"/account"}>ACCOUNT</Link>
+					<li className={"align-middle"} style={{display: "inline-block"}} key={'1'}>
+						<Link className={'header-btn btn btn-outline-light mr-4'} to={"/account"}>ACCOUNT</Link>
 					</li>,
-					<li style={{display: "inline-block"}} key={'2'}>
-						<Link className={'header-btn btn btn-success float-right mt-2 mr-4'} to={"/auth/logout"}>LOGOUT</Link>
+					<li className={"align-middle"} style={{display: "inline-block"}} key={'2'}>
+						<Link className={'header-btn btn btn-outline-light mr-4'} to={"/auth/logout"}>LOGOUT</Link>
 					</li>,
 				];
 		}
@@ -112,7 +112,7 @@ class Header extends Component {
 				<Link to={this.props.auth ? "/account" : "/"}>
 					<LogoText>opensrc</LogoText>
 				</Link>
-				<ul className="float-right" style={{listStyle: "none"}}>{this.renderContent()}</ul>
+				<ul className={"float-right pt-2 pb-2"} style={{listStyle: "none"}}>{this.renderContent()}</ul>
 				<NavMenu/>
 			</HeaderSection>
 		);
