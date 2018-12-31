@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom'
 
 const HeaderSection = styled.header`
 	height: 60px;
@@ -21,8 +21,8 @@ const HeaderSection = styled.header`
 	
 	.header-btn{
 		font-size: 12px;
-    	letter-spacing: 2px;
-    	font-weight: 900;
+    letter-spacing: 2px;
+    font-weight: 400;
 	}
 `;
 
@@ -76,20 +76,21 @@ class Header extends Component {
 	componentDidMount() {
 		window.addEventListener('scroll', this.listenScrollEvent);
 	}
-	renderContent(){
+
+	renderContent() {
 		switch (this.props.auth) {
 			case null:
 				return;
 			case false:
 				return (
 					<li>
-						<Link className={'header-btn btn btn-success float-right mt-2 mr-4'} to={"/auth/github"}>Login With GitHub</Link>
+						<Link className={'header-btn btn btn-success float-right mt-2 mr-4'} to={"/auth/github"}>LOGIN WITH GITHUB</Link>
 					</li>
 				);
 			default:
 				return [
 					<li style={{display: "inline-block"}} key={'1'}>
-                        <Link className={'header-btn btn btn-outline-light float-right mt-2 mr-4'} to={"/account"}>ACCOUNT</Link>
+						<Link className={'header-btn btn btn-outline-light float-right mt-2 mr-4'} to={"/account"}>ACCOUNT</Link>
 					</li>,
 					<li style={{display: "inline-block"}} key={'2'}>
 						<Link className={'header-btn btn btn-success float-right mt-2 mr-4'} to={"/logout"}>LOGOUT</Link>
@@ -97,6 +98,7 @@ class Header extends Component {
 				];
 		}
 	}
+
 	render() {
 		console.log("this.props.auth", this.props.auth);
 		return (
@@ -111,14 +113,14 @@ class Header extends Component {
 					<LogoText>opensrc</LogoText>
 				</Link>
 				<ul className="float-right" style={{listStyle: "none"}}>{this.renderContent()}</ul>
-				<NavMenu />
+				<NavMenu/>
 			</HeaderSection>
 		);
 	}
 }
 
-function mapStateToProps({ auth }) {
-	return { auth };
+function mapStateToProps({auth}) {
+	return {auth};
 }
 
 export default connect(mapStateToProps)(Header);
