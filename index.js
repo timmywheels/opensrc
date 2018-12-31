@@ -44,6 +44,8 @@ if (process.env.NODE_ENV === 'production') {
 	// Express will serve up production assets
 	// Like main.js or main.css
 	app.use(express.static('client/build'));
+	// Catch all routes
+	app.use("*", express.static('client/build'));
 
 	const path = require('path').default;
 	// Express will serve up index.html
