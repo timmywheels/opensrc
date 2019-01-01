@@ -9,12 +9,13 @@ module.exports = app => {
     app.get('/auth/github/callback',
         passport.authenticate('github'),
         (req, res) => {
-            res.redirect('/account');
+            res.redirect('/dashboard');
         });
 
     app.get('/auth/logout', (req, res) => {
         // console.log(">>>>>>>>>req:", req)
         req.logout();
+        res.setHeader("Content-Type", "text/html")
         res.redirect('/');
     });
 

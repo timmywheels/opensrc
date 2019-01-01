@@ -5,7 +5,7 @@ import Home from './components/views/Home/';
 import * as actions from './actions';
 import User from "./components/views/User/"
 // import Login from "./components/views/Login/";
-import Account from "./components/views/Account"
+import Dashboard from "./components/views/Dashboard"
 
 class App extends Component {
 	componentDidMount() {
@@ -24,7 +24,7 @@ class App extends Component {
 			<BrowserRouter>
 				<div>
 					<Route exact path={'/'} component={Home} />
-					<Route exact path={'/account'} component={Account} />
+					<Route exact path={'/dashboard'} component={Dashboard} />
 					<Route path={'/user/:username'} component={User} />
 				</div>
 			</BrowserRouter>

@@ -97,7 +97,7 @@ class Header extends Component {
 			default:
 				return [
 					<li className={"align-middle"} style={{display: "inline-block"}} key={'1'}>
-						<Link className={'header-btn btn btn-outline-light mr-4'} to={"/account"}>ACCOUNT</Link>
+						<Link className={'header-btn btn btn-outline-light mr-4'} to={"/dashboard"}>DASHBOARD</Link>
 					</li>,
 					<li className={"align-middle"} style={{display: "inline-block"}} key={'2'}>
 						<Link className={'header-btn btn btn-outline-light mr-4'} to={"/auth/logout"}>LOGOUT</Link>
@@ -116,7 +116,7 @@ class Header extends Component {
 					boxShadow: this.state.boxShadow
 				}}
 			>
-				<Link to={this.props.auth ? "/account" : "/"}>
+				<Link to={this.props.auth ? "/dashboard" : "/"}>
 					<LogoText>opensrc</LogoText>
 				</Link>
 				<ul className={"float-right pt-2 pb-2"} style={{listStyle: "none"}}>{this.renderContent()}</ul>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import View from './View';
 import * as github from "../api";
 
-class Account extends Component {
+class Dashboard extends Component {
 
     state = {
         username: "",
@@ -13,7 +13,7 @@ class Account extends Component {
         this.setState({
             username
         });
-        console.log("Account/index.js State:", this.state)
+        console.log("Dashboard/index.js State:", this.state)
     };
 
     onSubmit = () => {
@@ -26,9 +26,9 @@ class Account extends Component {
 
     };
     render(){
-        console.log("Account/index.js Props:", this.props);
+        console.log("Dashboard/index.js Props:", this.props);
         return <View {...this.props} {...this.state} username={this.state.username} user={github.user} onChange={this.onChange} onSubmit={this.onSubmit}/>
     }
 };
 
-export default Account
+export default Dashboard
