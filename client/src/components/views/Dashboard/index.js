@@ -6,8 +6,15 @@ class Dashboard extends Component {
 
     state = {
         username: "",
-        user: github.user
+        user: github.user,
+        githubId: ""
     };
+
+    fetchGitHubId = (githubId) => {
+        this.setState({
+          githubId
+        })
+    }
 
     onChange = (username) => {
         this.setState({
@@ -23,11 +30,10 @@ class Dashboard extends Component {
             github.api(username);
             this.props.history.push(`/user/${username}`)
         })
-
     };
     render(){
         console.log("Dashboard/index.js Props:", this.props);
-        return <View {...this.props} {...this.state} username={this.state.username} user={github.user} onChange={this.onChange} onSubmit={this.onSubmit}/>
+        return <View {...this.props} {...this.state} username={this.state.username} fetchGitHubId={this.fetchGitHubId} user={github.user} onChange={this.onChange} onSubmit={this.onSubmit}/>
     }
 };
 

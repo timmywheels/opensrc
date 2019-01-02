@@ -4,9 +4,10 @@ import Hero from '../../partials/Hero';
 
 class View extends Component {
     render() {
+    console.log("Dashboard/View.js Props:", this.props)
         return (
             <div>
-                <Header/>
+                <Header {...this.props}/>
                 <Hero/>
                 <div className="container">
                     <h1 className={"text-center"}>Dashboard</h1>

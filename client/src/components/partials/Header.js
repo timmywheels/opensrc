@@ -81,7 +81,9 @@ class Header extends Component {
 	};
 
 	componentDidMount() {
+		console.log("Header.js Props:", this.props)
 		window.addEventListener('scroll', this.listenScrollEvent);
+		// this.props.fetchGitHubId(this.props.auth.githubId)
 	}
 
 	renderContent() {
@@ -108,6 +110,9 @@ class Header extends Component {
 
 	render() {
 		console.log("this.props.auth", this.props.auth);
+		if (this.props.auth) {
+			this.props.fetchGitHubId(this.props.auth.githubId)
+		}
 		return (
 			<HeaderSection
 				style={{
