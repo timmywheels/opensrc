@@ -8,7 +8,7 @@ const HeaderSection = styled.header`
 	height: 60px;
 	color: #fff;
 	z-index: 9999;
-	position: fixed;
+	position: sticky;
 	width: 100%;
 	top: 0;
 
@@ -24,6 +24,7 @@ const HeaderSection = styled.header`
 		font-size: 12px;
     letter-spacing: 2px;
     font-weight: 400;
+    margin-top: 12px;
 	}
 	
 	.header-btn:hover{
@@ -56,7 +57,7 @@ const LogoText = styled.p`
 
 class Header extends Component {
 	state = {
-		background: 'transparent',
+		background: this.props.background || "transparent",
 		borderBottom: 'none',
 		boxShadow: 'none'
 	};
@@ -73,7 +74,7 @@ class Header extends Component {
 			});
 		} else {
 			this.setState({
-				background: 'transparent',
+				background: this.props.background || "transparent",
 				borderBottom: 'none',
 				boxShadow: 'none'
 			});
@@ -110,9 +111,10 @@ class Header extends Component {
 
 	render() {
 		console.log("this.props.auth", this.props.auth);
-		if (this.props.auth) {
-			this.props.fetchGitHubId(this.props.auth.githubId)
-		}
+		// For Dashboard.js
+		// if (this.props.auth) {
+		// 	this.props.fetchGitHubId(this.props.auth.githubId)
+		// }
 		return (
 			<HeaderSection
 				style={{
@@ -121,10 +123,10 @@ class Header extends Component {
 					boxShadow: this.state.boxShadow
 				}}
 			>
-				<Link to={this.props.auth ? "/dashboard" : "/"}>
+				<Link to={"/"}>
 					<LogoText>opensrc</LogoText>
 				</Link>
-				<ul className={"float-right pt-2 pb-2"} style={{listStyle: "none"}}>{this.renderContent()}</ul>
+				<ul className={"float-right"} style={{listStyle: "none"}}>{this.renderContent()}</ul>
 				<NavMenu/>
 			</HeaderSection>
 		);
