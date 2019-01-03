@@ -1,11 +1,25 @@
 import keys from "../../config/keys";
 
+const request = require("request");
+
 export const user = {
 	repos: []
 };
 
+export const getAuthenticatedUsername = (githubId) => {
+	request(`https://api.github.com/user/${githubId}?client_id=${keys.github_client_id}&client_secret=${keys.github_client_secret}`, (err, res, body) => {
+		if (!err && res.statusCode == 200) {
+			const data = JSON.parse(body)
+			return data.login;
+		}
+		else {
+			console.log("Error:", res.statusCode)
+		}
+	})
+}
+
 const getUserData = (username) => {
-    try {
+	try {
 		const url = `https://api.github.com/users/${username}?client_id=${keys.github_client_id}&client_secret=${keys.github_client_secret}`;
 		const xhr = new XMLHttpRequest();
 		xhr.open('GET', url, false);

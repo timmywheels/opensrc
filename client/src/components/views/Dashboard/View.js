@@ -14,16 +14,13 @@ class View extends Component {
 		console.log("Dashboard/View.js Props:", this.props)
 		return (
 			<div>
-				<Header background={"#26b0f5"}/>
+				<Header background={"#26b0f5"} setGitHubId={this.props.setGitHubId}/>
 				<Sidebar/>
 				<DashboardSection>
 					{/*<Hero/>*/}
 					<div className="container">
 
 						<h1 className={"text-center mt-5"}>Dashboard</h1>
-						{/*{this.props.map((prop) => {*/}
-						{/*return <p>{prop}</p>*/}
-						{/*})}*/}
 					</div>
 				</DashboardSection>
 			</div>

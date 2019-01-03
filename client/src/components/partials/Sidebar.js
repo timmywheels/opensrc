@@ -17,11 +17,9 @@ class Sidebar extends Component{
 	render(){
 		return(
 			<div>
-			{/*<div className="row">*/}
 				<SidebarSection className="col-md-3 mt-5">
 					<p className={"text-center pt-3"}>Sidebar</p>
 				</SidebarSection>
-			{/*</div>*/}
 			</div>
 		)
 	}

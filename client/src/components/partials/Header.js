@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import GitHubIcon from '../../img/github-icon.svg';
+import * as github from "../views/api";
+
+let githubUsername = ""
 
 const HeaderSection = styled.header`
 	height: 60px;
@@ -59,7 +62,8 @@ class Header extends Component {
 	state = {
 		background: this.props.background || "transparent",
 		borderBottom: 'none',
-		boxShadow: 'none'
+		boxShadow: 'none',
+		marginBottom: this.props.marginBottom || "inherit"
 	};
 
 	listenScrollEvent = e => {
@@ -84,7 +88,19 @@ class Header extends Component {
 	componentDidMount() {
 		console.log("Header.js Props:", this.props)
 		window.addEventListener('scroll', this.listenScrollEvent);
-		// this.props.fetchGitHubId(this.props.auth.githubId)
+	}
+
+	setGithubUsername = (username) => {
+		return username;
+	}
+
+	componentDidUpdate(){
+		// const { githubId } = this.props.auth;
+		if (this.props.auth){
+			const { githubId } = this.props.auth;
+			githubUsername = github.getAuthenticatedUsername(githubId);
+			this.setGithubUsername(githubUsername);
+		}
 	}
 
 	renderContent() {
@@ -100,7 +116,7 @@ class Header extends Component {
 			default:
 				return [
 					<li className={"align-middle"} style={{display: "inline-block"}} key={'1'}>
-						<Link className={'header-btn btn btn-outline-light mr-4'} to={"/dashboard"}>DASHBOARD</Link>
+						<Link className={'header-btn btn btn-outline-light mr-4'} to={"/dashboard"}>{githubUsername || "DASHBOARD"}</Link>
 					</li>,
 					<li className={"align-middle"} style={{display: "inline-block"}} key={'2'}>
 						<Link className={'header-btn btn btn-outline-light mr-4'} to={"/auth/logout"}>LOGOUT</Link>
@@ -111,16 +127,15 @@ class Header extends Component {
 
 	render() {
 		console.log("this.props.auth", this.props.auth);
-		// For Dashboard.js
-		// if (this.props.auth) {
-		// 	this.props.fetchGitHubId(this.props.auth.githubId)
-		// }
+		console.log("githubUsername:", githubUsername);
+
 		return (
 			<HeaderSection
 				style={{
 					background: this.state.background,
 					borderBottom: this.state.borderBottom,
-					boxShadow: this.state.boxShadow
+					boxShadow: this.state.boxShadow,
+					marginBottom: this.state.marginBottom
 				}}
 			>
 				<Link to={"/"}>

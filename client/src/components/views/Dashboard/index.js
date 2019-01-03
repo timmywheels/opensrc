@@ -10,9 +10,9 @@ class Dashboard extends Component {
         githubId: ""
     };
 
-    fetchGitHubId = (githubId) => {
+    setGitHubId = (githubId) => {
         this.setState({
-          githubId
+	        githubId
         })
     }
 
@@ -32,8 +32,10 @@ class Dashboard extends Component {
         })
     };
     render(){
+        const githubUsername = github.getAuthenticatedUsername(this.props.githubId)
         console.log("Dashboard/index.js Props:", this.props);
-        return <View {...this.props} {...this.state} username={this.state.username} fetchGitHubId={this.fetchGitHubId} user={github.user} onChange={this.onChange} onSubmit={this.onSubmit}/>
+	    console.log("githubUsername:", githubUsername);
+        return <View {...this.props} {...this.state} username={this.state.username} setGitHubId={this.setGitHubId} user={github.user} onChange={this.onChange} onSubmit={this.onSubmit}/>
     }
 };
 
