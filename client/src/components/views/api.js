@@ -6,16 +6,24 @@ export const user = {
 	repos: []
 };
 
-export const getAuthenticatedUsername = (githubId) => {
-	request(`https://api.github.com/user/${githubId}?client_id=${keys.github_client_id}&client_secret=${keys.github_client_secret}`, (err, res, body) => {
-		if (!err && res.statusCode == 200) {
-			const data = JSON.parse(body)
-			return data.login;
-		}
-		else {
-			console.log("Error:", res.statusCode)
-		}
+export const getAuthenticatedUsername = () => {
+	request(`${keys.url}/api/current_user`, (err, res, body) => {
+		const data = JSON.parse(body);
+		// console.log("DATA BRO", body)
+		console.log("data.githubId:", data.githubId);
+		return data.githubId;
 	})
+
+	// request(`https://api.github.com/user/${githubId}?client_id=${keys.github_client_id}&client_secret=${keys.github_client_secret}`, (err, res, body) => {
+	// 	if (!err && res.statusCode == 200) {
+	// 		const data = JSON.parse(body)
+	// 		console.log("api.js data.login:", data.login);
+	// 		return data.login;
+	// 	}
+	// 	else {
+	// 		console.log("Error:", res.statusCode)
+	// 	}
+	// })
 }
 
 const getUserData = (username) => {

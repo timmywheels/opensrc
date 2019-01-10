@@ -85,22 +85,26 @@ class Header extends Component {
 		}
 	};
 
+	// shouldComponentUpdate(nextProps, nextState){
+	// 	return !!nextProps.auth;
+	// }
+
 	componentDidMount() {
 		console.log("Header.js Props:", this.props)
 		window.addEventListener('scroll', this.listenScrollEvent);
-	}
-
-	setGithubUsername = (username) => {
-		return username;
+		// githubUsername = github.getAuthenticatedUsername();
+		// this.props.setGitHubId(github.getAuthenticatedUsername())
+		// this.setState({ githubId: github.getAuthenticatedUsername })
+		console.log("PROPZZZ", this.props)
+		// console.log("GITHUB YO", githubUsername)
 	}
 
 	componentDidUpdate(){
-		// const { githubId } = this.props.auth;
-		if (this.props.auth){
-			const { githubId } = this.props.auth;
-			githubUsername = github.getAuthenticatedUsername(githubId);
-			this.setGithubUsername(githubUsername);
-		}
+		// this.props.setGitHubId(github.getAuthenticatedUsername())
+		// githubUsername = github.getAuthenticatedUsername();
+		// console.log("GITHUB YO", githubUsername)
+		// this.props.setGitHubId(github.getAuthenticatedUsername)
+
 	}
 
 	renderContent() {
@@ -127,7 +131,7 @@ class Header extends Component {
 
 	render() {
 		console.log("this.props.auth", this.props.auth);
-		console.log("githubUsername:", githubUsername);
+		// console.log("githubUsername:", githubUsername);
 
 		return (
 			<HeaderSection
