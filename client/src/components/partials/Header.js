@@ -89,14 +89,22 @@ class Header extends Component {
 	// 	return !!nextProps.auth;
 	// }
 
+
+
 	componentDidMount() {
 		console.log("Header.js Props:", this.props)
 		window.addEventListener('scroll', this.listenScrollEvent);
 		// githubUsername = github.getAuthenticatedUsername();
 		// this.props.setGitHubId(github.getAuthenticatedUsername())
 		// this.setState({ githubId: github.getAuthenticatedUsername })
-		console.log("PROPZZZ", this.props)
+		// console.log("PROPZZZ", this.props)
 		// console.log("GITHUB YO", githubUsername)
+	}
+
+	componentWillReceiveProps(props) {
+		if (this.props.auth) {
+			this.props.setGitHubId(props.auth.githubId);
+		}
 	}
 
 	componentDidUpdate(){
