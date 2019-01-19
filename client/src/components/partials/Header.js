@@ -138,7 +138,7 @@ class Header extends Component {
 	}
 
 	render() {
-		console.log("this.props.auth", this.props.auth);
+		console.log("this.props.auth", this.props.auth)
 		// console.log("githubUsername:", githubUsername);
 
 		return (
