@@ -3,11 +3,12 @@ import styled from 'styled-components'
 import Header from '../../partials/Header'
 import Hero from '../../partials/Hero';
 import Sidebar from '../../partials/Sidebar';
+import DashPanel from '../../views/Dashboard/DashPanel';
 
 
-const DashboardSection = styled.div`
-  min-height: 100vh;
-`;
+// const DashboardSection = styled.div`
+//   min-height: 100vh;
+// `;
 
 class View extends Component {
 	render() {
@@ -15,14 +16,12 @@ class View extends Component {
 		return (
 			<div>
 				<Header background={"#26b0f5"} setGitHubId={this.props.setGitHubId}/>
-				<Sidebar/>
-				<DashboardSection>
-					{/*<Hero/>*/}
-					<div className="container">
-
-						<h1 className={"text-center mt-5"}>Dashboard</h1>
+				<div className="container px-lg-5">
+					<div className="row justify-content-center">
+						<Sidebar username={this.props.username} repos={this.props.user.repos}/>
+						<DashPanel/>
 					</div>
-				</DashboardSection>
+				</div>
 			</div>
 		)
 	}
