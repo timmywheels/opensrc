@@ -39,8 +39,8 @@ const HeaderSection = styled.header`
 `;
 
 const Logo = styled.img`
-	width: 150px;
-    margin: 5px 0 0 10px;
+	width: 135px;
+    margin: 8px 0 0 30px;
 `;
 
 const NavMenu = styled.ul`
