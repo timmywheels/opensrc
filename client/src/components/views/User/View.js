@@ -9,7 +9,7 @@ class View extends Component{
 		console.log('View.js Props:',this.props);
 		return(
 			<div>
-				<Header/>
+				<Header marginBottom={-60}/>
 				<Hero {...this.props} {...this.state} user={this.props.user} onChange={this.props.onChange} onSubmit={this.props.onSubmit}/>
 				<UserRepos {...this.props} {...this.state} user={this.props.user} onChange={this.props.onChange} onSubmit={this.props.onSubmit}>
 					<UserInfo {...this.props} {...this.state} user={this.props.user} onChange={this.props.onChange} onSubmit={this.props.onSubmit}/>

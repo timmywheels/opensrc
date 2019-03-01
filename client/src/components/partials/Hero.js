@@ -32,9 +32,14 @@ const HeroOverlay = styled.div`
 		font-weight: 500;
 	}
 
-	h6, p {
+	h6{
 		color: #eee;
-		font-weight: 100;
+		font-weight: 400;
+		letter-spacing: 1px;
+	} 
+	p {
+		color: #eee;
+		font-weight: 300;
 		letter-spacing: 1px;
 	}
 `;

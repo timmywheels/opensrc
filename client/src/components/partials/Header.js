@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import OpenSrcLogo from '../../img/opensrc-logo-white.svg';
 import GitHubIcon from '../../img/github-icon.svg';
 import * as github from "../views/api";
 
-let githubUsername = ""
+let githubUsername = "";
 
 const HeaderSection = styled.header`
 	height: 60px;
@@ -35,6 +36,11 @@ const HeaderSection = styled.header`
 			filter: invert(100%);
 		}
 	}
+`;
+
+const Logo = styled.img`
+	width: 150px;
+    margin: 5px 0 0 10px;
 `;
 
 const NavMenu = styled.ul`
@@ -151,7 +157,7 @@ class Header extends Component {
 				}}
 			>
 				<Link to={"/"}>
-					<LogoText>opensrc</LogoText>
+					<Logo src={OpenSrcLogo} alt={"OpenSrc Logo"} />
 				</Link>
 				<ul className={"float-right"} style={{listStyle: "none"}}>{this.renderContent()}</ul>
 				<NavMenu/>
