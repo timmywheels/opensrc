@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 class Calendar extends Component {
 	componentDidMount(){
-        GitHubCalendar(".calendar", this.props.username);
+        GitHubCalendar(".calendar", this.props.username, { responsive: true });
 	}
     // componentWillReceiveProps(){
     //     GitHubCalendar(".calendar", this.props.username);
