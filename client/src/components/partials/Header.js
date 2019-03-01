@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import OpenSrcLogo from '../../img/opensrc-logo-white.svg';
+import OpenSrcLogo from '../../img/logos/opensrc-logo-white.png';
 import GitHubIcon from '../../img/github-icon.svg';
 import * as github from "../views/api";
 
@@ -40,7 +40,7 @@ const HeaderSection = styled.header`
 
 const Logo = styled.img`
 	width: 135px;
-    margin: 8px 0 0 30px;
+    margin: 8px 0 0 20px;
 `;
 
 const NavMenu = styled.ul`
