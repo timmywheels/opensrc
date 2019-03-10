@@ -5,32 +5,16 @@ import * as github from "../api";
 class Dashboard extends Component {
 
     state = {
-        username: "",
+        username: null,
         user: github.user,
-        githubId: ""
+        githubId: null
     };
-
-  // using with no wifi on the plane
-	// state = {
-	// 	username: "timwheelercom",
-	// 	user: {
-	// 	    login: "timwheelercom",
-  //       repos: [
-  //       	{"repoName": "algorithm-practice"},
-	//         {"repoName": "java"},
-	//         {"repoName": "c-sharp"}
-  //       ],
-	// 			type: "user"
-  //   },
-	// 	githubId: "1234567890"
-	// };
-
 
     setGitHubId = (githubId) => {
         this.setState({
 	        githubId
-        }, console.log("Github ID set!", this.state))
-
+        })
+        console.log("Github ID set!", this.state)
     }
 
     onChange = (username) => {

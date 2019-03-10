@@ -1,18 +1,10 @@
 import React, { Component } from 'react';
 import GitHubCalendar from 'github-calendar';
-import styled from 'styled-components';
-
-// const GitHubCalendar = styled.div`
-// 	display: block;
-// `;
 
 class Calendar extends Component {
 	componentDidMount(){
         GitHubCalendar(".calendar", this.props.username, { responsive: true });
 	}
-    // componentWillReceiveProps(){
-    //     GitHubCalendar(".calendar", this.props.username);
-    // }
 
 	render() {
         console.log("Calendar.js Props:", this.props);
