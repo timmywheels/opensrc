@@ -49,11 +49,6 @@ body {
 }
 
 .issues {
-    /*border: none;*/
-    /*background: #00c6ff;*/
-    /*background: -webkit-linear-gradient(to top,#0072ff,#00c6ff);*/
-    /*background: linear-gradient(to top,#0072ffd9,#00c6ffcc);*/
-    /*border-bottom: 4px solid #006bde;*/
     border: 2px solid #aaa;
     color: #aaa;
     background: none;
@@ -74,8 +69,6 @@ body {
     color: #696969;
     box-shadow: 2px 2px 15px 0 #33333333;
     transition: box-shadow 0.2s ease-in-out;
-    /*background: -webkit-linear-gradient(to bottom right, #ffffff, #f9f9f9);*/
-    /*background: linear-gradient(to bottom right, #ffffff, #f9f9f9);*/
 }
 
 .card:hover {
@@ -94,6 +87,35 @@ body {
 }
 
 .card:hover::after {
+    width: 100%;
+}
+
+.trending-repos-btn{
+    border: 2px solid #00a1ff;
+    color: #00a1ff;
+    background: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+.trending-repos-btn:hover {
+    border: 2px solid #00a1ff;
+    background: #00a1ff;
+    color: #fff;
+}
+
+.trending-repos-card::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 5px;
+    background: #00a1ff;
+    transition: width .5s;
+    border-radius: 2px;
+}
+
+.trending-repos-card:hover::after {
     width: 100%;
 }
 

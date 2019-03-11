@@ -19,7 +19,7 @@ class TrendingRepos extends Component {
 								className={"col-lg-3 col-md-4 col-sm-6 card-block"}
 								key={key}
 							>
-								<div className={"card"}>
+								<div className={"card trending-repos-card"}>
 									<div className={"card-body d-flex flex-column"}>
 										<div className={"row"}>
 											<a
@@ -33,12 +33,10 @@ class TrendingRepos extends Component {
 											>
 												<h5 className={"card-title"}>{repo.repoName}</h5>
 											</a>
-											{/*<p class="fork-link col-4"><img src="/static/media/github-fork.3421d08d.svg" alt="GitHub Fork Icon">3</p>*/}
 										</div>
 										<p className={"card-text"}>{repo.repoDesc}</p>
-										{/*<img class="language-img" src="/static/media/html5.4b55d3c2.svg">*/}
 										<a
-											className={"btn issues mt-auto"}
+											className={"btn trending-repos-btn mt-auto"}
 											target="_blank"
 											href={`https://github.com/${repo.repoName.replace(
 												/\s/g,
@@ -46,7 +44,7 @@ class TrendingRepos extends Component {
 											)}`}
 											rel="noopener noreferrer"
 										>
-											{repo.starCount}
+											{ repo.starCount.replace('today', '') }
 										</a>
 									</div>
 								</div>
