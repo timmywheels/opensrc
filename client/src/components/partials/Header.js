@@ -107,11 +107,11 @@ class Header extends Component {
     componentWillMount() {
         if (this.props.auth) {
             const { githubId } = this.props.auth;
-            const userData = github.fetchDataByUserId(githubId)
-            userData.then(res => {
-                console.log('res::::::', res)
-                return res;
-            })
+            // const userData = github.fetchDataByUserId(githubId)
+            // userData.then(res => {
+            //     console.log('res::::::', res)
+            //     return res;
+            // })
         }
     }
 
@@ -124,7 +124,10 @@ class Header extends Component {
         github.fetchDataByUserId(githubId)
             .then(res => {
                 console.log('__RES__', res)
-                this.setState({ userData: res })
+                this.setState({ userData: res }, () => {
+                    console.log('__NEWSTATE__', this.state.userData.login)
+                    this.props.setUserData(this.state.userData)
+                })
             }).catch(err => {
                 console.log('__ERR__', err)
         })
@@ -157,7 +160,7 @@ class Header extends Component {
                 return [
                     <li className={"align-middle"} style={{ display: "inline-block" }} key={'1'}>
                         <Link className={'header-btn btn btn-outline-light mr-4'}
-                              to={"/dashboard"}>{"DASHBOARD"}</Link>
+                              to={"/dashboard"}>{this.state.userData.login || "DASHBOARD"}</Link>
                     </li>,
                     <li className={"align-middle"} style={{ display: "inline-block" }} key={'2'}>
                         <Link className={'header-btn btn btn-outline-light mr-4'} to={"/auth/logout"}>LOGOUT</Link>
@@ -168,6 +171,9 @@ class Header extends Component {
 
     render() {
 
+        if (this.state.userData) {
+            console.log('__USERDATA__', this.state.userData)
+        }
 
         return (
             <HeaderSection

@@ -7,7 +7,8 @@ class Dashboard extends Component {
     state = {
         username: null,
         user: github.user,
-        githubId: null
+        githubId: null,
+        userData: {}
     };
 
     setGitHubId = (githubId) => {
@@ -15,6 +16,13 @@ class Dashboard extends Component {
 	        githubId
         })
         console.log("Github ID set!", this.state)
+    }
+
+    setUserData = (userData) => {
+        this.setState({
+            userData
+        })
+        console.log('__USER DATA SET __')
     }
 
     onChange = (username) => {
@@ -35,7 +43,7 @@ class Dashboard extends Component {
 
     render(){
         // console.log("Dashboard/index.js Props:", this.props);
-        return <View {...this.props} {...this.state} username={this.state.username} setGitHubId={this.setGitHubId} user={github.user} onChange={this.onChange} onSubmit={this.onSubmit}/>
+        return <View {...this.props} {...this.state} username={this.state.username} setGitHubId={this.setGitHubId} setUserData={this.setUserData} user={github.user} onChange={this.onChange} onSubmit={this.onSubmit}/>
     }
 };
 

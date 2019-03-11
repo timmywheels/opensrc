@@ -6,20 +6,22 @@ import DashPanel from '../../views/Dashboard/DashPanel';
 
 class View extends Component {
 
-	render() {
-		console.log("Dashboard/View.js Props:", this.props)
-		return (
-			<div>
-				<Header background={"#26b0f5"} setGitHubId={this.props.setGitHubId}/>
-				<div className="container px-lg-5">
-					<div className="row justify-content-center">
-						<Sidebar username={""} repos={this.props.user.repos}/>
-						<DashPanel/>
-					</div>
-				</div>
-			</div>
-		)
-	}
+    render() {
+        console.log("Dashboard/View.js Props:", this.props)
+        console.log("Dashboard/View.js State:", this.state)
+        return (
+            <div>
+                <Header background={"#26b0f5"} setUserData={this.props.setUserData}
+                        setGitHubId={this.props.setGitHubId} {...this.state} />
+                <div className="container px-lg-5">
+                    <div className="row justify-content-center">
+                        <Sidebar username={""} repos={this.props.user.repos} login={this.props.userData.login}/>
+                        <DashPanel {...this.state}/>
+                    </div>
+                </div>
+            </div>
+        )
+    }
 }
 
 export default View;
