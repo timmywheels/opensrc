@@ -14,7 +14,6 @@ class UserRepos extends Component {
 		if (login){
 			return (
 				<div className={"container"}>
-					{/*<h2 className={'text-center mt-5 mb-5'}>User Projects</h2>*/}
 					<div>{this.props.children}</div>
 					<h2 className={'col-md-12'} id={'latest-projects-title'}>
 						Latest Projects

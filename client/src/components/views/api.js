@@ -9,7 +9,6 @@ export const user = {
 export const getAuthenticatedUsername = () => {
     request(`${keys.url}/api/current_user`, (err, res, body) => {
         const data = JSON.parse(body);
-        // console.log("DATA BRO", body)
         console.log("data.githubId:", data.githubId);
         return data.githubId;
     })
@@ -19,8 +18,7 @@ export const getAuthenticatedUsername = () => {
 export const fetchDataByUserId = (userId) => {
     request(`https://api.github.com/user/${userId}`, (err, res, body) => {
         const data = JSON.parse(body);
-
-        console.log("___DATA___", data);
+        // console.log("___DATA___", data);
     })
 }
 

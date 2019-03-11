@@ -43,21 +43,16 @@ const StyledForm = styled.form`
 	}
 `;
 
-// let username = '';
-
 class SearchBar extends Component {
-
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.props.onSubmit();
 	};
-
 	handleChange = (e) => {
 		this.props.onChange(e.target.value);
 	};
 
 	render() {
-		// console.log("SearchBar.js Props:", this.props);
 		return (
 			<div className={'col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12'}>
 				<StyledForm onSubmit={this.handleSubmit} className={'form-inline'} id={"usernameForm"} name={"username"}>

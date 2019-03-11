@@ -15,7 +15,7 @@ const SidebarSection = styled.div`
 class Sidebar extends Component {
 
 	render() {
-		console.log("Sidebar.js Props:", this.props)
+		// console.log("Sidebar.js Props:", this.props)
 		return (
 				<SidebarSection className="col-md-3 mt-5">
 					<p className={"text-center pt-3"}>Sidebar</p>

@@ -70,8 +70,6 @@ class Header extends Component {
         borderBottom: 'none',
         boxShadow: 'none',
         marginBottom: this.props.marginBottom || "inherit",
-        githubId: null,
-        userData: {}
     };
 
     listenScrollEvent = e => {
@@ -94,17 +92,16 @@ class Header extends Component {
         window.addEventListener('scroll', this.listenScrollEvent);
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.auth !== this.props.auth) {
-            github.fetchDataByUserId(this.props.auth.githubId);
-            console.log('propz.auth.githubId', this.props.auth.githubId)
-        }
-    }
-
-    shouldComponentUpdate(nextProps) {
-        const didPropsAuthChange = this.props.auth !== nextProps.auth
-        return didPropsAuthChange;
-    }
+    // componentDidUpdate(prevProps, prevState, snapshot) {
+    //     if (prevProps.auth !== this.props.auth) {
+    //         github.fetchDataByUserId(this.props.auth.githubId);
+    //     }
+    // }
+    //
+    // shouldComponentUpdate(nextProps) {
+    //     const didPropsAuthChange = this.props.auth !== nextProps.auth
+    //     return didPropsAuthChange;
+    // }
 
     renderContent() {
         switch (this.props.auth) {

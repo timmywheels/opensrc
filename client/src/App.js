@@ -10,27 +10,13 @@ import * as api from "./components/views/api";
 
 class App extends Component {
 
-	state = {
-		githubId: null
-	}
-
 	componentDidMount() {
-		// console.log("App.js Props:", this.props);
 		try{
-			// api.getAuthenticatedUsername();
-			console.log("App.js STATE:", this.state);
-			console.log("App.js Props:", this.props);
 			this.props.fetchTrendingRepos();
 			this.props.fetchUser();
 		} catch(err) {
 			console.log("Error:", err)
 		}
-	}
-
-	shouldComponentUpdate(nextProps) {
-		const authToken = this.props.auth !== nextProps.auth;
-		console.log('UPDATE STATE', this.state)
-		return authToken;
 	}
 
 	render() {

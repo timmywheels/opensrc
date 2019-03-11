@@ -10,7 +10,6 @@ class Home extends Component {
 		this.props.fetchTrendingRepos();
 	}
 
-
 	render() {
 		return (
 			<div>

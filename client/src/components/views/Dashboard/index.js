@@ -33,19 +33,9 @@ class Dashboard extends Component {
         })
     };
 
-    componentDidMount(){
-	    // const githubUsername = github.getAuthenticatedUsername(this.props.githubId)
-    }
-
     render(){
-        // const githubUsername = github.getAuthenticatedUsername(this.props.githubId)
-        console.log("Dashboard/index.js Props:", this.props);
-	      // console.log("githubUsername:", githubUsername);
+        // console.log("Dashboard/index.js Props:", this.props);
         return <View {...this.props} {...this.state} username={this.state.username} setGitHubId={this.setGitHubId} user={github.user} onChange={this.onChange} onSubmit={this.onSubmit}/>
-
-	    // using on the plane
-	    // return <View {...this.props} {...this.state} username={this.state.username} setGitHubId={this.setGitHubId} user={this.state.user} onChange={this.onChange} onSubmit={this.onSubmit}/>
-
     }
 };
 
