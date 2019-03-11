@@ -11,7 +11,8 @@ class TrendingRepos extends Component {
 		// console.log("TRENDING:", this.props.trending);
 		return (
 			<div>
-				<h2 className={"text-center mt-5 mb-5"}>Trending Projects</h2>
+				<h2 className={"text-center mt-5 mb-2"}>Trending Projects</h2>
+				<h6 className={'text-center mb-5'}>Contribute to the latest trending GitHub projects!</h6>
 				<div className={"row"}>
 					{this.props.trending.map((repo, key) => {
 						return (
