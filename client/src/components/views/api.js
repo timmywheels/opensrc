@@ -12,13 +12,21 @@ export const getAuthenticatedUsername = () => {
         console.log("data.githubId:", data.githubId);
         return data.githubId;
     })
-
 }
 
 export const fetchDataByUserId = (userId) => {
-    request(`https://api.github.com/user/${userId}`, (err, res, body) => {
-        const data = JSON.parse(body);
-        // console.log("___DATA___", data);
+    return new Promise((resolve, reject) => {
+        try{
+            request(`https://api.github.com/user/${userId}`, (err, res, body) => {
+                if (err) return reject(err);
+                // const data = JSON.parse(body);
+                console.log("___DATA___", resolve(JSON.parse(body)));
+                resolve(JSON.parse(body));
+            })
+        } catch (e) {
+            reject(e)
+        }
+
     })
 }
 
@@ -30,7 +38,7 @@ const getUserData = (username) => {
         xhr.onload = function () {
             const data = JSON.parse(this.response);
 
-            const {avatar_url, bio, login, html_url, type, location, blog} = data;
+            const { avatar_url, bio, login, html_url, type, location, blog } = data;
 
             user.avatar_url = avatar_url;
             user.bio = bio;
@@ -71,7 +79,7 @@ const getUserRepos = (username) => {
                     forks
                 } = data[i];
 
-                user.repos.push({name, description, html_url, open_issues, language, owner, forks})
+                user.repos.push({ name, description, html_url, open_issues, language, owner, forks })
             }
         };
 

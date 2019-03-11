@@ -6,8 +6,6 @@ import OpenSrcLogo from '../../img/logos/opensrc-logo-white.png';
 import GitHubIcon from '../../img/github-icon.svg';
 import * as github from "../views/api";
 
-let githubUsername = "";
-
 const HeaderSection = styled.header`
 	height: 60px;
 	color: #fff;
@@ -71,7 +69,7 @@ class Header extends Component {
         borderBottom: 'none',
         boxShadow: 'none',
         marginBottom: this.props.marginBottom || "inherit",
-        count: 0
+        userData: ''
     };
 
     listenScrollEvent = e => {
@@ -93,56 +91,54 @@ class Header extends Component {
         console.log("Header.js Props:", this.props)
         window.addEventListener('scroll', this.listenScrollEvent);
 
-        if (this.props.auth) {
-            const { githubId } = this.props.auth;
+        if (this.state.githubId) {
+            console.log('___YEEET___')
 
         } else {
-            console.log("___NO AUTH FOR YOU___")
+            console.log("___NO STATE FOR YOU___")
         }
 
     }
 
     //////
-    //// TODO: Get github user data to populate into dashboard
+    //// TODO: Get logged in github user's data to populate into dashboard
     //////
 
-    // componentWillMount() {
-    //     if (this.props.auth) {
-    //         const { githubId } = this.props.auth;
-    //         this.props.setGitHubId(githubId)
-    //         console.log("ID YOOO")
-    //         this.state.userData = github.fetchDataByUserId(githubId)
-    //         console.log("___THAT STATE___", this.state)
-    //     }
-    // }
+    componentWillMount() {
+        if (this.props.auth) {
+            const { githubId } = this.props.auth;
+            const userData = github.fetchDataByUserId(githubId)
+            userData.then(res => {
+                console.log('res::::::', res)
+                return res;
+            })
+        }
+    }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log('prvProps', prevProps)
-        console.log('this.props', this.props)
+        // console.log('prvProps', prevProps)
+        // console.log('this.props', this.props)
         const { githubId } = this.props.auth;
-        this.setState({ githubId }, () => {
-            console.log('__STATE__', this.state)
+        this.setState({ githubId });
+
+        github.fetchDataByUserId(githubId)
+            .then(res => {
+                console.log('__RES__', res)
+                this.setState({ userData: res })
+            }).catch(err => {
+                console.log('__ERR__', err)
         })
-        // if (prevProps.auth !== this.props.auth) {
-        //     // github.fetchDataByUserId(this.props.auth.githubId);
-        //     // const { githubId } = this.props.auth;
-        //     // github.fetchDataByUserId(githubId)
-        //
-        //     // this.setState({ userData: github.fetchDataByUserId(githubId)}, () => {
-        //     //     console.log('__STATE__', this.state)
-        //     // })
-        //
-        //     console.log("___THAT STATE___", this.state)
-        }
-    // }
+    }
 
-    shouldComponentUpdate(nextProps) {
-        console.log('__NEXTPROPS__', nextProps.auth)
-        console.log('__THISPROPSAUTH__', this.props.auth)
+    shouldComponentUpdate(nextProps, nextState) {
 
-        const didPropsAuthChange = this.props.auth !== nextProps.auth
+        const didPropsAuthChange = this.props.auth !== nextProps.auth;
+        const didGithubIdStateChange = this.state.githubId !== nextState.githubId;
+
         console.log('__DID PROPS CHANGE__', didPropsAuthChange)
-        return didPropsAuthChange;
+        console.log('__DID STATE CHANGE__', didGithubIdStateChange)
+
+        return didPropsAuthChange || didGithubIdStateChange;
     }
 
     renderContent() {
@@ -151,28 +147,27 @@ class Header extends Component {
                 return;
             case false:
                 return (
-                    <li className={"align-middle"} style={{display: "inline-block"}}>
+                    <li className={"align-middle"} style={{ display: "inline-block" }}>
                         <Link className={'header-btn btn btn-outline-light mt-2 mr-4'} to={"/auth/github"}>LOGIN<img
-                            className={"loginBtnIcon"} style={{height: "15px", width: "15px", margin: "0 0 3px 6px"}}
+                            className={"loginBtnIcon"} style={{ height: "15px", width: "15px", margin: "0 0 3px 6px" }}
                             src={GitHubIcon}/></Link>
                     </li>
                 );
             default:
                 return [
-                    <li className={"align-middle"} style={{display: "inline-block"}} key={'1'}>
+                    <li className={"align-middle"} style={{ display: "inline-block" }} key={'1'}>
                         <Link className={'header-btn btn btn-outline-light mr-4'}
-                              to={"/dashboard"}>{githubUsername || "DASHBOARD"}</Link>
+                              to={"/dashboard"}>{"DASHBOARD"}</Link>
                     </li>,
-                    <li className={"align-middle"} style={{display: "inline-block"}} key={'2'}>
+                    <li className={"align-middle"} style={{ display: "inline-block" }} key={'2'}>
                         <Link className={'header-btn btn btn-outline-light mr-4'} to={"/auth/logout"}>LOGOUT</Link>
                     </li>
                 ];
         }
     }
+
     render() {
-        // console.log(`this.props.auth: ${this.props.auth}`)
-        // console.log(`this.state.count: ${this.state.count}`);
-        // this.setState({ count: ++this.state.count })
+
 
         return (
             <HeaderSection
@@ -186,15 +181,15 @@ class Header extends Component {
                 <Link to={"/"}>
                     <Logo src={OpenSrcLogo} alt={"OpenSrc Logo"}/>
                 </Link>
-                <ul className={"float-right"} style={{listStyle: "none"}}>{this.renderContent()}</ul>
+                <ul className={"float-right"} style={{ listStyle: "none" }}>{this.renderContent()}</ul>
                 <NavMenu/>
             </HeaderSection>
         );
     }
 }
 
-function mapStateToProps({auth}) {
-    return {auth};
+function mapStateToProps({ auth }) {
+    return { auth };
 }
 
 export default connect(mapStateToProps)(Header);
