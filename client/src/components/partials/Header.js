@@ -26,9 +26,9 @@ const HeaderSection = styled.header`
 	
 	.header-btn{
 		font-size: 12px;
-    letter-spacing: 2px;
-    font-weight: 400;
-    margin-top: 12px;
+        letter-spacing: 2px;
+        font-weight: 400;
+        margin-top: 12px;
 	}
 	
 	.header-btn:hover{
@@ -65,17 +65,19 @@ const LogoText = styled.p`
 `;
 
 class Header extends Component {
+
     state = {
         background: this.props.background || "transparent",
         borderBottom: 'none',
         boxShadow: 'none',
         marginBottom: this.props.marginBottom || "inherit",
+        count: 0
     };
 
     listenScrollEvent = e => {
         if (window.scrollY > 350) {
             this.setState({
-                boxShadow: 'rgb(170, 170, 170) 0px 1px 5px',
+                // boxShadow: 'rgb(170, 170, 170) 0px 1px 5px',
                 background: '#00a1ff'
             });
         } else {
@@ -90,18 +92,58 @@ class Header extends Component {
     componentDidMount() {
         console.log("Header.js Props:", this.props)
         window.addEventListener('scroll', this.listenScrollEvent);
+
+        if (this.props.auth) {
+            const { githubId } = this.props.auth;
+
+        } else {
+            console.log("___NO AUTH FOR YOU___")
+        }
+
     }
 
-    // componentDidUpdate(prevProps, prevState, snapshot) {
-    //     if (prevProps.auth !== this.props.auth) {
-    //         github.fetchDataByUserId(this.props.auth.githubId);
+    //////
+    //// TODO: Get github user data to populate into dashboard
+    //////
+
+    // componentWillMount() {
+    //     if (this.props.auth) {
+    //         const { githubId } = this.props.auth;
+    //         this.props.setGitHubId(githubId)
+    //         console.log("ID YOOO")
+    //         this.state.userData = github.fetchDataByUserId(githubId)
+    //         console.log("___THAT STATE___", this.state)
     //     }
     // }
-    //
-    // shouldComponentUpdate(nextProps) {
-    //     const didPropsAuthChange = this.props.auth !== nextProps.auth
-    //     return didPropsAuthChange;
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log('prvProps', prevProps)
+        console.log('this.props', this.props)
+        const { githubId } = this.props.auth;
+        this.setState({ githubId }, () => {
+            console.log('__STATE__', this.state)
+        })
+        // if (prevProps.auth !== this.props.auth) {
+        //     // github.fetchDataByUserId(this.props.auth.githubId);
+        //     // const { githubId } = this.props.auth;
+        //     // github.fetchDataByUserId(githubId)
+        //
+        //     // this.setState({ userData: github.fetchDataByUserId(githubId)}, () => {
+        //     //     console.log('__STATE__', this.state)
+        //     // })
+        //
+        //     console.log("___THAT STATE___", this.state)
+        }
     // }
+
+    shouldComponentUpdate(nextProps) {
+        console.log('__NEXTPROPS__', nextProps.auth)
+        console.log('__THISPROPSAUTH__', this.props.auth)
+
+        const didPropsAuthChange = this.props.auth !== nextProps.auth
+        console.log('__DID PROPS CHANGE__', didPropsAuthChange)
+        return didPropsAuthChange;
+    }
 
     renderContent() {
         switch (this.props.auth) {
@@ -127,13 +169,10 @@ class Header extends Component {
                 ];
         }
     }
-
     render() {
-        console.log("this.props.auth", this.props.auth)
-        if (this.props.auth) {
-            this.state.userData = github.fetchDataByUserId(this.props.auth.githubId)
-            console.log("___THAT STATE___", this.state)
-        }
+        // console.log(`this.props.auth: ${this.props.auth}`)
+        // console.log(`this.state.count: ${this.state.count}`);
+        // this.setState({ count: ++this.state.count })
 
         return (
             <HeaderSection
