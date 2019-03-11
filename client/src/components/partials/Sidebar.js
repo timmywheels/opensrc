@@ -18,7 +18,7 @@ class Sidebar extends Component {
 		console.log("Sidebar.js Props:", this.props)
 		return (
 				<SidebarSection className="col-md-3 mt-5">
-					{/*<p className={"text-center pt-3"}>Sidebar</p>*/}
+					<p className={"text-center pt-3"}>Sidebar</p>
 					<h4 className={"text-center pt-4 pb-2 font-weight-bold"}>{this.props.username}</h4>
 					<h6 className={"text-center pt-2 pb-2 font-weight-bold"}>Latest Projects</h6>
 					<ul className={"list-group"}>

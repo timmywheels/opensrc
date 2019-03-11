@@ -17,7 +17,7 @@ class App extends Component {
 	componentDidMount() {
 		// console.log("App.js Props:", this.props);
 		try{
-			api.getAuthenticatedUsername();
+			// api.getAuthenticatedUsername();
 			console.log("App.js STATE:", this.state);
 			console.log("App.js Props:", this.props);
 			this.props.fetchTrendingRepos();

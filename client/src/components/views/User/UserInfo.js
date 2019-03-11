@@ -69,6 +69,7 @@ const LocationSection = styled.div`
 `;
 
 class UserInfo extends Component {
+
 	render() {
 		console.log("UserInfo.js Props:", this.props);
 		if (!this.props.displayUserInfo) {

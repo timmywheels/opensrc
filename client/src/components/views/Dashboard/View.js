@@ -7,15 +7,9 @@ import DashPanel from '../../views/Dashboard/DashPanel';
 import {getAuthenticatedUsername} from "../api";
 
 
-// const DashboardSection = styled.div`
-//   min-height: 100vh;
-// `;
-
 class View extends Component {
 
 	render() {
-		// const username = getAuthenticatedUsername();
-		// username.then((data) => { console.log(data, 'hhh'); return data });
 
 
 		console.log("Dashboard/View.js Props:", this.props)

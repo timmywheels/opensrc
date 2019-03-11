@@ -70,7 +70,8 @@ class Header extends Component {
         borderBottom: 'none',
         boxShadow: 'none',
         marginBottom: this.props.marginBottom || "inherit",
-        githubId: null
+        githubId: null,
+        userData: {}
     };
 
     listenScrollEvent = e => {
@@ -125,7 +126,7 @@ class Header extends Component {
                     </li>,
                     <li className={"align-middle"} style={{display: "inline-block"}} key={'2'}>
                         <Link className={'header-btn btn btn-outline-light mr-4'} to={"/auth/logout"}>LOGOUT</Link>
-                    </li>,
+                    </li>
                 ];
         }
     }
@@ -133,9 +134,9 @@ class Header extends Component {
     render() {
         console.log("this.props.auth", this.props.auth)
         if (this.props.auth) {
-            github.fetchDataByUserId(this.props.auth.githubId)
+            this.state.userData = github.fetchDataByUserId(this.props.auth.githubId)
+            console.log("___THAT STATE___", this.state)
         }
-        // console.log("githubUsername:", githubUsername);
 
         return (
             <HeaderSection
