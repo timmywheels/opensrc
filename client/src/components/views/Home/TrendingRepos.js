@@ -8,7 +8,7 @@ class TrendingRepos extends Component {
 	}
 
 	render() {
-		console.log("TRENDING:", this.props.trending);
+		// console.log("TRENDING:", this.props.trending);
 		return (
 			<div>
 				<h2 className={"text-center mt-5 mb-5"}>Trending Projects</h2>

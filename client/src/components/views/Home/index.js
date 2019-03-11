@@ -13,7 +13,7 @@ export default class extends Component {
 		this.setState({
 			username
 		});
-		console.log("Home/index.js State:", this.state)
+		// console.log("Home/index.js State:", this.state)
 	};
 
 	onSubmit = () => {
@@ -27,7 +27,7 @@ export default class extends Component {
 	};
 
 	render() {
-		console.log("Home/index.js Props:", this.props)
+		// console.log("Home/index.js Props:", this.props)
 		return <View {...this.props} {...this.state} username={this.state.username} user={github.user} onChange={this.onChange} onSubmit={this.onSubmit}/>
 	}
 }

@@ -14,8 +14,8 @@ import {getAuthenticatedUsername} from "../api";
 class View extends Component {
 
 	render() {
-		const username = getAuthenticatedUsername();
-		username.then((data) => { console.log(data, 'hhh'); return data });
+		// const username = getAuthenticatedUsername();
+		// username.then((data) => { console.log(data, 'hhh'); return data });
 
 
 		console.log("Dashboard/View.js Props:", this.props)

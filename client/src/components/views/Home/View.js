@@ -12,7 +12,7 @@ class Home extends Component {
 
 
 	render() {
-		console.log("Home/View.js Props:", this.props)
+		// console.log("Home/View.js Props:", this.props)
 
 		return (
 			<div>

@@ -65,109 +65,99 @@ const LogoText = styled.p`
 `;
 
 class Header extends Component {
-	state = {
-		background: this.props.background || "transparent",
-		borderBottom: 'none',
-		boxShadow: 'none',
-		marginBottom: this.props.marginBottom || "inherit"
-	};
+    state = {
+        background: this.props.background || "transparent",
+        borderBottom: 'none',
+        boxShadow: 'none',
+        marginBottom: this.props.marginBottom || "inherit",
+        githubId: null
+    };
 
-	listenScrollEvent = e => {
-		if (window.scrollY > 350) {
-			this.setState({
-				// borderBottom: '3px solid #0165f5',
-				boxShadow: 'rgb(170, 170, 170) 0px 1px 5px',
-				// boxShadow: '#0072ff 0px 0px 15px',
-				background: '#00a1ff'
-				// background: '-webkit-linear-gradient(to top,#0072ff,#00c6ff)',
-				// background: 'linear-gradient(to top,#0072ff,#00c6ff)'
-			});
-		} else {
-			this.setState({
-				background: this.props.background || "transparent",
-				borderBottom: 'none',
-				boxShadow: 'none'
-			});
-		}
-	};
+    listenScrollEvent = e => {
+        if (window.scrollY > 350) {
+            this.setState({
+                boxShadow: 'rgb(170, 170, 170) 0px 1px 5px',
+                background: '#00a1ff'
+            });
+        } else {
+            this.setState({
+                background: this.props.background || "transparent",
+                borderBottom: 'none',
+                boxShadow: 'none'
+            });
+        }
+    };
 
-	// shouldComponentUpdate(nextProps, nextState){
-	// 	return !!nextProps.auth;
-	// }
+    componentDidMount() {
+        console.log("Header.js Props:", this.props)
+        window.addEventListener('scroll', this.listenScrollEvent);
+    }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.auth !== this.props.auth) {
+            github.fetchDataByUserId(this.props.auth.githubId);
+            console.log('propz.auth.githubId', this.props.auth.githubId)
+        }
+    }
 
+    shouldComponentUpdate(nextProps) {
+        const didPropsAuthChange = this.props.auth !== nextProps.auth
+        return didPropsAuthChange;
+    }
 
-	componentDidMount() {
-		console.log("Header.js Props:", this.props)
-		window.addEventListener('scroll', this.listenScrollEvent);
-		// githubUsername = github.getAuthenticatedUsername();
-		// this.props.setGitHubId(github.getAuthenticatedUsername())
-		// this.setState({ githubId: github.getAuthenticatedUsername })
-		// console.log("PROPZZZ", this.props)
-		// console.log("GITHUB YO", githubUsername)
-	}
+    renderContent() {
+        switch (this.props.auth) {
+            case null:
+                return;
+            case false:
+                return (
+                    <li className={"align-middle"} style={{display: "inline-block"}}>
+                        <Link className={'header-btn btn btn-outline-light mt-2 mr-4'} to={"/auth/github"}>LOGIN<img
+                            className={"loginBtnIcon"} style={{height: "15px", width: "15px", margin: "0 0 3px 6px"}}
+                            src={GitHubIcon}/></Link>
+                    </li>
+                );
+            default:
+                return [
+                    <li className={"align-middle"} style={{display: "inline-block"}} key={'1'}>
+                        <Link className={'header-btn btn btn-outline-light mr-4'}
+                              to={"/dashboard"}>{githubUsername || "DASHBOARD"}</Link>
+                    </li>,
+                    <li className={"align-middle"} style={{display: "inline-block"}} key={'2'}>
+                        <Link className={'header-btn btn btn-outline-light mr-4'} to={"/auth/logout"}>LOGOUT</Link>
+                    </li>,
+                ];
+        }
+    }
 
-	componentWillReceiveProps(props) {
-		if (this.props.auth) {
-			this.props.setGitHubId(props.auth.githubId);
-		}
-	}
+    render() {
+        console.log("this.props.auth", this.props.auth)
+        if (this.props.auth) {
+            github.fetchDataByUserId(this.props.auth.githubId)
+        }
+        // console.log("githubUsername:", githubUsername);
 
-	componentDidUpdate(){
-		// this.props.setGitHubId(github.getAuthenticatedUsername())
-		// githubUsername = github.getAuthenticatedUsername();
-		// console.log("GITHUB YO", githubUsername)
-		// this.props.setGitHubId(github.getAuthenticatedUsername)
-
-	}
-
-	renderContent() {
-		switch (this.props.auth) {
-			case null:
-				return;
-			case false:
-				return (
-					<li className={"align-middle"} style={{display: "inline-block"}}>
-						<Link className={'header-btn btn btn-outline-light mt-2 mr-4'} to={"/auth/github"}>LOGIN<img className={"loginBtnIcon"} style={{height: "15px", width: "15px", margin: "0 0 3px 6px"}} src={GitHubIcon}/></Link>
-					</li>
-				);
-			default:
-				return [
-					<li className={"align-middle"} style={{display: "inline-block"}} key={'1'}>
-						<Link className={'header-btn btn btn-outline-light mr-4'} to={"/dashboard"}>{githubUsername || "DASHBOARD"}</Link>
-					</li>,
-					<li className={"align-middle"} style={{display: "inline-block"}} key={'2'}>
-						<Link className={'header-btn btn btn-outline-light mr-4'} to={"/auth/logout"}>LOGOUT</Link>
-					</li>,
-				];
-		}
-	}
-
-	render() {
-		console.log("this.props.auth", this.props.auth)
-		// console.log("githubUsername:", githubUsername);
-
-		return (
-			<HeaderSection
-				style={{
-					background: this.state.background,
-					borderBottom: this.state.borderBottom,
-					boxShadow: this.state.boxShadow,
-					marginBottom: this.state.marginBottom
-				}}
-			>
-				<Link to={"/"}>
-					<Logo src={OpenSrcLogo} alt={"OpenSrc Logo"} />
-				</Link>
-				<ul className={"float-right"} style={{listStyle: "none"}}>{this.renderContent()}</ul>
-				<NavMenu/>
-			</HeaderSection>
-		);
-	}
+        return (
+            <HeaderSection
+                style={{
+                    background: this.state.background,
+                    borderBottom: this.state.borderBottom,
+                    boxShadow: this.state.boxShadow,
+                    marginBottom: this.state.marginBottom
+                }}
+            >
+                <Link to={"/"}>
+                    <Logo src={OpenSrcLogo} alt={"OpenSrc Logo"}/>
+                </Link>
+                <ul className={"float-right"} style={{listStyle: "none"}}>{this.renderContent()}</ul>
+                <NavMenu/>
+            </HeaderSection>
+        );
+    }
 }
 
 function mapStateToProps({auth}) {
-	return {auth};
+    return {auth};
 }
 
 export default connect(mapStateToProps)(Header);
