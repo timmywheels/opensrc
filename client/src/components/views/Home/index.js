@@ -6,7 +6,8 @@ export default class extends Component {
 
 	state = {
 		username: "",
-		user: github.user
+		user: github.user,
+		userData: {}
 	};
 
 	onChange = (username) => {
@@ -14,6 +15,13 @@ export default class extends Component {
 			username
 		});
 	};
+
+	setUserData = (userData) => {
+		this.setState({
+			userData
+		})
+		console.log('__USER DATA SET __')
+	}
 
 	onSubmit = () => {
 		const {user, username} = this.state;
@@ -26,6 +34,6 @@ export default class extends Component {
 	};
 
 	render() {
-		return <View {...this.props} {...this.state} username={this.state.username} user={github.user} onChange={this.onChange} onSubmit={this.onSubmit}/>
+		return <View {...this.props} {...this.state} setUserData={this.setUserData} username={this.state.username} user={github.user} onChange={this.onChange} onSubmit={this.onSubmit}/>
 	}
 }

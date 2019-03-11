@@ -13,7 +13,7 @@ class Home extends Component {
 	render() {
 		return (
 			<div>
-				<Header marginBottom={-60}/>
+				<Header marginBottom={-60} setUserData={this.props.setUserData}/>
 				<Hero {...this.props} {...this.state} user={this.props.user} onChange={this.props.onChange} onSubmit={this.props.onSubmit}/>
 				<div className="container">
 					<TrendingRepos />

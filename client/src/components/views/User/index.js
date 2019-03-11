@@ -23,6 +23,13 @@ export default class extends Component {
         );
     }
 
+    setUserData = (userData) => {
+        this.setState({
+            userData
+        })
+        console.log('__USER DATA SET __')
+    }
+
     onChange = username => {
         this.setState({username});
     };
@@ -43,6 +50,7 @@ export default class extends Component {
             <View
                 {...this.props}
                 {...this.state}
+                setUserData={this.setUserData}
                 user={github.user}
                 onChange={this.onChange}
                 onSubmit={this.onSubmit}
