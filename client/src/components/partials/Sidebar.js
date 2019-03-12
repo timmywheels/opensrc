@@ -58,11 +58,10 @@ class Sidebar extends Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         this.renderSidebarContent();
-        console.log('updated itttt')
     }
 
     renderSidebarContent() {
-        console.log('__PROPSDAWG__', this.props.userData.login)
+        // console.log('__PROPSDAWG__', this.props.userData.login)
         switch (this.props.userData.login) {
             case undefined:
                 return (
@@ -72,20 +71,20 @@ class Sidebar extends Component {
                 )
             default:
                 return [
-                    <div><UserAvatar src={this.props.userData.avatar_url}
+                    <div key={0}><UserAvatar src={this.props.userData.avatar_url}
                                      alt={`${this.props.userData.login}'s avatar`}/></div>,
-                    <DashboardText>{this.props.userData.login}</DashboardText>,
-                    <DashboardText>{this.props.userData.location}</DashboardText>,
-                    <DashboardText><a style={{ "color": '#333' }} target={"_blank"}
+                    <DashboardText key={1}>{this.props.userData.login}</DashboardText>,
+                    <DashboardText key={2}>{this.props.userData.location}</DashboardText>,
+                    <DashboardText key={3}><a style={{ "color": '#333' }} target={"_blank"}
                                       href={this.props.userData.blog}> Blog <img style={{ marginBottom: 4 }} height={10}
                                                                                  src={OcticonLinkIcon}/></a>
                     </DashboardText>,
-                    <hr/>,
-                    <DashboardText>Followers</DashboardText>,
-                    <DashboardText>{this.props.userData.followers}</DashboardText>,
-                    <hr/>,
-                    <DashboardText>Public Repos</DashboardText>,
-                    <DashboardText>{this.props.userData.public_repos}</DashboardText>
+                    <hr key={4}/>,
+                    <DashboardText key={5}>Followers</DashboardText>,
+                    <DashboardText key={6}>{this.props.userData.followers}</DashboardText>,
+                    <hr key={7}/>,
+                    <DashboardText key={8}>Public Repos</DashboardText>,
+                    <DashboardText key={9}>{this.props.userData.public_repos}</DashboardText>
                 ]
         }
     }

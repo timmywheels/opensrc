@@ -4,23 +4,30 @@ import * as github from "../api";
 
 export default class extends Component {
     state = {
-        username: "",
+        username: null,
         user: github.user,
         displayUserInfo: false,
         displayUserRepos: false,
-        displayGitHubCalendar: false
+        displayGitHubCalendar: false,
+        searchQueryCount: 1
     };
 
     componentDidMount() {
-        const {username} = this.props.match.params;
+        const { username } = this.props.match.params;
         this.setState(
             {
                 username,
                 displayUserInfo: true,
                 displayUserRepos: true,
                 displayGitHubCalendar: true,
-            }, github.api(username)
+            }, () => {
+                github.api(username)
+            }
         );
+    }
+
+    hideGitHubCalendarForOrganizations = () => {
+        this.setState({ displayGitHubCalendar: false })
     }
 
     setUserData = (userData) => {
@@ -31,12 +38,12 @@ export default class extends Component {
     }
 
     onChange = username => {
-        this.setState({username});
+        this.setState({ username });
     };
 
     onSubmit = () => {
-        const {user, username} = this.state;
-        this.setState({username}, () => {
+        let { user, username, searchQueryCount } = this.state;
+        this.setState({ username, searchQueryCount: ++searchQueryCount }, () => {
             user.repos = [];
             github.api(username);
             this.props.history.push(`/user/${username}`);
@@ -50,6 +57,7 @@ export default class extends Component {
             <View
                 {...this.props}
                 {...this.state}
+                handleCalendar={this.hideGitHubCalendarForOrganizations}
                 setUserData={this.setUserData}
                 user={github.user}
                 onChange={this.onChange}

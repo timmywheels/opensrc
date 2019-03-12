@@ -69,6 +69,13 @@ const LocationSection = styled.div`
 `;
 
 class UserInfo extends Component {
+
+	// shouldComponentUpdate(nextProps, nextState, nextContext) {
+	// 	const didUsernamePropsChange = this.props.username !== nextProps.username;
+	// 	return didUsernamePropsChange;
+	//
+	// }
+
 	render() {
 		console.log("UserInfo.js Props:", this.props);
 		if (!this.props.displayUserInfo) {
