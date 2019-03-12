@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import styled from 'styled-components'
-import OcticonLinkIcon from '../../img/octicons/link.svg'
+import OctoCatSpinner from '../../img/octicons/octocat-spinner-128-dark.gif';
+import OcticonLinkIcon from '../../img/octicons/link.svg';
+
 import DashPanel from "../views/Dashboard/DashPanel"
 import Dashboard from "../views/Dashboard";
 
@@ -12,6 +14,20 @@ const SidebarSection = styled.div`
 	  border-radius: .25rem;
 	  border: 2px solid #ddd;
 `;
+
+const Loader = styled.img`
+    vertical-align: middle;
+    border-style: none;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 32px;
+    width: auto;
+    filter: invert(80%);
+`
 
 const DashboardText = styled.p`
     text-align: center;
@@ -33,30 +49,44 @@ const UserAvatar = styled.img`
 `;
 
 
-
 class Sidebar extends Component {
 
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        const didPropsUserDataChange = this.props.userData !== nextProps.userData;
+        return didPropsUserDataChange;
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        this.renderSidebarContent();
+        console.log('updated itttt')
+    }
+
     renderSidebarContent() {
-        switch(this.props.userData) {
-            case null:
+        console.log('__PROPSDAWG__', this.props.userData.login)
+        switch (this.props.userData.login) {
+            case undefined:
                 return (
-                    <div></div>
+                    <div>
+                        <Loader src={OctoCatSpinner} alt={'Octocat Spinner'}/>
+                    </div>
                 )
-            case false:
-                return;
             default:
-                    return [
-                        <div><UserAvatar src={this.props.userData.avatar_url} alt={`${this.props.userData.login}'s avatar`}/></div>,
-                        <DashboardText>{this.props.userData.login}</DashboardText>,
-                        <DashboardText>{this.props.userData.location}</DashboardText>,
-                        <DashboardText><a style={{"color": '#333'}} target={"_blank"} href={this.props.userData.blog}> Blog <img style={{marginBottom: 4}} height={10} src={OcticonLinkIcon}/></a></DashboardText>,
-                        <hr/>,
-                        <DashboardText>Followers</DashboardText>,
-                        <DashboardText>{this.props.userData.followers}</DashboardText>,
-                        <hr/>,
-                        <DashboardText>Public Repos</DashboardText>,
-                        <DashboardText>{this.props.userData.public_repos}</DashboardText>
-                    ]
+                return [
+                    <div><UserAvatar src={this.props.userData.avatar_url}
+                                     alt={`${this.props.userData.login}'s avatar`}/></div>,
+                    <DashboardText>{this.props.userData.login}</DashboardText>,
+                    <DashboardText>{this.props.userData.location}</DashboardText>,
+                    <DashboardText><a style={{ "color": '#333' }} target={"_blank"}
+                                      href={this.props.userData.blog}> Blog <img style={{ marginBottom: 4 }} height={10}
+                                                                                 src={OcticonLinkIcon}/></a>
+                    </DashboardText>,
+                    <hr/>,
+                    <DashboardText>Followers</DashboardText>,
+                    <DashboardText>{this.props.userData.followers}</DashboardText>,
+                    <hr/>,
+                    <DashboardText>Public Repos</DashboardText>,
+                    <DashboardText>{this.props.userData.public_repos}</DashboardText>
+                ]
         }
     }
 
@@ -64,26 +94,9 @@ class Sidebar extends Component {
         console.log("Sidebar.js Props:", this.props)
         return (
             <SidebarSection className="col-md-3 mt-5">
-                <DashboardText>Dashboard</DashboardText>
                 <div>
                     {this.renderSidebarContent()}
                 </div>
-                {/*<h6 className={"text-center pt-2 pb-2 font-weight-bold"}>Latest Projects</h6>*/}
-                {/*<ul className={"list-group"}>*/}
-                    {/*{*/}
-                        {/*this.props.repos.map(repo => {*/}
-                            {/*console.log("Sidebar=>repo:", repo)*/}
-                            {/*return <li className={"list-group-item"}>{repo.repoName}</li>*/}
-                        {/*})*/}
-                    {/*}*/}
-                {/*</ul>*/}
-                {/*<div>*/}
-                    {/*<h6><a href={"#"}>Home</a></h6>*/}
-                    {/*<h6><a href={"#"}>Settings</a></h6>*/}
-                    {/*<h6><a href={"#"}>Account</a></h6>*/}
-                {/*</div>*/}
-
-
             </SidebarSection>
         )
     }
