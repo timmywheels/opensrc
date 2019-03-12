@@ -65,17 +65,18 @@ const LogoText = styled.p`
 class Header extends Component {
 
     state = {
+        githubId: null,
+        userData: null,
+        user: github.user,
         background: this.props.background || "transparent",
         borderBottom: 'none',
         boxShadow: 'none',
         marginBottom: this.props.marginBottom || "inherit",
-        userData: ''
     };
 
     listenScrollEvent = e => {
         if (window.scrollY > 350) {
             this.setState({
-                // boxShadow: 'rgb(170, 170, 170) 0px 1px 5px',
                 background: '#00a1ff'
             });
         } else {
@@ -87,47 +88,27 @@ class Header extends Component {
         }
     };
 
-    componentDidMount() {
-        console.log("Header.js Props:", this.props)
-        window.addEventListener('scroll', this.listenScrollEvent);
-
-        if (this.state.githubId) {
-            console.log('___YEEET___')
-
-        } else {
-            console.log("___NO STATE FOR YOU___")
-        }
-
-    }
-
-    //////
-    //// TODO: Get logged in github user's data to populate into dashboard
-    //////
-
-    componentWillMount() {
-        if (this.props.auth) {
-            const { githubId } = this.props.auth;
-            // const userData = github.fetchDataByUserId(githubId)
-            // userData.then(res => {
-            //     console.log('res::::::', res)
-            //     return res;
-            // })
-        }
-    }
-
     componentDidUpdate(prevProps, prevState, snapshot) {
-        // console.log('prvProps', prevProps)
-        // console.log('this.props', this.props)
-        const { githubId } = this.props.auth;
-        this.setState({ githubId });
 
-        github.fetchDataByUserId(githubId)
+        console.log('__PREVPROPS__', prevProps)
+        console.log('__PROPS__', this.props)
+
+        console.log('__PREVSTATE__', prevState)
+        console.log('__STATE__', this.state)
+
+        github.getAuthenticatedUsername()
+            .then(res => {
+                this.setState({ githubId: res.githubId })
+            })
+
+        github.fetchDataByUserId(this.state.githubId)
             .then(res => {
                 console.log('__RES__', res)
                 this.setState({ userData: res }, () => {
                     console.log('__NEWSTATE__', this.state.userData.login)
                     this.props.setUserData(this.state.userData)
                 })
+                console.log('__USER OBJ__',this.state.user)
             }).catch(err => {
                 console.log('__ERR__', err)
         })
@@ -137,11 +118,12 @@ class Header extends Component {
 
         const didPropsAuthChange = this.props.auth !== nextProps.auth;
         const didGithubIdStateChange = this.state.githubId !== nextState.githubId;
+        const didUserObjStateChange = this.state.user !== nextState.user;
 
         console.log('__DID PROPS CHANGE__', didPropsAuthChange)
         console.log('__DID STATE CHANGE__', didGithubIdStateChange)
 
-        return didPropsAuthChange || didGithubIdStateChange;
+        return didPropsAuthChange || didGithubIdStateChange || didUserObjStateChange;
     }
 
     renderContent() {
@@ -160,7 +142,7 @@ class Header extends Component {
                 return [
                     <li className={"align-middle"} style={{ display: "inline-block" }} key={'1'}>
                         <Link className={'header-btn btn btn-outline-light mr-4'}
-                              to={"/dashboard"}>{this.state.userData.login || "DASHBOARD"}</Link>
+                              to={"/dashboard"}>{"DASHBOARD"}</Link>
                     </li>,
                     <li className={"align-middle"} style={{ display: "inline-block" }} key={'2'}>
                         <Link className={'header-btn btn btn-outline-light mr-4'} to={"/auth/logout"}>LOGOUT</Link>

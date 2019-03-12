@@ -7,10 +7,16 @@ export const user = {
 };
 
 export const getAuthenticatedUsername = () => {
-    request(`${keys.url}/api/current_user`, (err, res, body) => {
-        const data = JSON.parse(body);
-        console.log("data.githubId:", data.githubId);
-        return data.githubId;
+    return new Promise((resolve, reject) => {
+        try{
+            request(`${keys.url}/api/current_user`, (err, res, body) => {
+                // const data = JSON.parse(body);
+                // console.log("__BODY__", resolve(JSON.parse(body)));
+                resolve(JSON.parse(body))
+            })
+        } catch (e) {
+            reject(e);
+        }
     })
 }
 
@@ -30,7 +36,7 @@ export const fetchDataByUserId = (userId) => {
     })
 }
 
-const getUserData = (username) => {
+export const getUserData = (username) => {
     try {
         const url = `https://api.github.com/users/${username}?client_id=${keys.github_client_id}&client_secret=${keys.github_client_secret}`;
         const xhr = new XMLHttpRequest();
@@ -55,7 +61,7 @@ const getUserData = (username) => {
     }
 };
 
-const getUserRepos = (username) => {
+export const getUserRepos = (username) => {
     try {
         const url = `https://api.github.com/users/${username}/repos?per_page=10&client_id=${keys.github_client_id}&client_secret=${keys.github_client_secret}`;
         const xhr = new XMLHttpRequest();
@@ -81,6 +87,8 @@ const getUserRepos = (username) => {
 
                 user.repos.push({ name, description, html_url, open_issues, language, owner, forks })
             }
+            console.log('__MYDATA__', data)
+            return data;
         };
 
         xhr.send();

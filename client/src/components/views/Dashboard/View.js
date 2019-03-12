@@ -15,7 +15,7 @@ class View extends Component {
                         setGitHubId={this.props.setGitHubId} {...this.state} />
                 <div className="container px-lg-5">
                     <div className="row justify-content-center">
-                        <Sidebar username={""} repos={this.props.user.repos} login={this.props.userData.login}/>
+                        <Sidebar username={""} repos={this.props.user.repos} {...this.props} avatar/>
                         <DashPanel {...this.state}/>
                     </div>
                 </div>
