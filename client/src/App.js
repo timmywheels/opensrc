@@ -4,16 +4,15 @@ import { connect } from 'react-redux';
 import Home from './components/views/Home/';
 import * as actions from './actions';
 import User from "./components/views/User/"
-// import Login from "./components/views/Login/";
 import Dashboard from "./components/views/Dashboard"
-import * as api from "./components/views/api";
 
 class App extends Component {
 
 	componentDidMount() {
+		// console.log('__APP.JS PROPS', this.props)
 		try{
-			this.props.fetchTrendingRepos();
-			this.props.fetchUser();
+			actions.fetchUser();
+			actions.fetchTrendingRepos();
 		} catch(err) {
 			console.log("Error:", err)
 		}

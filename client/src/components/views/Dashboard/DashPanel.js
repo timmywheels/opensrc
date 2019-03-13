@@ -5,9 +5,9 @@ const DashPanelSection = styled.div`
 	min-height: 80vh;
 	background: #fff;
 	-webkit-box-shadow: 2px 2px 15px 0 #33333333;
-  box-shadow: 2px 2px 15px 0 #33333333;
-  border-radius: .25rem;
-  border: 2px solid #ddd;
+  	box-shadow: 2px 2px 15px 0 #33333333;
+  	border-radius: .25rem;
+  	// border: 2px solid #ddd;
 `;
 
 class DashPanel extends Component {

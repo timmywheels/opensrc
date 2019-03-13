@@ -12,7 +12,7 @@ const SidebarSection = styled.div`
 	-webkit-box-shadow: 2px 2px 15px 0 #33333333;
 	  box-shadow: 2px 2px 15px 0 #33333333;
 	  border-radius: .25rem;
-	  border: 2px solid #ddd;
+	  // border: 2px solid #ddd;
 `;
 
 const Loader = styled.img`
@@ -46,6 +46,13 @@ const UserAvatar = styled.img`
     display: block;
     box-shadow: 2px 2px 20px #33333355;
     border: 3px solid #fff;
+    transition: box-shadow 0.25s ease-in-out;
+    
+    &:hover{
+        box-shadow: 1px 1px 5px #33333355;
+        transition: box-shadow 0.25s ease-in-out;
+    }
+    
 `;
 
 

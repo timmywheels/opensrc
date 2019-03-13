@@ -16,7 +16,7 @@ export const fetchUserRepos = () => async dispatch => {
 	dispatch({ type: FETCH_USER_REPOS, payload: res.data });
 };
 
-export const fetchAuthenticatedUser = () => async dispatch => {
-	const res = await axios.get('/api/current_user');
-	dispatch({ type: FETCH_AUTHENTICATED_USER, payload: res.data })
-}
+// export const fetchAuthenticatedUser = () => async dispatch => {
+// 	const res = await axios.get('/api/current_user');
+// 	dispatch({ type: FETCH_AUTHENTICATED_USER, payload: res.data })
+// }

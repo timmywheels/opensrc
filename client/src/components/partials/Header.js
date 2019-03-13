@@ -122,7 +122,13 @@ class Header extends Component {
     renderContent() {
         switch (this.props.auth) {
             case null:
-                return;
+                return (
+                    <li className={"align-middle"} style={{ display: "inline-block" }}>
+                        <Link className={'header-btn btn btn-outline-light mt-2 mr-4'} to={"/auth/github"}>LOGIN<img
+                            className={"loginBtnIcon"} style={{ height: "15px", width: "15px", margin: "0 0 3px 6px" }}
+                            src={GitHubIcon}/></Link>
+                    </li>
+                );
             case false:
                 return (
                     <li className={"align-middle"} style={{ display: "inline-block" }}>
