@@ -9,7 +9,7 @@ export const user = {
 export const getAuthenticatedUsername = () => {
     return new Promise((resolve, reject) => {
         try{
-            request(`${keys.url}/api/current_user`, (err, res, body) => {
+            request(`${keys.url}api/current_user`, (err, res, body) => {
                 // const data = JSON.parse(body);
                 // console.log("__BODY__", resolve(JSON.parse(body)));
                 resolve(JSON.parse(body))
