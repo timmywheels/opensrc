@@ -88,18 +88,14 @@ class Header extends Component {
         }
     };
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
-
-        // console.log('__PREVPROPS__', prevProps)
-        // console.log('__PROPS__', this.props)
-        //
-        // console.log('__PREVSTATE__', prevState)
-        // console.log('__STATE__', this.state)
-
-        github.getAuthenticatedUsername()
+    componentDidMount() {
+        github.getAuthenticatedUserId()
             .then(res => {
                 this.setState({ githubId: res.githubId })
             })
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
 
         if (this.state.githubId !== prevState.githubId) {
             github.fetchDataByUserId(this.state.githubId)
@@ -111,20 +107,15 @@ class Header extends Component {
                     })
                     // console.log('__USER OBJ__',this.state.user)
                 }).catch(err => {
-                    console.log('__ERR__', err)
+                console.log('__ERR__', err)
             })
         }
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-
         const didPropsAuthChange = this.props.auth !== nextProps.auth;
         const didGithubIdStateChange = this.state.githubId !== nextState.githubId;
         const didUserObjStateChange = this.state.user !== nextState.user;
-
-        // console.log('__DID PROPS CHANGE__', didPropsAuthChange)
-        // console.log('__DID STATE CHANGE__', didGithubIdStateChange)
-
         return didPropsAuthChange || didGithubIdStateChange || didUserObjStateChange;
     }
 
@@ -154,10 +145,6 @@ class Header extends Component {
     }
 
     render() {
-
-        // if (this.state.userData) {
-        //     console.log('__USERDATA__', this.state.userData)
-        // }
 
         return (
             <HeaderSection

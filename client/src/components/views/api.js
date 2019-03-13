@@ -6,7 +6,7 @@ export const user = {
     repos: []
 };
 
-export const getAuthenticatedUsername = () => {
+export const getAuthenticatedUserId = () => {
     return new Promise((resolve, reject) => {
         try{
             request(`${keys.url}/api/current_user`, (err, res, body) => {
