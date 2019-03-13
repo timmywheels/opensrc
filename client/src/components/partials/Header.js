@@ -151,7 +151,7 @@ class Header extends Component {
     }
 
     render() {
-
+        console.log('__THIS.PROPS.AUTH__', this.props.auth)
         return (
             <HeaderSection
                 style={{

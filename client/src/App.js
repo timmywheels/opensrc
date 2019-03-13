@@ -9,10 +9,9 @@ import Dashboard from "./components/views/Dashboard"
 class App extends Component {
 
 	componentDidMount() {
-		// console.log('__APP.JS PROPS', this.props)
 		try{
-			actions.fetchUser();
-			actions.fetchTrendingRepos();
+			this.props.fetchUser();
+			this.props.fetchTrendingRepos();
 		} catch(err) {
 			console.log("Error:", err)
 		}
