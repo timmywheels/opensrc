@@ -9,10 +9,10 @@ export const user = {
 export const getAuthenticatedUsername = () => {
     return new Promise((resolve, reject) => {
         try{
-            request(`${keys.url}api/current_user`, (err, res, body) => {
-                // const data = JSON.parse(body);
+            request(`${keys.url}/api/current_user`, (err, res, body) => {
+                const data = JSON.parse(body);
                 // console.log("__BODY__", resolve(JSON.parse(body)));
-                resolve(JSON.parse(body))
+                resolve(data)
             })
         } catch (e) {
             reject(e);
@@ -25,9 +25,9 @@ export const fetchDataByUserId = (userId) => {
         try{
             request(`https://api.github.com/user/${userId}`, (err, res, body) => {
                 if (err) return reject(err);
-                // const data = JSON.parse(body);
-                console.log("___DATA___", resolve(JSON.parse(body)));
-                resolve(JSON.parse(body));
+                const data = JSON.parse(body);
+                console.log("___DATA__:", resolve(JSON.parse(body)));
+                resolve(data);
             })
         } catch (e) {
             reject(e)
