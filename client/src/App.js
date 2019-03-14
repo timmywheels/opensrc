@@ -19,7 +19,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<BrowserRouter>
+			<BrowserRouter basename={'/'}>
 				<div>
 					<Route exact path={'/'} component={Home} />
 					<Route exact path={'/dashboard'} component={Dashboard} />
