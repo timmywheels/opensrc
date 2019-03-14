@@ -1,10 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components'
 import OctoCatSpinner from '../../img/octicons/octocat-spinner-128-dark.gif';
 import OcticonLinkIcon from '../../img/octicons/link.svg';
-
-import DashPanel from "../views/Dashboard/DashPanel"
-import Dashboard from "../views/Dashboard";
+import GitHubLogo from '../../img/octicons/mark-github.svg';
 
 const SidebarSection = styled.div`
 	min-height: 80vh;
@@ -12,7 +10,6 @@ const SidebarSection = styled.div`
 	-webkit-box-shadow: 2px 2px 15px 0 #33333333;
 	  box-shadow: 2px 2px 15px 0 #33333333;
 	  border-radius: .25rem;
-	  // border: 2px solid #ddd;
 `;
 
 const Loader = styled.img`
@@ -28,6 +25,13 @@ const Loader = styled.img`
     width: auto;
     filter: invert(80%);
 `
+const GitHubLogoElement = styled.img`
+    margin: 50px auto;
+    display: block;
+    height: 30px;
+    width: auto;
+    filter: invert(25%);
+`;
 
 const DashboardText = styled.p`
     text-align: center;
@@ -68,42 +72,58 @@ class Sidebar extends Component {
     }
 
     renderSidebarContent() {
-        // console.log('__PROPSDAWG__', this.props.userData.login)
         switch (this.props.userData.login) {
             case undefined:
                 return (
                     <div>
-                        <Loader src={OctoCatSpinner} alt={'Octocat Spinner'}/>
+                        <Loader src={ OctoCatSpinner } alt={ 'Octocat Spinner' }/>
                     </div>
                 )
             default:
                 return [
-                    <div key={0}><UserAvatar src={this.props.userData.avatar_url}
-                                             alt={`${this.props.userData.login}'s avatar`}/></div>,
-                    <DashboardText key={1}>{this.props.userData.login}</DashboardText>,
-                    <DashboardText key={2}>{this.props.userData.location}</DashboardText>,
-                    <DashboardText key={3}><a style={{ "color": '#333' }} target={"_blank"}
-                                              href={this.props.userData.blog}> Blog <img style={{ marginBottom: 4 }}
-                                                                                         height={10}
-                                                                                         src={OcticonLinkIcon}/></a>
+                    <div>
+                        <UserAvatar src={ this.props.userData.avatar_url }
+                                    alt={ `${ this.props.userData.login }'s avatar` }/>
+                    </div>,
+                    <DashboardText>{ this.props.userData.login }</DashboardText>,
+                    <DashboardText>{ this.props.userData.location }</DashboardText>,
+                    <DashboardText>
+                        <a style={ { "color": '#333' } } target={ "_blank" }
+                           href={ this.props.userData.blog }> Blog
+                            <img style={ { marginBottom: 4 } }
+                                 height={ 10 }
+                                 src={ OcticonLinkIcon }/>
+                        </a>
                     </DashboardText>,
-                    <hr key={4}/>,
-                    <DashboardText key={5}>Followers</DashboardText>,
-                    <DashboardText key={6}>{this.props.userData.followers}</DashboardText>,
-                    <hr key={7}/>,
-                    <DashboardText key={8}>Public Repos</DashboardText>,
-                    <DashboardText key={9}>{this.props.userData.public_repos}</DashboardText>
-                ]
+                    <DashboardText>{ this.props.userData.company }</DashboardText>,
+                    <hr/>,
+                    <DashboardText>Followers</DashboardText>,
+                    <DashboardText>{ this.props.userData.followers }</DashboardText>,
+                    <hr/>,
+                    <DashboardText>Public Repos</DashboardText>,
+                    <DashboardText>{ this.props.userData.public_repos }</DashboardText>,
+                    <div>
+                        <a href={ this.props.userData.html_url } target={ '_blank' }>
+                            <GitHubLogoElement src={ GitHubLogo } alt={ 'GitHub Logo' }/>
+                        </a>
+                    </div>
+                ].map((element, index) => {
+                    return (
+                        <div key={ index.toString() }>
+                            { element }
+                        </div>
+                    )
+                })
         }
     }
 
     render() {
         console.log("Sidebar.js Props:", this.props)
         return (
-            <div className={'col-md-4 mt-5'}>
-                <SidebarSection className="col-md-12 pt-5">
+            <div className={ 'col-md-4 mt-5' }>
+                <SidebarSection className="col-md-12 pt-2">
                     <div>
-                        {this.renderSidebarContent()}
+                        { this.renderSidebarContent() }
                     </div>
                 </SidebarSection>
             </div>

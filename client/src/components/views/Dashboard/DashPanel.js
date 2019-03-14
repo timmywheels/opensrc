@@ -10,12 +10,21 @@ const DashPanelSection = styled.div`
   	// border: 2px solid #ddd;
 `;
 
+const DashboardText = styled.p`
+    text-align: center;
+    margin: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 10px;
+    font-weight: 900;
+`;
+
 class DashPanel extends Component {
 		render(){
 			return(
 				<div className={'col-md-8 mt-5'}>
-					<DashPanelSection className="col-md-12 pt-5">
-						<h1>Dashboard</h1>
+					<DashPanelSection className="col-md-12 pt-2">
+						<DashboardText>Dashboard</DashboardText>
 					</DashPanelSection>
 				</div>
 			)
