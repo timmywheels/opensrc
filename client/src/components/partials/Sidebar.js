@@ -79,12 +79,13 @@ class Sidebar extends Component {
             default:
                 return [
                     <div key={0}><UserAvatar src={this.props.userData.avatar_url}
-                                     alt={`${this.props.userData.login}'s avatar`}/></div>,
+                                             alt={`${this.props.userData.login}'s avatar`}/></div>,
                     <DashboardText key={1}>{this.props.userData.login}</DashboardText>,
                     <DashboardText key={2}>{this.props.userData.location}</DashboardText>,
                     <DashboardText key={3}><a style={{ "color": '#333' }} target={"_blank"}
-                                      href={this.props.userData.blog}> Blog <img style={{ marginBottom: 4 }} height={10}
-                                                                                 src={OcticonLinkIcon}/></a>
+                                              href={this.props.userData.blog}> Blog <img style={{ marginBottom: 4 }}
+                                                                                         height={10}
+                                                                                         src={OcticonLinkIcon}/></a>
                     </DashboardText>,
                     <hr key={4}/>,
                     <DashboardText key={5}>Followers</DashboardText>,
@@ -99,11 +100,13 @@ class Sidebar extends Component {
     render() {
         console.log("Sidebar.js Props:", this.props)
         return (
-            <SidebarSection className="col-md-3 mt-5">
-                <div>
-                    {this.renderSidebarContent()}
-                </div>
-            </SidebarSection>
+            <div className={'col-md-4 mt-5'}>
+                <SidebarSection className="col-md-12 pt-5">
+                    <div>
+                        {this.renderSidebarContent()}
+                    </div>
+                </SidebarSection>
+            </div>
         )
     }
 }

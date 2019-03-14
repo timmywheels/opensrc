@@ -89,28 +89,36 @@ class Header extends Component {
     };
 
     componentDidMount() {
-        github.getAuthenticatedUserId()
-            .then(res => {
-                this.setState({ githubId: res.githubId })
-            })
+        if (this.props.auth) {
+            github.getAuthenticatedUserId()
+                .then(data => {
+                    this.setState({ githubId: data.githubId })
+                })
+        }
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.props.auth) {
+            github.getAuthenticatedUserId()
+                .then(res => {
+                    this.setState({ githubId: res.githubId })
+                })
+        }
 
         if (this.state.githubId !== prevState.githubId) {
             github.fetchDataByUserId(this.state.githubId)
-                .then(res => {
-                    console.log('__RES__', res)
-                    this.setState({ userData: res }, () => {
-                        // console.log('__NEWSTATE__', this.state.userData.login)
+                .then(data => {
+                    console.log('__DATA__', data)
+                    this.setState({ userData: data }, () => {
                         this.props.setUserData(this.state.userData)
                     })
-                    // console.log('__USER OBJ__',this.state.user)
                 }).catch(err => {
                 console.log('__ERR__', err)
             })
         }
     }
+
+    component
 
     shouldComponentUpdate(nextProps, nextState) {
         const didPropsAuthChange = this.props.auth !== nextProps.auth;
@@ -151,7 +159,7 @@ class Header extends Component {
     }
 
     render() {
-        console.log('__THIS.PROPS.AUTH__', this.props.auth)
+        // console.log('__THIS.PROPS.AUTH__', this.props.auth)
         return (
             <HeaderSection
                 style={{

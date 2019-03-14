@@ -6,27 +6,36 @@ const keys = require('../config/keys');
 const User = mongoose.model('users');
 
 passport.serializeUser((user, done) => {
-	done(null, user);
+    done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
-	User.findById(id).then(obj => {
-		done(null, obj);
-	});
+    User.findById(id).then(user => {
+        done(null, user);
+    });
 });
 
 passport.use(new GitHubStrategy({
-		clientID: keys.github_client_id,
-		clientSecret: keys.github_client_secret,
-		callbackURL: "/auth/github/callback",
-		proxy: true
-	},
-	async (accessToken, refreshToken, profile, done) => {
-		const existingUser = await User.findOne({ githubId: profile.id });
-		if (existingUser) {
-			return done(null, existingUser)
-		}
-		const user = await new User({ githubId: profile.id}).save();
-		done(null, user);
-	}
+        clientID: keys.github_client_id,
+        clientSecret: keys.github_client_secret,
+        callbackURL: `${keys.url}/auth/github/callback`,
+        proxy: true
+    }, async (accessToken, refreshToken, profile, done) => {
+        const existingUser = await User.findOne({ githubId: profile.id });
+        if (existingUser) {
+            return done(null, existingUser)
+        }
+        const user = await new User({
+            githubId: profile.id,
+            username: profile.displayName,
+            created: Date.now()
+        }).save((err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log('Saving user...');
+                done(null, user);
+            }
+        });
+    }
 ));

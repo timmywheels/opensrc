@@ -13,9 +13,11 @@ const DashPanelSection = styled.div`
 class DashPanel extends Component {
 		render(){
 			return(
-				<DashPanelSection className="col-md-9 mt-5">
-					<h1>Dashboard</h1>
-				</DashPanelSection>
+				<div className={'col-md-8 mt-5'}>
+					<DashPanelSection className="col-md-12 pt-5">
+						<h1>Dashboard</h1>
+					</DashPanelSection>
+				</div>
 			)
 		}
 }
