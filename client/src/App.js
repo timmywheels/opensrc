@@ -10,7 +10,7 @@ class App extends Component {
 
 	componentDidMount() {
 		try{
-			this.props.fetchUser();
+			actions.fetchUser();
 			this.props.fetchTrendingRepos();
 		} catch(err) {
 			console.log("Error:", err)
