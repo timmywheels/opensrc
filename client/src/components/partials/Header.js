@@ -122,10 +122,10 @@ class Header extends Component {
             case null || false:
                 return (
                     <li className={ "align-middle" } style={ { display: "inline-block" } }>
-                        <Link className={ 'header-btn btn btn-outline-light mt-2 mr-4' } to={ "/auth/github" }>LOGIN<img
+                        <a className={ 'header-btn btn btn-outline-light mt-2 mr-4' } href={ "/auth/github" }>LOGIN<img
                             className={ "loginBtnIcon" }
                             style={ { height: "15px", width: "15px", margin: "0 0 3px 6px" } }
-                            alt={ 'GitHub Login Button' } src={ GitHubIcon }/></Link>
+                            alt={ 'GitHub Login Button' } src={ GitHubIcon }/></a>
                     </li>
                 );
             default:
@@ -135,7 +135,7 @@ class Header extends Component {
                               to={ "/dashboard" }>DASHBOARD</Link>
                     </li>,
                     <li className={ "align-middle" } style={ { display: "inline-block" } } key={ '2' }>
-                        <Link className={ 'header-btn btn btn-outline-light mr-4' } to={ "/auth/logout" }>LOGOUT</Link>
+                        <a className={ 'header-btn btn btn-outline-light mr-4' } href={ "/auth/logout" }>LOGOUT</a>
                     </li>
                 ];
         }
