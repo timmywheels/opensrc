@@ -90,7 +90,7 @@ class UserInfo extends Component {
 								<AvatarImg id={'avatar-img'} src={avatar_url}/>
 							</a>
 							<BlogSection id={'user-blog-section'}>
-								<img src={LinkIcon}/>
+								<img alt={"Link Icon"} src={LinkIcon}/>
 								<a target={'_blank'} href={blog} id="user-blog">
 									<p>Blog</p>
 								</a>

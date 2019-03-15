@@ -24,7 +24,7 @@ import Processing from '../../../img/processing.svg';
 import D from '../../../img/d-lang.svg';
 import Lua from '../../../img/lua-5.svg';
 import Matlab from '../../../img/matlab.svg';
-import GitHubFork from '../../../img/github-fork.svg';
+// import GitHubFork from '../../../img/github-fork.svg';
 
 export const setRepoLanguageImg = (repoLanguage) => {
 	// Initialize langImg to be set in switch statement

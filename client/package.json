@@ -4,16 +4,25 @@
   "version": "0.1.0",
   "private": true,
   "proxy": {
-    "/api/*": {
+    "/api/current_user": {
       "target": "http://localhost:5000"
     },
-    "/auth/*": {
+    "/api/trending": {
+      "target": "http://localhost:5000"
+    },
+    "/api/user/:username": {
+      "target": "http://localhost:5000"
+    },
+    "/auth/github": {
+      "target": "http://localhost:5000"
+    },
+    "/auth/github/callback": {
+      "target": "http://localhost:5000"
+    },
+    "/auth/logout": {
       "target": "http://localhost:5000"
     },
     "/user/:username": {
-      "target": "http://localhost:5000"
-    },
-    "/user/*": {
       "target": "http://localhost:5000"
     }
   },

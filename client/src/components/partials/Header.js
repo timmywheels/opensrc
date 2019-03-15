@@ -52,15 +52,15 @@ const NavMenu = styled.ul`
 	}
 `;
 
-const LogoText = styled.p`
-	text-decoration: none;
-	color: #fff;
-	font-size: 30px;
-	float: left;
-	line-height: 55px;
-	margin-left: 30px;
-	font-weight: 900;
-`;
+// const LogoText = styled.p`
+// 	text-decoration: none;
+// 	color: #fff;
+// 	font-size: 30px;
+// 	float: left;
+// 	line-height: 55px;
+// 	margin-left: 30px;
+// 	font-weight: 900;
+// `;
 
 class Header extends Component {
 
@@ -129,22 +129,22 @@ class Header extends Component {
 
     renderContent() {
         switch (this.props.auth) {
-            case null:
+            case null || false:
                 return (
                     <li className={"align-middle"} style={{ display: "inline-block" }}>
                         <Link className={'header-btn btn btn-outline-light mt-2 mr-4'} to={"/auth/github"}>LOGIN<img
                             className={"loginBtnIcon"} style={{ height: "15px", width: "15px", margin: "0 0 3px 6px" }}
-                            src={GitHubIcon}/></Link>
+                            alt={'GitHub Login Button'} src={GitHubIcon}/></Link>
                     </li>
                 );
-            case false:
-                return (
-                    <li className={"align-middle"} style={{ display: "inline-block" }}>
-                        <Link className={'header-btn btn btn-outline-light mt-2 mr-4'} to={"/auth/github"}>LOGIN<img
-                            className={"loginBtnIcon"} style={{ height: "15px", width: "15px", margin: "0 0 3px 6px" }}
-                            src={GitHubIcon}/></Link>
-                    </li>
-                );
+            // case false:
+            //     return (
+            //         <li className={"align-middle"} style={{ display: "inline-block" }}>
+            //             <Link className={'header-btn btn btn-outline-light mt-2 mr-4'} to={"/auth/github"}>LOGIN<img
+            //                 className={"loginBtnIcon"} style={{ height: "15px", width: "15px", margin: "0 0 3px 6px" }}
+            //                 src={GitHubIcon}/></Link>
+            //         </li>
+            //     );
             default:
                 return [
                     <li className={"align-middle"} style={{ display: "inline-block" }} key={'1'}>

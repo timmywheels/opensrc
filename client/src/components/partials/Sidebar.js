@@ -90,7 +90,7 @@ class Sidebar extends Component {
                     <DashboardText>
                         <a style={ { "color": '#333' } } target={ "_blank" }
                            href={ this.props.userData.blog }> Blog
-                            <img style={ { marginBottom: 4 } }
+                            <img alt={'Blog Icon'} style={ { marginBottom: 4 } }
                                  height={ 10 }
                                  src={ OcticonLinkIcon }/>
                         </a>
