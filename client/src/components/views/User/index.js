@@ -12,7 +12,7 @@ export default class extends Component {
         searchQueryCount: 1
     };
 
-    componentDidMount() {
+    componentWillMount() {
         const { username } = this.props.match.params;
         this.setState(
             {
@@ -24,6 +24,10 @@ export default class extends Component {
                 github.api(username)
             }
         );
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        this.render();
     }
 
     hideGitHubCalendarForOrganizations = () => {

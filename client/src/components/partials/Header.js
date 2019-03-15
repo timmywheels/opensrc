@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import OpenSrcLogo from '../../img/logos/opensrc-logo-white.png';
 import GitHubIcon from '../../img/github-icon.svg';
 import * as github from "../views/api";
@@ -51,16 +51,6 @@ const NavMenu = styled.ul`
 		display: none;
 	}
 `;
-
-// const LogoText = styled.p`
-// 	text-decoration: none;
-// 	color: #fff;
-// 	font-size: 30px;
-// 	float: left;
-// 	line-height: 55px;
-// 	margin-left: 30px;
-// 	font-weight: 900;
-// `;
 
 class Header extends Component {
 
@@ -131,28 +121,21 @@ class Header extends Component {
         switch (this.props.auth) {
             case null || false:
                 return (
-                    <li className={"align-middle"} style={{ display: "inline-block" }}>
-                        <Link className={'header-btn btn btn-outline-light mt-2 mr-4'} to={"/auth/github"}>LOGIN<img
-                            className={"loginBtnIcon"} style={{ height: "15px", width: "15px", margin: "0 0 3px 6px" }}
-                            alt={'GitHub Login Button'} src={GitHubIcon}/></Link>
+                    <li className={ "align-middle" } style={ { display: "inline-block" } }>
+                        <Link className={ 'header-btn btn btn-outline-light mt-2 mr-4' } to={ "/auth/github" }>LOGIN<img
+                            className={ "loginBtnIcon" }
+                            style={ { height: "15px", width: "15px", margin: "0 0 3px 6px" } }
+                            alt={ 'GitHub Login Button' } src={ GitHubIcon }/></Link>
                     </li>
                 );
-            // case false:
-            //     return (
-            //         <li className={"align-middle"} style={{ display: "inline-block" }}>
-            //             <Link className={'header-btn btn btn-outline-light mt-2 mr-4'} to={"/auth/github"}>LOGIN<img
-            //                 className={"loginBtnIcon"} style={{ height: "15px", width: "15px", margin: "0 0 3px 6px" }}
-            //                 src={GitHubIcon}/></Link>
-            //         </li>
-            //     );
             default:
                 return [
-                    <li className={"align-middle"} style={{ display: "inline-block" }} key={'1'}>
-                        <Link className={'header-btn btn btn-outline-light mr-4'}
-                              to={"/dashboard"}>{"DASHBOARD"}</Link>
+                    <li className={ "align-middle" } style={ { display: "inline-block" } } key={ '1' }>
+                        <Link className={ 'header-btn btn btn-outline-light mr-4' }
+                              to={ "/dashboard" }>DASHBOARD</Link>
                     </li>,
-                    <li className={"align-middle"} style={{ display: "inline-block" }} key={'2'}>
-                        <Link className={'header-btn btn btn-outline-light mr-4'} to={"/auth/logout"}>LOGOUT</Link>
+                    <li className={ "align-middle" } style={ { display: "inline-block" } } key={ '2' }>
+                        <Link className={ 'header-btn btn btn-outline-light mr-4' } to={ "/auth/logout" }>LOGOUT</Link>
                     </li>
                 ];
         }
@@ -162,17 +145,17 @@ class Header extends Component {
         // console.log('__THIS.PROPS.AUTH__', this.props.auth)
         return (
             <HeaderSection
-                style={{
+                style={ {
                     background: this.state.background,
                     borderBottom: this.state.borderBottom,
                     boxShadow: this.state.boxShadow,
                     marginBottom: this.state.marginBottom
-                }}
+                } }
             >
-                <Link to={"/"}>
-                    <Logo src={OpenSrcLogo} alt={"OpenSrc Logo"}/>
+                <Link to={ "/" }>
+                    <Logo src={ OpenSrcLogo } alt={ "OpenSrc Logo" }/>
                 </Link>
-                <ul className={"float-right"} style={{ listStyle: "none" }}>{this.renderContent()}</ul>
+                <ul className={ "float-right" } style={ { listStyle: "none" } }>{ this.renderContent() }</ul>
                 <NavMenu/>
             </HeaderSection>
         );
