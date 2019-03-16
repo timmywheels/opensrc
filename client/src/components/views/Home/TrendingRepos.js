@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {fetchTrendingRepos} from "../../../actions/index";
 
 class TrendingRepos extends Component {
-	componentDidMount() {
+	componentWillMount() {
 		this.props.fetchTrendingRepos();
 	}
 

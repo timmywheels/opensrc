@@ -7,7 +7,7 @@ import TrendingRepos from './TrendingRepos';
 
 class Home extends Component {
 	componentDidMount() {
-		this.props.fetchTrendingRepos();
+		// this.props.fetchTrendingRepos();
 	}
 
 	render() {
