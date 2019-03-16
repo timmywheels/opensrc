@@ -46,7 +46,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 
     // const path = require('path').default;
-    const path = require('path');
+    const path = require('path').default;
     // Express will serve up index.html
     // If it doesn't recognize route
     app.get('*', (req, res) => {

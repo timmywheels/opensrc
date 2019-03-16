@@ -11,7 +11,7 @@ export const getAuthenticatedUserId = () => {
         try{
             request(`${keys.url}/api/current_user`, (err, res, body) => {
                 const data = JSON.parse(body);
-                // console.log("__BODY__", resolve(JSON.parse(body)));
+                console.log("__getAuthenticatedUserId()__", resolve(JSON.parse(body)));
                 resolve(data)
             })
         } catch (e) {
@@ -26,7 +26,7 @@ export const fetchDataByUserId = (userId) => {
             request(`https://api.github.com/user/${userId}`, (err, res, body) => {
                 if (err) return reject(err);
                 const data = JSON.parse(body);
-                console.log("___DATA__:", resolve(JSON.parse(body)));
+                // console.log("___DATA__:", resolve(JSON.parse(body)));
                 resolve(data);
             })
         } catch (e) {
@@ -87,7 +87,7 @@ export const getUserRepos = (username) => {
 
                 user.repos.push({ name, description, html_url, open_issues, language, owner, forks })
             }
-            console.log('__MYDATA__', data)
+            // console.log('__MYDATA__', data)
             return data;
         };
 

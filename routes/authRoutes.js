@@ -1,28 +1,24 @@
 const passport = require('passport');
 
-
 module.exports = app => {
-
-    app.get('/api/current_user', (req, res) => {
-        res.send(req.user);
-    });
-
     app.get('/auth/github',
         passport.authenticate('github', {
-            scope: ['user', 'repo']
+            scope: ['repo', 'user']
         }));
 
-
     app.get('/auth/github/callback',
-        passport.authenticate('github', { failureRedirect: '/' }),
+        passport.authenticate('github'),
         (req, res) => {
-            // Successful authentication, redirect home.
-            res.redirect('/');
+            res.redirect('/dashboard');
         });
 
     app.get('/auth/logout', (req, res) => {
-        // res.setHeader("Content-Type", "text/html")
         req.logout();
+        res.setHeader("Content-Type", "text/html")
         res.redirect('/');
+    });
+
+    app.get('/api/current_user', (req, res) => {
+        res.send(req.user);
     });
 };

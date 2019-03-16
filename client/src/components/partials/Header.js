@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+
 import { Link } from 'react-router-dom';
 import OpenSrcLogo from '../../img/logos/opensrc-logo-white.png';
 import GitHubIcon from '../../img/github-icon.svg';
 import * as github from "../views/api";
+import { fetchUser } from "../../actions";
 
 const HeaderSection = styled.header`
 	height: 60px;
@@ -162,8 +164,8 @@ class Header extends Component {
     }
 }
 
-function mapStateToProps({ auth }) {
-    return { auth };
+function mapStateToProps({auth}) {
+    return {auth};
 }
 
 export default connect(mapStateToProps)(Header);

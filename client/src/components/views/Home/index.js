@@ -20,7 +20,7 @@ export default class extends Component {
 		this.setState({
 			userData
 		})
-		console.log('__USER DATA SET __')
+		// console.log('__USER DATA SET __')
 	}
 
 	onSubmit = () => {
