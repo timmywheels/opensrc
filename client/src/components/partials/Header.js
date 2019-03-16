@@ -79,16 +79,20 @@ class Header extends Component {
     };
 
     componentDidMount() {
+        // if (this.props.auth) {
+        //     github.getAuthenticatedUserId()
+        //         .then(data => {
+        //             this.setState({ githubId: data.githubId })
+        //         })
+        // }
         if (this.props.auth) {
-            github.getAuthenticatedUserId()
-                .then(data => {
-                    this.setState({ githubId: data.githubId })
-                })
+            this.setState({ githubId: this.props.auth.githubId });
         }
+
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (this.props.auth) {
+        if (this.props.auth !== prevProps.auth) {
             github.getAuthenticatedUserId()
                 .then(res => {
                     this.setState({ githubId: res.githubId })
