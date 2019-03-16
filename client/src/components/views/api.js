@@ -9,7 +9,7 @@ export const user = {
 export const getAuthenticatedUserId = () => {
     return new Promise((resolve, reject) => {
         try{
-            request(keys.url + "/api/current_user", (err, res, body) => {
+            request(keys.ur"/api/current_user", (err, res, body) => {
                 console.log('_ERR_', err)
                 console.log('_RES_', res)
                 console.log('_BODY_', body)
