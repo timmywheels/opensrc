@@ -7,7 +7,7 @@ export const user = {
 };
 
 export const getAuthenticatedUserId = () => {
-    new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         try{
             request(keys.url + "/api/current_user", (err, res, body) => {
                 console.log('_ERR_', err)
@@ -15,7 +15,7 @@ export const getAuthenticatedUserId = () => {
                 console.log('_BODY_', body)
                 const data = JSON.parse(body);
                 console.log("__getAuthenticatedUserId()__", data);
-                return resolve(data)
+                resolve(data)
             })
         } catch (e) {
             reject(e);
