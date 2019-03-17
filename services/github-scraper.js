@@ -67,7 +67,7 @@ axios.get('https://github.com/trending').then(
 			for (let i in data) {
 				console.log(data[i]);
 			}
-			process.exit();
+			// process.exit();
 		}
 	},
 	err => console.log(err)
