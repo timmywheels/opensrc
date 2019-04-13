@@ -8,7 +8,7 @@ require('./models/User');
 require('./models/TrendingRepos');
 require('./services/passport');
 
-mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise
 mongoose.connect(
     keys.mongo,
     { useNewUrlParser: true },
