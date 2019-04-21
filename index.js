@@ -19,7 +19,7 @@ mongoose.connect(
             console.log(`Connected to ${ db.db.databaseName }`);
         }
     }
-);
+)
 
 const app = express();
 
