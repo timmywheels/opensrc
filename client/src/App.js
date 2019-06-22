@@ -9,10 +9,15 @@ import Dashboard from "./components/views/Dashboard"
 class App extends Component {
 
 	componentDidMount() {
+
+		const code =
+			window.location.href.match(/\?code=(.*)/) &&
+			window.location.href.match(/\?code=(.*)/)[1];
+		console.log("CODE:", code);
+
 		try{
-		    console.log('__APP.JS__', this.props)
+		    console.log('__APP.JS__', this.props);
 			this.props.fetchUser();
-            // actions.fetchUser();
 			this.props.fetchTrendingRepos();
 		} catch(err) {
 			console.log("Error:", err)
