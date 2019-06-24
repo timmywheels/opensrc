@@ -3,9 +3,11 @@ const { Schema } = mongoose;
 
 const trendingRepoSchema = new Schema({
 	repoName: String,
-	repoDesc: String,
-	repoRank: Number,
-	starCount: String,
+	repoDescription: String,
+	repoProgrammingLanguage: String,
+	repoUrl: String,
+	repoDailyRank: Number,
+	repoTotalStars: String,
 	date: Date
 });
 

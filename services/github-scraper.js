@@ -7,47 +7,95 @@ const axios = require('axios');
 const keys = require('../config/keys');
 require('../models/TrendingRepos');
 
+
+let data = [];
+let repoDailyRank = 0;
+
 const handler = new htmlparser.DefaultHandler(function (error, dom) {
+
 	if (error) {
 		console.log("Error:", error);
 	} else {
-		// console.log("parsing done...");
-		// console.log(dom[0].children[7].children[1].children[3].children[0].data);
-
-		let repoTitle = dom[0].children[3].children[1].attribs.href.slice(1, this.length);
-		console.log("REPO TITLE:", repoTitle);
-
-		let repoDescriptionNode = dom[0].children[5].children[0].raw;
-		let repoDescription = repoDescriptionNode === null ? "no description" : repoDescriptionNode.trim();
-		console.log("REPO DESCRIPTION:", repoDescription);
-
-		// let programmingLanguageNode = dom[0].children[7].children[1];
-		// // let programmingLanguage = programmingLanguageNode === 'undefined' ? "language not specified" : programmingLanguageNode;
-		// console.log("PROGRAMMING LANGUAGE:", programmingLanguageNode);
-
-		if (dom[0].children[7].children[1].children[3]) {
-			let programmingLanguageNode = dom[0].children[7].children[1].children[3].children[0].data;
-			let programmingLanguage = programmingLanguageNode === 'undefined' ? "language not specified" : programmingLanguageNode;
-			console.log("PROGRAMMING LANGUAGE:", programmingLanguage);
-		} else {
-			console.log("nope")
+		// console.log("parsing data...");
+		// let totalStarsTodayNode = dom[0].children[7].children[9].children[2].raw.trim();
+		repoDailyRank++;
+		let repoName;
+		let repoNameNode;
+		try {
+			repoNameNode = dom[0].children[3].children[1].attribs.href.slice(1, this.length);
+		} catch (e) {
+			repoNameNode = null;
 		}
+		repoName = repoNameNode;
+		// console.log("REPO NAME:", repoName);
 
+		let repoUrl = `https://github.com/${repoName.replace(/\s/g, "")}`;
+		// console.log("REPO URL:", repoUrl);
 
+		let repoDescriptionNode;
+		let repoDescription;
+		try{
+			repoDescriptionNode = dom[0].children[5].children[0].raw.trim();
 
+		} catch (e) {
+			repoDescriptionNode = null;
+		}
+		repoDescription = repoDescriptionNode;
+		// console.log("REPO DESCRIPTION:", repoDescription);
 
+		let repoProgrammingLanguageNode;
+		let repoProgrammingLanguage;
+		try {
+			repoProgrammingLanguageNode = dom[0].children[7].children[1].children[3].children[0].data;
+		} catch (e) {
+			repoProgrammingLanguageNode = null;
+		}
+		repoProgrammingLanguage = repoProgrammingLanguageNode;
+		// console.log("PROGRAMMING LANGUAGE:", repoProgrammingLanguage);
 
+		let repoTotalStarsNode;
+		let repoTotalStars;
+		try {
+			repoTotalStarsNode = dom[0].children[7].children[3].children[2].data.trim();
+		} catch (e) {
+			repoTotalStarsNode = null
+		}
+		repoTotalStars = repoTotalStarsNode;
+		// console.log("TOTAL STARS:", repoTotalStars);
 
+		let date = new Date().toLocaleString();
+		// console.log("DATE:", date);
 
+		const trendingRepo = new TrendingRepo({
+			repoName,
+			repoDescription,
+			repoProgrammingLanguage,
+			repoUrl,
+			repoDailyRank,
+			repoTotalStars,
+			date
+		});
+		trendingRepo.save();
 
-		return dom;
+		let obj = {
+			repoName,
+			repoDescription,
+			repoProgrammingLanguage,
+			repoUrl,
+			repoDailyRank,
+			repoTotalStars,
+			date
+		};
+
+		data.push(obj);
+		console.log(obj);
+
+		obj = {};
 	}
 
 });
 
 const parser = new htmlparser.Parser(handler);
-
-
 
 const TrendingRepo = mongoose.model('trendingRepo');
 mongoose.Promise = global.Promise;
@@ -64,8 +112,6 @@ mongoose.connect(
 	}
 );
 
-
-
 axios.get('https://github.com/trending').then(
 	res => {
 		if (res.status === 200) {
@@ -73,119 +119,12 @@ axios.get('https://github.com/trending').then(
 			const html = res.data;
 			const dom = new JSDOM(html);
 
-			let data = [];
-			let obj = {};
-
 			let trendingRepos = dom.window.document.querySelectorAll("article");
 			let trendingReposArr = Array.from(trendingRepos);
 
-
-
 			trendingReposArr.map((trendingRepo, index) => {
-
-				// console.log("trendingRepos", trendingRepo.outerHTML);
-
-				let htmlData = parser.parseComplete(trendingRepo.outerHTML);
-				// sys.puts(sys.inspect(handler.dom, false, null));
-
-				// console.log(htmlData);
-
-				// sys.puts(sys.inspect(handler.dom, false, null));
-
+				parser.parseComplete(trendingRepo.outerHTML);
 			});
-
-
-
-
-			// // let repoTitles = dom.window.document.querySelectorAll('.repo-list h3');
-			// let repoTitles = dom.window.document.querySelectorAll("h1.h3.lh-condensed > a");
-			// let repoTitleArr = Array.from(repoTitles);
-			// console.log("repoTitleArr", repoTitleArr);
-			//
-			// // let repoDesc = dom.window.document.querySelectorAll('.repo-list .py-1 p');
-			// let repoDesc = dom.window.document.querySelectorAll("p.col-9.text-gray.my-1.pr-4");
-			// console.log("__REPO DESC__", repoDesc.textContent);
-			// if (repoDesc === undefined) {
-			// 	repoDesc = ""
-			// }
-			// let repoDescArr = Array.from(repoDesc);
-			// console.log("repoDescArr", repoDescArr);
-			//
-			// // let repoStarCount = dom.window.document.querySelectorAll(
-			// // 	'.repo-list .float-sm-right'
-			// // );
-			// let repoStarCount = dom.window.document.querySelectorAll("span.d-inline-block.float-sm-right");
-			// let repoStarCountArr = Array.from(repoStarCount);
-			// console.log("repoStarCountArr", repoStarCountArr);
-
-
-			// repoTitleArr.map((repo, i) => {
-			//
-			// 	console.log("__REPO__", repo);
-			//
-			// 	let rank = i;
-			// 	let repoName = repoTitleArr[i].textContent.trim();
-			//
-			// 	let repoUrl = `https://github.com/${repoName.replace(/\s/g, "")}`;
-			// 	let repoDesc = repoDescArr[i] === undefined ? "no description" : repoDescArr[i].textContent.trim();
-			// 	let repoStarCount = repoStarCountArr[i].textContent.trim();
-			// 	let date = new Date().toLocaleString();
-			//
-			// 	obj.repoName = repoName;
-			// 	obj.repoDesc = repoDesc;
-			// 	obj.repoUrl = repoUrl;
-			// 	obj.repoRank = rank++;
-			// 	obj.repoStarCount = repoStarCount;
-			// 	obj.date = date;
-			//
-			// 	data.push(obj);
-			// 	console.log(obj);
-			//
-			// 	const trendingRepo = new TrendingRepo({
-			// 		repoName,
-			// 		repoDesc,
-			// 		repoRank: rank++,
-			// 		repoStarCount,
-			// 		date
-			// 	});
-			// 	trendingRepo.save();
-			// 	obj = {};
-			//
-			// });
-
-			// for (let i = 0; i < repoTitleArr.length; i++) {
-			// 	let rank = i;
-			// 	let repoName = repoTitleArr[i].textContent.trim();
-			//
-			// 	let repoUrl = `https://github.com/${repoName.replace(/\s/g, "")}`;
-			// 	let repoDesc = repoDescArr[i].textContent.trim();
-			// 	let repoStarCount = repoStarCountArr[i].textContent.trim();
-			// 	let date = new Date().toLocaleString();
-			//
-			// 	obj.repoName = repoName;
-			// 	obj.repoDesc = repoDesc;
-			// 	obj.repoUrl = repoUrl;
-			// 	obj.repoRank = rank++;
-			// 	obj.repoStarCount = repoStarCount;
-			// 	obj.date = date;
-			//
-			// 	data.push(obj);
-			// 	console.log(obj);
-			//
-			// 	const trendingRepo = new TrendingRepo({
-			// 		repoName,
-			// 		repoDesc,
-			// 		repoRank: rank++,
-			// 		repoStarCount,
-			// 		date
-			// 	});
-			// 	trendingRepo.save();
-			// 	obj = {};
-			// }
-
-			// for (let i in data) {
-			// 	console.log(data[i]);
-			// }
 		}
 	},
 	err => console.log(err)

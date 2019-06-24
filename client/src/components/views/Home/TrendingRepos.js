@@ -25,27 +25,25 @@ class TrendingRepos extends Component {
 										<div className={"row"}>
 											<a
 												className={"repo-link col-12"}
-												href={`https://github.com/${repo.repoName.replace(
-													/\s/g,
-													""
-												)}`}
+												href={repo.repoUrl}
 												target="_blank"
 												rel="noopener noreferrer"
 											>
 												<h5 className={"card-title"}>{repo.repoName}</h5>
 											</a>
 										</div>
-										<p className={"card-text"}>{repo.repoDesc}</p>
+										<p className={"card-text"}>{repo.repoDescription}</p>
+										{ repo.repoProgrammingLanguage ?
+											<p className={"card-text"}>{repo.repoProgrammingLanguage}</p> :
+											""
+										}
 										<a
 											className={"btn trending-repos-btn mt-auto"}
 											target="_blank"
-											href={`https://github.com/${repo.repoName.replace(
-												/\s/g,
-												""
-											)}`}
+											href={repo.repoUrl}
 											rel="noopener noreferrer"
 										>
-											{ repo.starCount.replace('today', '') }
+											{ repo.repoTotalStars ? repo.repoTotalStars + " stars" : "View Project" }
 										</a>
 									</div>
 								</div>
@@ -58,8 +56,8 @@ class TrendingRepos extends Component {
 	}
 }
 
-function mapStateToProps({trending}) {
-	return {trending};
+function mapStateToProps({ trending }) {
+	return { trending };
 }
 
 export default connect(
