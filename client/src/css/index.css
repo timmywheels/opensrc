@@ -144,7 +144,7 @@ body {
     font-family: Nunito, sans-serif;
     font-size: 14px;
     overflow: scroll;
-    max-height: 125px;
+    max-height: 60px;
 }
 
 .issue-count {
