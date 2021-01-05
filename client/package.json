@@ -29,7 +29,7 @@
   "dependencies": {
     "@babel/runtime": "^7.0.0",
     "@huchenme/github-trending": "^1.2.1",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "github-calendar": "^1.2.3",
     "jsdom": "^12.0.0",
     "octicons": "^8.1.0",
